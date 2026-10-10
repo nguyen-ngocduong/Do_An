@@ -6,3 +6,6 @@
 *.npy
 *.joblib
 *.txt
+*.npz
+*.ubj
+*.gz

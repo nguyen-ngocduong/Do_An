@@ -1,32 +1,27 @@
 # Nguyễn Ngọc Dương — 03: Huấn luyện baseline và chốt quy mô train
 
 - **Phụ trách:** Nguyễn Ngọc Dương.
-- **Phụ thuộc:** pilot/schema Dương 02; không chờ module XAI hay giao diện.
-- **Trạng thái ngày 08/10/2026:** đã có đầu vào và mẫu bảng; chưa huấn luyện.
-- **Phạm vi:** phân loại có giám sát 8 lớp; dữ liệu và huấn luyện chạy trên Kaggle.
+- **Phụ thuộc:** pilot/schema Dương 02.
+- **Trạng thái ngày 08/10/2026:** baseline đã có kết quả Kaggle; quy mô train chính là 1 triệu dòng.
+- **Phạm vi:** phân loại 8 lớp bằng DT, RF và XGBoost, chạy trên Kaggle.
 
 ## Công việc
 
-- [x] Chốt macro-F1 validation làm chỉ số chính; báo precision/recall/F1/support đủ 8 lớp, confusion matrix 8×8, thêm weighted-F1 và accuracy.
-- [x] Chuẩn bị bảng benchmark cho 3 budget × Logistic Regression, Decision Tree, Random Forest; các dòng hiện là not_run.
-- [ ] Cụ thể hóa protocol, cấu hình 3 mô hình, seed, ngân sách RAM/thời gian, cách xử lý chỉ số không xác định và log cảnh báo hội tụ.
-- [ ] Viết notebook runner Kaggle chung: đọc pilot và validation nguồn, kiểm tra schema/classes, train/evaluate/save theo run ID.
-- [ ] Huấn luyện LR trên scaled, DT/RF trên raw ở 100k; không transform lại ma trận đã xử lý. Lưu preprocessing tương ứng cùng model để suy luận CSV gốc.
-- [ ] Chạy 500k và 1M khi ngân sách cho phép, cùng cấu hình/protocol và validation 862.150 dòng; ghi trường hợp không chạy được và nguyên nhân.
-- [ ] Đo thời gian fit/predict, RAM, cảnh báo hội tụ; lưu dự đoán validation có sample ID, metrics từng lớp và confusion matrix.
-- [ ] So sánh baseline không cân bằng và class_weight thành các thí nghiệm riêng; ghi tương tác với pilot đã thay phân bố.
-- [ ] Chốt budget train chính dựa trên macro-F1, recall lớp hiếm/Normal và tài nguyên; không lựa chọn bằng test.
-- [ ] Lưu model/config/version/feature order/class order; kiểm tra dự đoán và xác suất 8 lớp trước/sau nạp trên 10–20 mẫu cố định.
-- [ ] Bàn giao sớm model cây baseline và mẫu chuẩn cho Hải thử XAI, Kiên tích hợp; xác nhận đúng run ID.
-
-## Đầu ra và nghiệm thu
-
-Ít nhất ba baseline, bảng so sánh validation và tài nguyên theo budget, quyết định quy mô có số liệu, model/config cùng mẫu suy luận chuẩn.
+- [x] Lưu protocol, cấu hình, seed 42, phiên bản thư viện, feature/class order và chính sách float32 overlap.
+- [x] Có notebook runner Kaggle để kiểm tra đầu vào, huấn luyện, đánh giá và lưu theo run ID.
+- [x] Đối sánh DT/RF/XGBoost không trọng số ở 100k, 500k và 1M: 9 thí nghiệm.
+- [x] Đối sánh none/sqrt/balanced ở 1M: thêm 6 fit, tổng cộng 15 fit khác nhau.
+- [x] Báo precision/recall/F1/support đủ 8 lớp, macro-F1, confusion matrix, thời gian fit/suy luận và RAM.
+- [x] Chọn budget 1M và cấu hình bằng validation, đóng băng trước báo cáo test baseline.
+- [x] Lưu model/config, dự đoán truy vết được, pipeline CSV và kiểm tra suy luận trước/sau nạp trong Kaggle.
+- [ ] Hải và Kiên xác nhận nạp/chạy được bundle baseline trên môi trường của người nhận.
 
 ## Bằng chứng và giới hạn
 
-[Bảng mẫu](../output/pilot_data/pilot_20261008_022915_ea9a88b0/benchmark_template.csv) có 9 dòng `not_run`; [manifest pilot](../output/pilot_data/pilot_20261008_022915_ea9a88b0/pilot_manifest.json) ghi `model_training_status=not_run`. Chưa có bằng chứng huấn luyện hoàn tất. Đây là công việc của Nguyễn Ngọc Dương, gồm cả dữ liệu và mô hình.
+Run [models_20261008_073827_d29a37c3](../output/model_experiments/models_20261008_073827_d29a37c3/README_HANDOFF.md) ghi `status=complete`. Xem [checklist](../output/model_experiments/models_20261008_073827_d29a37c3/completion_checklist.json), [bảng validation](../output/model_experiments/models_20261008_073827_d29a37c3/validation_results.csv), [quyết định budget](../output/model_experiments/models_20261008_073827_d29a37c3/budget_selection.json) và [test](../output/model_experiments/models_20261008_073827_d29a37c3/final_test_comparison.csv).
+
+Validation còn 808.943 dòng và test còn 765.991 dòng sau purge vector raw float32 giao nhau. Preprocessing được fit trên toàn train nguồn, classifier dùng pilot. RF không trọng số 1M là model demo baseline. Chưa có multi-seed, feature selection hoặc tái lập độc lập từ CSV gốc; chưa nghiệm thu XAI/UI.
 
 ## Bước tiếp theo
 
-Dương 04 khi baseline và budget đã được chốt; Hải/ Kiên có thể bắt đầu thiết kế interface từ schema hiện có.
+Dương 04: cải thiện recall BruteForce/Web-Based bằng quy tắc quyết định, lấy mẫu/trọng số và tuning có giới hạn. Hai lớp cần precision từng lớp ≥30%; recall ≥85% là mục tiêu thực nghiệm. Validation/test baseline đã được xem, phải công bố khi đánh giá vòng tiếp theo.
