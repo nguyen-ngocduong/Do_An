@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mẫu dữ liệu được mô hình dự đoán thuộc lớp DoS với sự hỗ trợ mạnh mẽ từ đặc trưng IAT trong nhóm top năm. Khoảng cách chênh lệch lớn giữa lớp đứng đầu và lớp đứng thứ hai cho thấy sự phân tách rõ rệt trong kết quả phân loại hiện tại.",
+  "lop_du_doan": "DoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DDoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ đang tắt, cho thấy sự chênh lệch lớn giữa hai đầu ra. Tuy nhiên, việc khoảng cách lớn không được coi là bảo đảm tuyệt đối rằng dự đoán là chính xác."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Trong nhóm top năm đặc trưng, IAT đóng vai trò hỗ trợ mạnh mẽ nhất cho lớp được dự đoán, trong khi không có yếu tố nào trong nhóm này tạo ra tác động phản đối."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể đẩy giá trị đầu ra của lớp được dự đoán."
+    },
+    {
+      "ten_dac_trung": "Number",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này mang chiều hướng hỗ trợ bổ sung cho lớp dự đoán nhưng ở mức độ nhỏ hơn nhiều so với yếu tố dẫn đầu."
+    },
+    {
+      "ten_dac_trung": "Tot size",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đóng góp tiếp theo cùng chiều gia tăng đầu ra, thể hiện vai trò hỗ trợ phụ trợ trong tập hợp đặc trưng."
+    },
+    {
+      "ten_dac_trung": "Protocol Type",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đặc trưng này duy trì xu hướng tác động tăng, bổ sung thêm một phần nhỏ vào tổng điểm của lớp dự đoán."
+    },
+    {
+      "ten_dac_trung": "Weight",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Mang lại tác động dương nhỏ nhất trong nhóm top năm, góp phần hoàn thiện bức tranh giải thích của mô hình."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối",
+      "noi_dung_can_kiem_tra": "Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu có metadata.",
+      "muc_dich": "Đối chiếu hành vi kết nối thực tế trong hệ thống với kết quả phân loại của mô hình."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Tìm lỗi, gián đoạn hoặc thay đổi tài nguyên cùng thời điểm để xác minh thêm.",
+      "muc_dich": "Xác thực xem có dấu hiệu bất thường về tài nguyên tương ứng với dự đoán hiện tại hay không."
+    }
+  ],
+  "gioi_han": [
+    "Giải thích này chỉ phản ánh đầu ra của mô hình dựa trên tập đặc trưng và không chứng minh quan hệ nhân quả hay cuộc tấn công thực tế.",
+    "Các giá trị SHAP chỉ thuộc về lớp được dự đoán và không giải thích tại sao các lớp khác nhận được điểm thấp hơn.",
+    "Xác suất của mô hình chưa được kiểm chứng hiệu chuẩn và tập top năm chưa bao gồm toàn bộ mức thay đổi."
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "request_sha256": "32f72f00ed5bb4dc43e475f054a30f53a4a7a4cbed89e21ab6dcab71c4cdc358",
+  "requested_model": "gemini-3.5-flash-lite",
+  "attempt": 1,
+  "response": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Thu, 22 Oct 2026 07:56:45 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=4151",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"tom_tat\": \"Mo hinh du doan mau nay thuoc lop DDoS voi muc do tu tin rat cao, trong khi lop DoS dung o vi tri thu hai nhung co khoang cach chenh lech rat lon. Dac trung IAT dong vai tro ho tro manh nhat lam tang gia tri dau ra cua lop nay.\",\n  \"lop_du_doan\": \"DDoS\",\n  \"so_sanh_hai_lop\": {\n    \"lop_thu_hai\": \"DoS\",\n    \"khoang_cach_nho\": false,\n    \"dien_giai\": \"Khoang cach chenh lech giua hai lop dung dau rat lon va co flag khoang cach nho tat, tuy nhien dieu nay khong co nghia la dam bao du doan chinh xac ma chi phan anh dau ra hien tai cua mo hinh.\"\n  },\n  \"tong_hop_shap\": {\n    \"ho_tro_manh_nhat\": \"IAT\",\n    \"phan_doi_manh_nhat\": null,\n    \"dien_giai\": \"Trong nam dac trung hang dau, IAT la yeu to ho tro manh nhat lam tang gia tri du doan, trong khi khong co dac trung nao trong nhom nay mang lai tac dong phan doi am.\"\n  },\n  \"giai_thich_dac_trung\": [\n    {\n      \"ten_dac_trung\": \"IAT\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Day la yeu to ho tro noi bat nhat trong top nam, dong gop lon vao viec thuc day dau ra cua lop duoc giai thich.\"\n    },\n    {\n      \"ten_dac_trung\": \"Protocol Type\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tac dong nay cung chieu nhung co gia tri nho hon dang ke so voi yeu to dan dau.\"\n    },\n    {\n      \"ten_dac_trung\": \"Magnitue\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Dong gop duong bo sung giup tang cuong xac suat du doan theo huong tich cuc.\"\n    },\n    {\n      \"ten_dac_trung\": \"Number\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Yeu to nay mang lai mot su ho tro nho hon trong nhom nam dac trung hang dau.\"\n    },\n    {\n      \"ten_dac_trung\": \"rst_count\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Day la dac trung co tac dong tang nho nhat trong nhom cac yeu to dang duoc xem xet.\"\n    }\n  ],\n  \"de_xuat_kiem_tra\": [\n    {\n      \"nguon_du_lieu\": \"Nhật ký lưu lượng mạng\",\n      \"noi_dung_can_kiem_tra\": \"Kiem tra su dong thoi cua nhieu nguon den cung dich vu neu he thong co ghi nhan dia chi va thoi gian.\",\n      \"muc_dich\": \"Doi chieu bieu hien cua luu luong de lam ro bo phan du lieu dang duoc xu ly.\"\n    },\n    {\n      \"nguon_du_lieu\": \"Nhật ký tài nguyên dịch vụ\",\n      \"noi_dung_can_kiem_tra\": \"Doi chieu luu luong voi tinh trang tai nguyên va kha nang phuc vu cua he thong.\",\n      \"muc_dich\": \"Danh gia them ngu canh hoat dong ma khong tu dat ra cac nguong phat hien moi.\"\n    }\n  ],\n  \"gioi_han\": [\n    \"Cac gia tri SHAP chi giai thich dau ra cua mo hinh cho mau hinh nay va khong chung minh quan he nhan qua hay tan cong thuc te.\",\n    \"Xac suat cua mo hinh chua duoc xac minh la da hieu chinh va tong top nam dac trung chua phai la toan bo su thay doi.\",\n    \"Giai thich nay khong duoc dung de thuc hien cac hanh dong tu dong nhu chan IP hay thay doi cau hinh he thong.\"\n  ]\n}",
+              "thought_signature": "EmAKXgFpFH0TVt4xi52YypBjR51UO3Qs80wgrz27LnUoTyBzexwvwEKqeFfaP5kfP6gsDWCxSOJg5QeMaKuKxV9bF_7cGdaGOdaemaxevp711I_B2DJVLTWq92pvcH1If8o="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "ucHZavb6CaPT28oP5Jix2Qc",
+    "usage_metadata": {
+      "candidates_token_count": 1011,
+      "prompt_token_count": 2747,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 2747
+        }
+      ],
+      "total_token_count": 3758
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "tom_tat": "Mo hinh du doan mau nay thuoc lop DDoS voi muc do tu tin rat cao, trong khi lop DoS dung o vi tri thu hai nhung co khoang cach chenh lech rat lon. Dac trung IAT dong vai tro ho tro manh nhat lam tang gia tri dau ra cua lop nay.",
+      "lop_du_doan": "DDoS",
+      "so_sanh_hai_lop": {
+        "lop_thu_hai": "DoS",
+        "khoang_cach_nho": false,
+        "dien_giai": "Khoang cach chenh lech giua hai lop dung dau rat lon va co flag khoang cach nho tat, tuy nhien dieu nay khong co nghia la dam bao du doan chinh xac ma chi phan anh dau ra hien tai cua mo hinh."
+      },
+      "tong_hop_shap": {
+        "ho_tro_manh_nhat": "IAT",
+        "phan_doi_manh_nhat": null,
+        "dien_giai": "Trong nam dac trung hang dau, IAT la yeu to ho tro manh nhat lam tang gia tri du doan, trong khi khong co dac trung nao trong nhom nay mang lai tac dong phan doi am."
+      },
+      "giai_thich_dac_trung": [
+        {
+          "ten_dac_trung": "IAT",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Day la yeu to ho tro noi bat nhat trong top nam, dong gop lon vao viec thuc day dau ra cua lop duoc giai thich."
+        },
+        {
+          "ten_dac_trung": "Protocol Type",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Tac dong nay cung chieu nhung co gia tri nho hon dang ke so voi yeu to dan dau."
+        },
+        {
+          "ten_dac_trung": "Magnitue",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Dong gop duong bo sung giup tang cuong xac suat du doan theo huong tich cuc."
+        },
+        {
+          "ten_dac_trung": "Number",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Yeu to nay mang lai mot su ho tro nho hon trong nhom nam dac trung hang dau."
+        },
+        {
+          "ten_dac_trung": "rst_count",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Day la dac trung co tac dong tang nho nhat trong nhom cac yeu to dang duoc xem xet."
+        }
+      ],
+      "de_xuat_kiem_tra": [
+        {
+          "nguon_du_lieu": "Nhật ký lưu lượng mạng",
+          "noi_dung_can_kiem_tra": "Kiem tra su dong thoi cua nhieu nguon den cung dich vu neu he thong co ghi nhan dia chi va thoi gian.",
+          "muc_dich": "Doi chieu bieu hien cua luu luong de lam ro bo phan du lieu dang duoc xu ly."
+        },
+        {
+          "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+          "noi_dung_can_kiem_tra": "Doi chieu luu luong voi tinh trang tai nguyên va kha nang phuc vu cua he thong.",
+          "muc_dich": "Danh gia them ngu canh hoat dong ma khong tu dat ra cac nguong phat hien moi."
+        }
+      ],
+      "gioi_han": [
+        "Cac gia tri SHAP chi giai thich dau ra cua mo hinh cho mau hinh nay va khong chung minh quan he nhan qua hay tan cong thuc te.",
+        "Xac suat cua mo hinh chua duoc xac minh la da hieu chinh va tong top nam dac trung chua phai la toan bo su thay doi.",
+        "Giai thich nay khong duoc dung de thuc hien cac hanh dong tu dong nhu chan IP hay thay doi cau hinh he thong."
+      ]
+    }
+  },
+  "text": "{\n  \"tom_tat\": \"Mo hinh du doan mau nay thuoc lop DDoS voi muc do tu tin rat cao, trong khi lop DoS dung o vi tri thu hai nhung co khoang cach chenh lech rat lon. Dac trung IAT dong vai tro ho tro manh nhat lam tang gia tri dau ra cua lop nay.\",\n  \"lop_du_doan\": \"DDoS\",\n  \"so_sanh_hai_lop\": {\n    \"lop_thu_hai\": \"DoS\",\n    \"khoang_cach_nho\": false,\n    \"dien_giai\": \"Khoang cach chenh lech giua hai lop dung dau rat lon va co flag khoang cach nho tat, tuy nhien dieu nay khong co nghia la dam bao du doan chinh xac ma chi phan anh dau ra hien tai cua mo hinh.\"\n  },\n  \"tong_hop_shap\": {\n    \"ho_tro_manh_nhat\": \"IAT\",\n    \"phan_doi_manh_nhat\": null,\n    \"dien_giai\": \"Trong nam dac trung hang dau, IAT la yeu to ho tro manh nhat lam tang gia tri du doan, trong khi khong co dac trung nao trong nhom nay mang lai tac dong phan doi am.\"\n  },\n  \"giai_thich_dac_trung\": [\n    {\n      \"ten_dac_trung\": \"IAT\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Day la yeu to ho tro noi bat nhat trong top nam, dong gop lon vao viec thuc day dau ra cua lop duoc giai thich.\"\n    },\n    {\n      \"ten_dac_trung\": \"Protocol Type\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tac dong nay cung chieu nhung co gia tri nho hon dang ke so voi yeu to dan dau.\"\n    },\n    {\n      \"ten_dac_trung\": \"Magnitue\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Dong gop duong bo sung giup tang cuong xac suat du doan theo huong tich cuc.\"\n    },\n    {\n      \"ten_dac_trung\": \"Number\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Yeu to nay mang lai mot su ho tro nho hon trong nhom nam dac trung hang dau.\"\n    },\n    {\n      \"ten_dac_trung\": \"rst_count\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Day la dac trung co tac dong tang nho nhat trong nhom cac yeu to dang duoc xem xet.\"\n    }\n  ],\n  \"de_xuat_kiem_tra\": [\n    {\n      \"nguon_du_lieu\": \"Nhật ký lưu lượng mạng\",\n      \"noi_dung_can_kiem_tra\": \"Kiem tra su dong thoi cua nhieu nguon den cung dich vu neu he thong co ghi nhan dia chi va thoi gian.\",\n      \"muc_dich\": \"Doi chieu bieu hien cua luu luong de lam ro bo phan du lieu dang duoc xu ly.\"\n    },\n    {\n      \"nguon_du_lieu\": \"Nhật ký tài nguyên dịch vụ\",\n      \"noi_dung_can_kiem_tra\": \"Doi chieu luu luong voi tinh trang tai nguyên va kha nang phuc vu cua he thong.\",\n      \"muc_dich\": \"Danh gia them ngu canh hoat dong ma khong tu dat ra cac nguong phat hien moi.\"\n    }\n  ],\n  \"gioi_han\": [\n    \"Cac gia tri SHAP chi giai thich dau ra cua mo hinh cho mau hinh nay va khong chung minh quan he nhan qua hay tan cong thuc te.\",\n    \"Xac suat cua mo hinh chua duoc xac minh la da hieu chinh va tong top nam dac trung chua phai la toan bo su thay doi.\",\n    \"Giai thich nay khong duoc dung de thuc hien cac hanh dong tu dong nhu chan IP hay thay doi cau hinh he thong.\"\n  ]\n}",
+  "api_status": "received",
+  "api_seconds": 4.155803096999989
+}

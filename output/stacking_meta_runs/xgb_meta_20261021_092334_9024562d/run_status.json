@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "run_id": "xgb_meta_20261021_092334_9024562d",
+  "protocol": "stacking_xgb_meta_v1",
+  "source_stacking_run_id": "stacking_20261021_064141_916da555",
+  "data_run_id": "20261021_052521_96f61f19",
+  "primary_candidate_id": "XGB_d4_n200",
+  "finished_at": "2026-10-21 09:55:13",
+  "total_seconds": 1898.686,
+  "test_previously_viewed": true
+}

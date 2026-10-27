@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_005",
+  "input_row_index": 4,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "Normal",
+  "predicted_probability": 0.9923670887947083,
+  "probabilities": {
+    "Normal": 0.9923670887947083,
+    "BruteForce": 7.755639671813697e-06,
+    "DDoS": 0.0005181513843126595,
+    "DoS": 0.00025222953991033137,
+    "Mirai": 9.572814451530576e-05,
+    "Recon": 0.0028711147606372833,
+    "Spoofing": 0.003880354342982173,
+    "Web-Based": 7.56682493374683e-06
+  },
+  "explained_class": "Normal",
+  "output_unit": "probability",
+  "base_probability": 0.05920576997039717,
+  "shap_sum": 0.933161318824311,
+  "other_features_shap_sum": 0.21095353065431022,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "urg_count",
+      "value": 90.0,
+      "missing": false,
+      "shap_value": 0.23424347419662084,
+      "impact_percentage_points": 23.424347419662084,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "rst_count",
+      "value": 2126.5,
+      "missing": false,
+      "shap_value": 0.1801046114859428,
+      "impact_percentage_points": 18.01046114859428,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "IAT",
+      "value": 0.004900789353996515,
+      "missing": false,
+      "shap_value": 0.13012446444251444,
+      "impact_percentage_points": 13.012446444251443,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Number",
+      "value": 5.5,
+      "missing": false,
+      "shap_value": 0.10711340581572888,
+      "impact_percentage_points": 10.711340581572887,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "flow_duration",
+      "value": 53.26935577392578,
+      "missing": false,
+      "shap_value": 0.07062183222919376,
+      "impact_percentage_points": 7.0621832229193755,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 2.7755575615628914e-17,
+  "shap_seconds": 0.8800395270000081,
+  "seed": 46
+}

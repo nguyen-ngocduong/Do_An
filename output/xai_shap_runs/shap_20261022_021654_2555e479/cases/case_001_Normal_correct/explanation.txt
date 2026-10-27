@@ -1,0 +1,10 @@
+Model dự đoán Normal với xác suất 99.76%.
+Nhãn thật: Normal. Nhãn gốc: BenignTraffic.
+Mốc tham chiếu của lớp này trên background train: 0.059206.
+Mốc tham chiếu + tổng SHAP = 0.059206 + (0.938443) = 0.997649.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- rst_count = 3070.8: đóng góp tăng 22.081 điểm phần trăm so với mốc tham chiếu.
+- IAT = 0.00714972: đóng góp tăng 18.135 điểm phần trăm so với mốc tham chiếu.
+- urg_count = 107.2: đóng góp tăng 13.745 điểm phần trăm so với mốc tham chiếu.
+- Number = 5.5: đóng góp tăng 7.010 điểm phần trăm so với mốc tham chiếu.
+- Magnitue = 12.9817: đóng góp tăng 6.730 điểm phần trăm so với mốc tham chiếu.

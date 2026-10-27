@@ -1,0 +1,53 @@
+{
+  "base_names": [
+    "DT",
+    "RF",
+    "HGB"
+  ],
+  "class_names": [
+    "Normal",
+    "BruteForce",
+    "DDoS",
+    "DoS",
+    "Mirai",
+    "Recon",
+    "Spoofing",
+    "Web-Based"
+  ],
+  "meta_feature_names": [
+    "DT__prob_Normal",
+    "DT__prob_BruteForce",
+    "DT__prob_DDoS",
+    "DT__prob_DoS",
+    "DT__prob_Mirai",
+    "DT__prob_Recon",
+    "DT__prob_Spoofing",
+    "DT__prob_Web-Based",
+    "RF__prob_Normal",
+    "RF__prob_BruteForce",
+    "RF__prob_DDoS",
+    "RF__prob_DoS",
+    "RF__prob_Mirai",
+    "RF__prob_Recon",
+    "RF__prob_Spoofing",
+    "RF__prob_Web-Based",
+    "HGB__prob_Normal",
+    "HGB__prob_BruteForce",
+    "HGB__prob_DDoS",
+    "HGB__prob_DoS",
+    "HGB__prob_Mirai",
+    "HGB__prob_Recon",
+    "HGB__prob_Spoofing",
+    "HGB__prob_Web-Based"
+  ],
+  "input_dtype": "float32",
+  "train_input": "saved OOF probabilities; no in-sample substitution",
+  "train_shape": [
+    4114778,
+    24
+  ],
+  "validation_shape": [
+    755233,
+    24
+  ]
+}

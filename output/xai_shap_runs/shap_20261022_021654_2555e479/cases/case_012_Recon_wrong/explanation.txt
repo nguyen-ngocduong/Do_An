@@ -1,0 +1,10 @@
+Model dự đoán Spoofing với xác suất 49.65%.
+Nhãn thật: Recon. Nhãn gốc: Recon-PortScan.
+Mốc tham chiếu của lớp này trên background train: 0.001984.
+Mốc tham chiếu + tổng SHAP = 0.001984 + (0.494536) = 0.496521.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- IAT = 0.00392139: đóng góp tăng 16.077 điểm phần trăm so với mốc tham chiếu.
+- Number = 5.5: đóng góp tăng 12.579 điểm phần trăm so với mốc tham chiếu.
+- flow_duration = 343.264: đóng góp tăng 3.684 điểm phần trăm so với mốc tham chiếu.
+- Weight = 38.5: đóng góp tăng 3.534 điểm phần trăm so với mốc tham chiếu.
+- AVG = 88.2406: đóng góp tăng 3.280 điểm phần trăm so với mốc tham chiếu.

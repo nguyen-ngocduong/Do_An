@@ -1,0 +1,11 @@
+{
+  "run_id": "integration_20261022_075217_0b67d48f",
+  "status": "complete",
+  "input_mode": "user_csv",
+  "predicted_rows": 50,
+  "explained_rows": 50,
+  "reports_created": 50,
+  "accepted_gemini_reports": 50,
+  "human_semantic_review": "deferred",
+  "total_seconds": 458.1433217220001
+}

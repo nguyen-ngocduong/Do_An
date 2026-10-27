@@ -1,0 +1,14 @@
+{
+  "frozen_models/STACK_DT_RF_HGB_LR_C1.joblib": "098be299181aacb5333753363da2d6e25baf05b6d2401e48afdc9313b3f7cdca",
+  "frozen_models/XGB_d4_n200.joblib": "72d62f8760e48287fff7dcb590944f7169055d7fc0fb6a5b2969e6287f389033",
+  "frozen_models/XGB_d4_n200.json": "5f2ad1a64fc94d9edb923687016e64022b7a63f170cc270eee3241fd5cd43616",
+  "frozen_models/selected_xgb_parameters.json": "d5d1854b20a32fd5b896d301d8db3a879dad6bd2a327c60193dbe62d2565de8e",
+  "protocol.json": "73cf7f44c2551239f589f27a3b6472742e36fed8562297879a6d963c8135f2bd",
+  "source_artifacts.json": "a4aff96312320ecc8bf00b58284d55d33073916b0ee31867067117cdba00c57a",
+  "frozen_candidates.json": "1f1515f1a210ce673fb68afe7fb6caab89c15c77e42e92ace1450363bb1580cf",
+  "validation_comparison.csv": "1653868cf8210b3997b7d5a61fb5a038abe766db0dbab293cb9a9bc79412afd4",
+  "test_comparison.csv": "a4207ba1badd746aa162e11d4d403f5e638fb5a5dcf6bf8877350aa95f4477da",
+  "reload_checks.json": "b244a304867c72cd52d6d156a2b5c3b9b02bc6eba15bcae279f50b6e3e3d7ac2",
+  "predict_csv.py": "a6401d25248f25aa428c726f41dfb4b12348f852a66281f18fe3fbe01e4865fc",
+  "requirements.txt": "ad8d902b5cbab9447494bad21d2a568d4ecc9b6caa800f0c9c00f78118041dfe"
+}

@@ -1,0 +1,10 @@
+Model dự đoán Mirai với xác suất 99.99%.
+Nhãn thật: Mirai. Nhãn gốc: Mirai-udpplain.
+Mốc tham chiếu của lớp này trên background train: 0.093760.
+Mốc tham chiếu + tổng SHAP = 0.093760 + (0.906171) = 0.999931.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- Magnitue = 32.9311: đóng góp tăng 20.080 điểm phần trăm so với mốc tham chiếu.
+- Min = 448.46: đóng góp tăng 11.661 điểm phần trăm so với mốc tham chiếu.
+- IAT = 8.37116e+07: đóng góp tăng 10.990 điểm phần trăm so với mốc tham chiếu.
+- Protocol Type = 16.83: đóng góp tăng 9.628 điểm phần trăm so với mốc tham chiếu.
+- Max = 554: đóng góp tăng 6.888 điểm phần trăm so với mốc tham chiếu.

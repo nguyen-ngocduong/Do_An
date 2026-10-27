@@ -1,0 +1,89 @@
+{
+  "ma_mau": "mau_039",
+  "model_phat_hien": "XGB_d4_n200",
+  "lop_du_doan": "DoS",
+  "xac_suat_cac_lop": {
+    "Normal": 3.20089429806103e-06,
+    "BruteForce": 2.132181009528722e-07,
+    "DDoS": 3.416198887862265e-05,
+    "DoS": 0.9999525547027588,
+    "Mirai": 6.19254524281132e-06,
+    "Recon": 1.4607251159759471e-06,
+    "Spoofing": 1.89141519513214e-06,
+    "Web-Based": 3.424807459850854e-07
+  },
+  "lop_duoc_giai_thich": "DoS",
+  "xac_suat_du_doan": 0.9999525547027588,
+  "xac_suat_nen_tham_chieu": 0.21878188563130152,
+  "tong_shap_tat_ca_dac_trung": 0.7811706690714573,
+  "tong_shap_ngoai_top_5": 0.013291504726547942,
+  "don_vi_dau_ra": "Xác suất; SHAP nhân 100 là điểm phần trăm.",
+  "top_5_dac_trung": [
+    {
+      "thu_hang": 1,
+      "ten_dac_trung": "IAT",
+      "gia_tri_goc": 83015488.0,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.7338187485654165,
+      "tac_dong_diem_phan_tram": 73.38187485654166,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 2,
+      "ten_dac_trung": "Number",
+      "gia_tri_goc": 9.5,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.010719000956479855,
+      "tac_dong_diem_phan_tram": 1.0719000956479854,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 3,
+      "ten_dac_trung": "Variance",
+      "gia_tri_goc": 0.12999999523162842,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.00881427226786021,
+      "tac_dong_diem_phan_tram": 0.8814272267860209,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 4,
+      "ten_dac_trung": "Weight",
+      "gia_tri_goc": 141.5500030517578,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.007724263187962303,
+      "tac_dong_diem_phan_tram": 0.7724263187962304,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 5,
+      "ten_dac_trung": "Magnitue",
+      "gia_tri_goc": 10.085241317749023,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.006802879367190447,
+      "tac_dong_diem_phan_tram": 0.6802879367190446,
+      "huong_tac_dong": "tang"
+    }
+  ],
+  "bang_chung_tong_hop": {
+    "lop_thu_hai": "DDoS",
+    "xac_suat_lop_thu_hai": 3.416198887862265e-05,
+    "chenh_lech_diem_phan_tram": 99.99183927138802,
+    "khoang_cach_nho": false,
+    "xac_suat_dau_chua_vuot_mot_nua": false,
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "pham_vi_shap": "Chỉ top 5 của lớp dự đoán; không phải SHAP của lớp đứng thứ hai.",
+    "quy_tac_khoang_cach": "Khoảng cách không quá 5.0 điểm phần trăm chỉ là quy tắc trình bày, không phải ngưỡng phát hiện hay hiệu chỉnh xác suất."
+  },
+  "huong_dan_kiem_tra_tham_khao": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối",
+      "goi_y": "Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu có metadata."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "goi_y": "Tìm lỗi, gián đoạn hoặc thay đổi tài nguyên cùng thời điểm để xác minh thêm."
+    }
+  ]
+}

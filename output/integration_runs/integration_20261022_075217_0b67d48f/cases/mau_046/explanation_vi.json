@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mô hình dự đoán mẫu dữ liệu thuộc lớp DDoS với sự hỗ trợ mạnh mẽ từ đặc trưng IAT trong top năm. Lớp đứng thứ hai là DoS nhưng có khoảng cách xác suất rất lớn so với lớp dẫn đầu.",
+  "lop_du_doan": "DDoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ tắt do chênh lệch xác suất giữa DDoS và DoS rất lớn, tuy nhiên mức chênh lệch cao không được coi là bảo đảm tuyệt đối cho dự đoán."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Trong top năm đặc trưng, IAT đóng vai trò hỗ trợ mạnh nhất cho lớp dự đoán trong khi không ghi nhận tác động phản đối nào từ nhóm này."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể vào đầu ra của lớp dự đoán."
+    },
+    {
+      "ten_dac_trung": "Min",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng có quy mô nhỏ hơn yếu tố dẫn đầu."
+    },
+    {
+      "ten_dac_trung": "Magnitue",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Sự đóng góp dương tiếp tục bổ sung bằng chứng củng cố cho đầu ra mô hình."
+    },
+    {
+      "ten_dac_trung": "Max",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Thành phần này mang lại một mức tác động dương bổ trợ ở mức độ thấp hơn."
+    },
+    {
+      "ten_dac_trung": "Tot size",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đóng góp dương ở vị trí này có ảnh hưởng nhỏ nhất trong top năm đặc trưng."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký lưu lượng mạng",
+      "noi_dung_can_kiem_tra": "Kiểm tra sự đồng thời của nhiều nguồn đến cùng dịch vụ nếu hệ thống ghi nhận địa chỉ và thời gian.",
+      "muc_dich": "Đối chiếu tính chất lưu lượng mạng thực tế với kết quả phân tích của mô hình."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Đối chiếu lưu lượng với tình trạng tài nguyên và khả năng phục vụ của hệ thống.",
+      "muc_dich": "Kiểm tra ảnh hưởng của tải công việc lên hệ thống dịch vụ dựa trên dữ liệu nhật ký."
+    }
+  ],
+  "gioi_han": [
+    "Các giá trị SHAP chỉ phản ánh mức đóng góp vào đầu ra của mô hình đối với mẫu hiện tại, không chứng minh quan hệ nhân quả hay xác nhận cuộc tấn công thực tế.",
+    "Xác suất dự đoán chưa được hiệu chỉnh chính thức và không đại diện cho độ chính xác tuyệt đối của nhãn.",
+    "Tổng hợp SHAP chỉ giới hạn trong top năm đặc trưng và phần còn lại ngoài nhóm, không đại diện cho toàn bộ không gian dữ liệu."
+  ]
+}

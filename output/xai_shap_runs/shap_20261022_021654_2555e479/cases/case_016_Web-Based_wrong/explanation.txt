@@ -1,0 +1,10 @@
+Model dự đoán Recon với xác suất 47.20%.
+Nhãn thật: Web-Based. Nhãn gốc: SqlInjection.
+Mốc tham chiếu của lớp này trên background train: 0.001103.
+Mốc tham chiếu + tổng SHAP = 0.001103 + (0.470934) = 0.472037.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- Number = 5.5: đóng góp tăng 9.649 điểm phần trăm so với mốc tham chiếu.
+- IAT = 0.0171102: đóng góp tăng 6.147 điểm phần trăm so với mốc tham chiếu.
+- Variance = 0.9: đóng góp tăng 5.873 điểm phần trăm so với mốc tham chiếu.
+- flow_duration = 158.935: đóng góp tăng 5.868 điểm phần trăm so với mốc tham chiếu.
+- Weight = 38.5: đóng góp tăng 5.113 điểm phần trăm so với mốc tham chiếu.

@@ -1,0 +1,92 @@
+Viết báo cáo tiếng Việt ĐẦY ĐỦ DẤU, đúng chính tả cho mẫu dưới đây. Tổng hợp các yếu tố hỗ trợ/phản đối mạnh nhất trong top 5 và so sánh hai lớp đứng đầu. Phân biệt vai trò năm đặc trưng, tránh lặp câu. Nêu hai nguồn kiểm tra đúng tên có dấu theo hướng dẫn và cần tìm bằng chứng gì. Không có nhãn thật trong đầu vào. Chỉ trả JSON theo schema và rà soát dấu tiếng Việt trước khi trả lời.
+
+DỮ LIỆU DỰ ĐOÁN VÀ SHAP:
+{
+  "ma_mau": "mau_023",
+  "model_phat_hien": "XGB_d4_n200",
+  "lop_du_doan": "Mirai",
+  "xac_suat_cac_lop": {
+    "Normal": 3.944432137359399e-06,
+    "BruteForce": 2.783857553367852e-07,
+    "DDoS": 4.002833884442225e-05,
+    "DoS": 1.948363751580473e-05,
+    "Mirai": 0.9999306201934814,
+    "Recon": 2.3770405732648214e-06,
+    "Spoofing": 2.6615193746692967e-06,
+    "Web-Based": 6.159446570563887e-07
+  },
+  "lop_duoc_giai_thich": "Mirai",
+  "xac_suat_du_doan": 0.9999306201934814,
+  "xac_suat_nen_tham_chieu": 0.09376008642954048,
+  "tong_shap_tat_ca_dac_trung": 0.906170533763941,
+  "tong_shap_ngoai_top_5": 0.15245426884644542,
+  "don_vi_dau_ra": "Xác suất; SHAP nhân 100 là điểm phần trăm.",
+  "top_5_dac_trung": [
+    {
+      "thu_hang": 1,
+      "ten_dac_trung": "IAT",
+      "gia_tri_goc": 83651072.0,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.23416208705823274,
+      "tac_dong_diem_phan_tram": 23.416208705823273,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 2,
+      "ten_dac_trung": "Protocol Type",
+      "gia_tri_goc": 38.439998626708984,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.1941130227944908,
+      "tac_dong_diem_phan_tram": 19.41130227944908,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 3,
+      "ten_dac_trung": "Magnitue",
+      "gia_tri_goc": 31.01129722595215,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.1729530682101886,
+      "tac_dong_diem_phan_tram": 17.295306821018862,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 4,
+      "ten_dac_trung": "Max",
+      "gia_tri_goc": 578.0,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.09216752606202523,
+      "tac_dong_diem_phan_tram": 9.216752606202522,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 5,
+      "ten_dac_trung": "Tot size",
+      "gia_tri_goc": 475.7900085449219,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.0603205607925581,
+      "tac_dong_diem_phan_tram": 6.03205607925581,
+      "huong_tac_dong": "tang"
+    }
+  ],
+  "bang_chung_tong_hop": {
+    "lop_thu_hai": "DDoS",
+    "xac_suat_lop_thu_hai": 4.002833884442225e-05,
+    "chenh_lech_diem_phan_tram": 99.9890591854637,
+    "khoang_cach_nho": false,
+    "xac_suat_dau_chua_vuot_mot_nua": false,
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "pham_vi_shap": "Chỉ top 5 của lớp dự đoán; không phải SHAP của lớp đứng thứ hai.",
+    "quy_tac_khoang_cach": "Khoảng cách không quá 5.0 điểm phần trăm chỉ là quy tắc trình bày, không phải ngưỡng phát hiện hay hiệu chỉnh xác suất."
+  },
+  "huong_dan_kiem_tra_tham_khao": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối thiết bị",
+      "goi_y": "Đối chiếu đích kết nối và hoạt động lặp với hành vi được phép của thiết bị IoT."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tiến trình thiết bị",
+      "goi_y": "Nếu truy cập được thiết bị, tìm tiến trình hoặc cảnh báo liên quan; chưa kết luận đã nhiễm mã độc."
+    }
+  ]
+}

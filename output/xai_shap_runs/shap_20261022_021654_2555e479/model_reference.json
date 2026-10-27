@@ -1,0 +1,8 @@
+{
+  "candidate_id": "XGB_d4_n200",
+  "bundle_file": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking-xgboost-meta/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/frozen_models/XGB_d4_n200.joblib",
+  "bundle_sha256": "72d62f8760e48287fff7dcb590944f7169055d7fc0fb6a5b2969e6287f389033",
+  "source_xgb_run_id": "xgb_meta_20261021_092334_9024562d",
+  "data_run_id": "20261021_052521_96f61f19",
+  "note": "Model is reused from the source input; this SHAP output does not duplicate the large bundle."
+}

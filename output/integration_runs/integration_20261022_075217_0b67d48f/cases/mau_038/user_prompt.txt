@@ -1,0 +1,92 @@
+Viết báo cáo tiếng Việt ĐẦY ĐỦ DẤU, đúng chính tả cho mẫu dưới đây. Tổng hợp các yếu tố hỗ trợ/phản đối mạnh nhất trong top 5 và so sánh hai lớp đứng đầu. Phân biệt vai trò năm đặc trưng, tránh lặp câu. Nêu hai nguồn kiểm tra đúng tên có dấu theo hướng dẫn và cần tìm bằng chứng gì. Không có nhãn thật trong đầu vào. Chỉ trả JSON theo schema và rà soát dấu tiếng Việt trước khi trả lời.
+
+DỮ LIỆU DỰ ĐOÁN VÀ SHAP:
+{
+  "ma_mau": "mau_038",
+  "model_phat_hien": "XGB_d4_n200",
+  "lop_du_doan": "Spoofing",
+  "xac_suat_cac_lop": {
+    "Normal": 7.47901140130125e-05,
+    "BruteForce": 9.171715646516532e-06,
+    "DDoS": 0.00028669240418821573,
+    "DoS": 0.00014354668383020908,
+    "Mirai": 5.269905523164198e-05,
+    "Recon": 0.0013957795454189181,
+    "Spoofing": 0.9977109432220459,
+    "Web-Based": 0.00032641564030200243
+  },
+  "lop_duoc_giai_thich": "Spoofing",
+  "xac_suat_du_doan": 0.9977109432220459,
+  "xac_suat_nen_tham_chieu": 0.001984494831106076,
+  "tong_shap_tat_ca_dac_trung": 0.9957264483909398,
+  "tong_shap_ngoai_top_5": 0.11780666141042762,
+  "don_vi_dau_ra": "Xác suất; SHAP nhân 100 là điểm phần trăm.",
+  "top_5_dac_trung": [
+    {
+      "thu_hang": 1,
+      "ten_dac_trung": "IAT",
+      "gia_tri_goc": 166852992.0,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.5643859983111973,
+      "tac_dong_diem_phan_tram": 56.43859983111973,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 2,
+      "ten_dac_trung": "Number",
+      "gia_tri_goc": 13.5,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.1306961702400032,
+      "tac_dong_diem_phan_tram": 13.06961702400032,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 3,
+      "ten_dac_trung": "Protocol Type",
+      "gia_tri_goc": 8.800000190734863,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.07240793081105827,
+      "tac_dong_diem_phan_tram": 7.240793081105827,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 4,
+      "ten_dac_trung": "urg_count",
+      "gia_tri_goc": 42.5,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.06075093756776676,
+      "tac_dong_diem_phan_tram": 6.075093756776676,
+      "huong_tac_dong": "tang"
+    },
+    {
+      "thu_hang": 5,
+      "ten_dac_trung": "Header_Length",
+      "gia_tri_goc": 8377.2998046875,
+      "gia_tri_thieu": false,
+      "shap_don_vi_xac_suat": 0.04967875005048672,
+      "tac_dong_diem_phan_tram": 4.967875005048672,
+      "huong_tac_dong": "tang"
+    }
+  ],
+  "bang_chung_tong_hop": {
+    "lop_thu_hai": "Recon",
+    "xac_suat_lop_thu_hai": 0.0013957795454189181,
+    "chenh_lech_diem_phan_tram": 99.6315163676627,
+    "khoang_cach_nho": false,
+    "xac_suat_dau_chua_vuot_mot_nua": false,
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "pham_vi_shap": "Chỉ top 5 của lớp dự đoán; không phải SHAP của lớp đứng thứ hai.",
+    "quy_tac_khoang_cach": "Khoảng cách không quá 5.0 điểm phần trăm chỉ là quy tắc trình bày, không phải ngưỡng phát hiện hay hiệu chỉnh xác suất."
+  },
+  "huong_dan_kiem_tra_tham_khao": [
+    {
+      "nguon_du_lieu": "Nhật ký ánh xạ địa chỉ",
+      "goi_y": "Nếu có ánh xạ địa chỉ hoặc định danh thiết bị, tìm thay đổi hay mâu thuẫn cần xác minh."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký thiết bị mạng",
+      "goi_y": "Đối chiếu định danh nguồn với cấu hình, thay đổi được phép và cảnh báo liên quan."
+    }
+  ]
+}

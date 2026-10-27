@@ -1,0 +1,88 @@
+{
+  "case_id": "case_006_DDoS_wrong",
+  "model_id": "XGB_d4_n200",
+  "source_xgb_run_id": "xgb_meta_20261021_092334_9024562d",
+  "data_run_id": "20261021_052521_96f61f19",
+  "validation_row_index": 50811,
+  "source_split": "val",
+  "source_row_index": 79390,
+  "original_label": "DDoS-SynonymousIP_Flood",
+  "true_class": "DDoS",
+  "predicted_class": "DoS",
+  "correct": false,
+  "probabilities": {
+    "Normal": 0.00014807539992034435,
+    "BruteForce": 1.1006720342265908e-05,
+    "DDoS": 0.12702003121376038,
+    "DoS": 0.8723437190055847,
+    "Mirai": 0.00027565841446630657,
+    "Recon": 8.288124809041619e-05,
+    "Spoofing": 9.78932439466007e-05,
+    "Web-Based": 2.0729343304992653e-05
+  },
+  "explained_class": "DoS",
+  "output_unit": "probability",
+  "base_probability": 0.21878188563130152,
+  "predicted_probability": 0.8723437190055847,
+  "shap_sum": 0.6535618333742832,
+  "other_features_shap_sum": 0.057849816285395206,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 56516784.0,
+      "missing": false,
+      "shap_value": 0.4680298780361222,
+      "impact_percentage_points": 46.802987803612226,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Weight",
+      "value": 137.83050537109375,
+      "missing": false,
+      "shap_value": -0.15419416563870905,
+      "impact_percentage_points": -15.419416563870906,
+      "direction": "decrease"
+    },
+    {
+      "rank": 3,
+      "feature": "Rate",
+      "value": 0.2171144187450409,
+      "missing": false,
+      "shap_value": 0.12045366755323055,
+      "impact_percentage_points": 12.045366755323055,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Header_Length",
+      "value": 108.0,
+      "missing": false,
+      "shap_value": 0.11394291555800369,
+      "impact_percentage_points": 11.394291555800368,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Variance",
+      "value": 0.0,
+      "missing": false,
+      "shap_value": 0.04747972158024064,
+      "impact_percentage_points": 4.747972158024064,
+      "direction": "increase"
+    }
+  ],
+  "comparison": {
+    "class": "DDoS",
+    "reason": "true class for a misclassified sample",
+    "probability": 0.12702003121376038,
+    "base_probability_gap": -0.4062843864991237,
+    "predicted_probability_gap": 0.7453236877918243
+  },
+  "max_additivity_error_all_classes": 1.951563910473908e-18,
+  "seed": 642,
+  "max_evals": 465,
+  "shap_seconds": 0.6593310189998647,
+  "interpretation": "Contributions relative to the saved train background; not causal evidence."
+}

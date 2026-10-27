@@ -1,0 +1,171 @@
+{
+  "protocol": "stacking_xgb_meta_v1",
+  "run_id": "xgb_meta_20261021_092334_9024562d",
+  "source_stacking_run_id": "stacking_20261021_064141_916da555",
+  "data_run_id": "20261021_052521_96f61f19",
+  "source_artifacts_sha256": "a4aff96312320ecc8bf00b58284d55d33073916b0ee31867067117cdba00c57a",
+  "baseline_id": "STACK_DT_RF_HGB_LR_C1",
+  "baseline_bundle_sha256": "098be299181aacb5333753363da2d6e25baf05b6d2401e48afdc9313b3f7cdca",
+  "base_names": [
+    "DT",
+    "RF",
+    "HGB"
+  ],
+  "class_names": [
+    "Normal",
+    "BruteForce",
+    "DDoS",
+    "DoS",
+    "Mirai",
+    "Recon",
+    "Spoofing",
+    "Web-Based"
+  ],
+  "meta_feature_names": [
+    "DT__prob_Normal",
+    "DT__prob_BruteForce",
+    "DT__prob_DDoS",
+    "DT__prob_DoS",
+    "DT__prob_Mirai",
+    "DT__prob_Recon",
+    "DT__prob_Spoofing",
+    "DT__prob_Web-Based",
+    "RF__prob_Normal",
+    "RF__prob_BruteForce",
+    "RF__prob_DDoS",
+    "RF__prob_DoS",
+    "RF__prob_Mirai",
+    "RF__prob_Recon",
+    "RF__prob_Spoofing",
+    "RF__prob_Web-Based",
+    "HGB__prob_Normal",
+    "HGB__prob_BruteForce",
+    "HGB__prob_DDoS",
+    "HGB__prob_DoS",
+    "HGB__prob_Mirai",
+    "HGB__prob_Recon",
+    "HGB__prob_Spoofing",
+    "HGB__prob_Web-Based"
+  ],
+  "xgb_common_parameters": {
+    "objective": "multi:softprob",
+    "num_class": 8,
+    "eval_metric": "mlogloss",
+    "tree_method": "hist",
+    "learning_rate": 0.05,
+    "min_child_weight": 5.0,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_alpha": 0.0,
+    "random_state": 42,
+    "n_jobs": 2
+  },
+  "xgb_configs": [
+    {
+      "name": "XGB_d2_n100",
+      "max_depth": 2,
+      "n_estimators": 100,
+      "reg_lambda": 5.0,
+      "rare_weight": 1.0
+    },
+    {
+      "name": "XGB_d3_n100",
+      "max_depth": 3,
+      "n_estimators": 100,
+      "reg_lambda": 5.0,
+      "rare_weight": 1.0
+    },
+    {
+      "name": "XGB_d3_n200",
+      "max_depth": 3,
+      "n_estimators": 200,
+      "reg_lambda": 5.0,
+      "rare_weight": 1.0
+    },
+    {
+      "name": "XGB_d4_n200",
+      "max_depth": 4,
+      "n_estimators": 200,
+      "reg_lambda": 5.0,
+      "rare_weight": 1.0
+    },
+    {
+      "name": "XGB_d3_n200_l2_10",
+      "max_depth": 3,
+      "n_estimators": 200,
+      "reg_lambda": 10.0,
+      "rare_weight": 1.0
+    },
+    {
+      "name": "XGB_d3_n200_rare2",
+      "max_depth": 3,
+      "n_estimators": 200,
+      "reg_lambda": 5.0,
+      "rare_weight": 2.0
+    }
+  ],
+  "training_input": "existing OOF + original y_train",
+  "base_models_refitted": false,
+  "preprocessor_refitted": false,
+  "folds_recreated": false,
+  "early_stopping": false,
+  "resampling": "none",
+  "selection": "highest validation macro-F1; prefer LR baseline on a tie; then ascending candidate_id",
+  "test_candidates": "best XGBoost and original LR baseline, both frozen before test",
+  "baseline_validation_test_previously_viewed": true,
+  "new_test_status": "reused test; descriptive comparison, not independent confirmation",
+  "versions": {
+    "python": "3.13.15",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1",
+    "joblib": "1.6.0",
+    "xgboost": "3.4.1"
+  },
+  "hardware": {
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+    "cpu": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "logical_cpus": 4,
+    "requested_meta_threads": 2,
+    "accelerator_used": "CPU",
+    "ram_gib": 31.34674835205078,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 4,
+        "prefix": "libscipy_openblas",
+        "filepath": "/usr/local/lib/python3.13/dist-packages/numpy.libs/libscipy_openblas64_-ff651d7f.so",
+        "version": "0.3.27",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 4,
+        "prefix": "libscipy_openblas",
+        "filepath": "/usr/local/lib/python3.13/dist-packages/scipy.libs/libscipy_openblas-b75cc656.so",
+        "version": "0.3.29.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 4,
+        "prefix": "libgomp",
+        "filepath": "/usr/local/lib/python3.13/dist-packages/scikit_learn.libs/libgomp-a34b3233.so.1.0.0",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 4,
+        "prefix": "libgomp",
+        "filepath": "/usr/local/lib/python3.13/dist-packages/xgboost.libs/libgomp-e985bcbb.so.1.0.0",
+        "version": null
+      }
+    ]
+  }
+}

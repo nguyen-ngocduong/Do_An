@@ -1,0 +1,88 @@
+{
+  "case_id": "case_016_Web-Based_wrong",
+  "model_id": "XGB_d4_n200",
+  "source_xgb_run_id": "xgb_meta_20261021_092334_9024562d",
+  "data_run_id": "20261021_052521_96f61f19",
+  "validation_row_index": 442237,
+  "source_split": "val",
+  "source_row_index": 689538,
+  "original_label": "SqlInjection",
+  "true_class": "Web-Based",
+  "predicted_class": "Recon",
+  "correct": false,
+  "probabilities": {
+    "Normal": 0.18344943225383759,
+    "BruteForce": 0.019748132675886154,
+    "DDoS": 0.002454045694321394,
+    "DoS": 0.0012433236697688699,
+    "Mirai": 0.0004719322605524212,
+    "Recon": 0.4720374047756195,
+    "Spoofing": 0.23114383220672607,
+    "Web-Based": 0.08945191651582718
+  },
+  "explained_class": "Recon",
+  "output_unit": "probability",
+  "base_probability": 0.0011032509900879006,
+  "predicted_probability": 0.4720374047756195,
+  "shap_sum": 0.47093415378553166,
+  "other_features_shap_sum": 0.1444242419917917,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "Number",
+      "value": 5.5,
+      "missing": false,
+      "shap_value": 0.09649456687788538,
+      "impact_percentage_points": 9.649456687788538,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "IAT",
+      "value": 0.017110204324126244,
+      "missing": false,
+      "shap_value": 0.061473819169572806,
+      "impact_percentage_points": 6.147381916957281,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Variance",
+      "value": 0.8999999761581421,
+      "missing": false,
+      "shap_value": 0.058734411592197944,
+      "impact_percentage_points": 5.873441159219794,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "flow_duration",
+      "value": 158.9346466064453,
+      "missing": false,
+      "shap_value": 0.05867820659282478,
+      "impact_percentage_points": 5.8678206592824775,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Weight",
+      "value": 38.5,
+      "missing": false,
+      "shap_value": 0.05112890756125902,
+      "impact_percentage_points": 5.112890756125902,
+      "direction": "increase"
+    }
+  ],
+  "comparison": {
+    "class": "Web-Based",
+    "reason": "true class for a misclassified sample",
+    "probability": 0.08945191651582718,
+    "base_probability_gap": 0.0010927813204806291,
+    "predicted_probability_gap": 0.38258548825979233
+  },
+  "max_additivity_error_all_classes": 1.1102230246251565e-16,
+  "seed": 1642,
+  "max_evals": 465,
+  "shap_seconds": 0.7285863800000243,
+  "interpretation": "Contributions relative to the saved train background; not causal evidence."
+}

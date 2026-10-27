@@ -1,0 +1,29 @@
+{
+  "run_id": "xgb_meta_20261021_092334_9024562d",
+  "source_stacking_run_id": "stacking_20261021_064141_916da555",
+  "data_run_id": "20261021_052521_96f61f19",
+  "primary_candidate_id": "XGB_d4_n200",
+  "candidates": [
+    {
+      "candidate_id": "XGB_d4_n200",
+      "kind": "xgboost_meta",
+      "bundle_file": "frozen_models/XGB_d4_n200.joblib",
+      "sha256": "72d62f8760e48287fff7dcb590944f7169055d7fc0fb6a5b2969e6287f389033",
+      "validation_macro_f1": 0.8961367826425903,
+      "meta_fit_seconds_this_run": 341.7713021960001
+    },
+    {
+      "candidate_id": "STACK_DT_RF_HGB_LR_C1",
+      "kind": "baseline_lr",
+      "bundle_file": "frozen_models/STACK_DT_RF_HGB_LR_C1.joblib",
+      "sha256": "098be299181aacb5333753363da2d6e25baf05b6d2401e48afdc9313b3f7cdca",
+      "validation_macro_f1": 0.8669590286551329,
+      "meta_fit_seconds_this_run": 0.0
+    }
+  ],
+  "protocol_sha256": "73cf7f44c2551239f589f27a3b6472742e36fed8562297879a6d963c8135f2bd",
+  "source_artifacts_sha256": "a4aff96312320ecc8bf00b58284d55d33073916b0ee31867067117cdba00c57a",
+  "validation_table_sha256": "1653868cf8210b3997b7d5a61fb5a038abe766db0dbab293cb9a9bc79412afd4",
+  "frozen_at": "2026-10-21 09:52:33",
+  "test_previously_viewed": true
+}

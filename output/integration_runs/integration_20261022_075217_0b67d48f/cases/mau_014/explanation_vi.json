@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mô hình dự đoán lớp DDoS với sự hỗ trợ mạnh mẽ từ đặc trưng IAT trong top năm đặc trưng quan trọng. Trong khi đó, lớp DoS đứng ở vị trí thứ hai nhưng có khoảng cách rất xa so với đầu ra hàng đầu.",
+  "lop_du_doan": "DDoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Lớp đứng thứ hai là DoS. Cờ khoảng cách nhỏ đang tắt cho thấy chênh lệch giữa hai đầu ra lớn, tuy nhiên điều này không được coi là bảo đảm dự đoán chính xác tuyệt đối."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Yếu tố hỗ trợ mạnh nhất trong top năm đặc trưng là IAT, trong khi không có tác động phản đối nào xuất hiện trong nhóm này."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm của mẫu này."
+    },
+    {
+      "ten_dac_trung": "Protocol Type",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng đóng góp ở mức hỗ trợ bổ sung nhỏ hơn."
+    },
+    {
+      "ten_dac_trung": "Magnitue",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đặc trưng này thể hiện một sự thúc đẩy bổ sung có giá trị thấp hơn các yếu tố trước."
+    },
+    {
+      "ten_dac_trung": "Max",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Sự đóng góp theo chiều tăng tiếp tục xuất hiện với mức độ thu hẹp dần."
+    },
+    {
+      "ten_dac_trung": "Min",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là tác động có xu hướng cùng chiều nhỏ nhất trong nhóm năm đặc trưng."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký lưu lượng mạng",
+      "noi_dung_can_kiem_tra": "Kiểm tra sự đồng thời của nhiều nguồn đến cùng dịch vụ nếu có địa chỉ và thời gian.",
+      "muc_dich": "Đối chiếu thông tin lưu lượng thực tế phát sinh trong hệ thống."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Đối chiếu lưu lượng với tình trạng tài nguyên và khả năng phục vụ, không tự đặt ngưỡng.",
+      "muc_dich": "Xác thực khả năng đáp ứng và tải hiện tại của dịch vụ."
+    }
+  ],
+  "gioi_han": [
+    "Kết quả giải thích chỉ phản ánh đầu ra của mô hình đối với mẫu hiện tại, không chứng minh quan hệ nhân quả hay cuộc tấn công thực tế.",
+    "Giá trị SHAP và xác suất chưa được hiệu chỉnh chính thức để đảm bảo độ tin cậy tuyệt đối.",
+    "Tổng các đặc trưng trong top năm chưa bao trùm toàn bộ mức thay đổi của toàn bộ tập đặc trưng."
+  ]
+}

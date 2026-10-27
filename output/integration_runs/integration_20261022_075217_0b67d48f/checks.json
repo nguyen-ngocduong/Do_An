@@ -1,0 +1,12 @@
+{
+  "source_bundle_and_helper_checksums": true,
+  "source_background_checksums": true,
+  "golden_csv_prediction_match": true,
+  "background_probability_match": true,
+  "shap_additivity_all_selected_cases": true,
+  "predicted_rows": 50,
+  "explained_rows": 50,
+  "reports_created": 50,
+  "accepted_gemini_reports": 50,
+  "human_semantic_review": "deferred"
+}

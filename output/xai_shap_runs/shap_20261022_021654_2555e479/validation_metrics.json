@@ -1,0 +1,10 @@
+{
+  "macro_f1": 0.8961367826425903,
+  "accuracy": 0.994555322662013,
+  "weighted_f1": 0.9944628061326192,
+  "rows": 755233,
+  "predict_seconds": 42.099926732000085,
+  "predict_ms_per_row": 0.055744289155797065,
+  "scope": "raw input -> preprocessing -> DT/RF/HGB -> XGBoost",
+  "previously_viewed_validation": true
+}

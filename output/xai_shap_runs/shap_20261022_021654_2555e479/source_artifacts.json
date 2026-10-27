@@ -1,0 +1,31 @@
+{
+  "source_xgb_run_id": "xgb_meta_20261021_092334_9024562d",
+  "source_xgb_dir": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking-xgboost-meta/stacking_meta_runs/xgb_meta_20261021_092334_9024562d",
+  "source_hashes": {
+    "protocol.json": "73cf7f44c2551239f589f27a3b6472742e36fed8562297879a6d963c8135f2bd",
+    "run_status.json": "36394c566a58de808d2f5f0fa7359cb4b1d890bc323b3eb87dfaa13197e91542",
+    "predict_csv.py": "a6401d25248f25aa428c726f41dfb4b12348f852a66281f18fe3fbe01e4865fc",
+    "source_artifacts.json": "a4aff96312320ecc8bf00b58284d55d33073916b0ee31867067117cdba00c57a",
+    "frozen_candidates.json": "1f1515f1a210ce673fb68afe7fb6caab89c15c77e42e92ace1450363bb1580cf",
+    "output_checksums.json": "ce127a9580e30330e4aa5e2c4623a2d06945c167b8e652531e9706ac4f1bbee4",
+    "reload_checks.json": "b244a304867c72cd52d6d156a2b5c3b9b02bc6eba15bcae279f50b6e3e3d7ac2",
+    "validation_comparison.csv": "1653868cf8210b3997b7d5a61fb5a038abe766db0dbab293cb9a9bc79412afd4",
+    "frozen_models/XGB_d4_n200.joblib": "72d62f8760e48287fff7dcb590944f7169055d7fc0fb6a5b2969e6287f389033",
+    "validation_XGB_d4_n200_probabilities.npy": "5dd74077ed578daae1c1229021d5b6ee3a6c71a59d1e3013a54cb1b817e8be0a"
+  },
+  "data_run_id": "20261021_052521_96f61f19",
+  "processing_dir": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19",
+  "processing_manifest_sha256": "f9c4cf30b1e9b62b9c2d95f804a24a94f4d5e77b85b5e2055ae1ceebdbff9553",
+  "processing_artifacts": {
+    "preprocessing_config.json": "02485255fa24a74b90a1d6f8f6e758ffbead0a057459460aa9a6d26e6f2e1c3d",
+    "feature_schema.json": "bbb80ef95b8f49feb54c45201174b609b8761eed0ec4ac41fa7fdee389eca890",
+    "label_mapping.json": "c5ccd34c1c587cd0627fcabea491037cacf945a109d8f7546615bef25deb5914",
+    "X_train_unprocessed.npy": "1abea85ef25aeb7868ebb39ab5664aaf503a71edea3c2aa8256f8e55b2f49585",
+    "X_val_unprocessed.npy": "bc73a045d7e4bfc8a5ab7aa1a515506726969b0d0b24426f508e64d7985d4d6a",
+    "y_train.npy": "c256f1a1f327a0519dab2abdceb81e8f4bb86b4e76594e06dd3a7e548fcf4f79",
+    "y_val.npy": "0353b49cef9749a0fe5484154a2b084e0cc6cdcf2f0c2b86c524115f3a79c49d",
+    "sample_metadata_val.pkl": "5553abeba4c9cdff9c7a09d4168b519db999997960e36cba7830128bfa357f3d",
+    "group_id_train.npy": "e767652c0c14cd7da43bd27f383712c4911507fdd1235a170d416e64c0111bfe",
+    "group_id_val.npy": "e4fe754c57cd1eb57e265c1e14489f5e38f57e63e7572e45fb4c79a6d91e409e"
+  }
+}

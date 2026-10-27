@@ -1,0 +1,10 @@
+Model dự đoán Spoofing với xác suất 54.19%.
+Nhãn thật: BruteForce. Nhãn gốc: DictionaryBruteForce.
+Mốc tham chiếu của lớp này trên background train: 0.001984.
+Mốc tham chiếu + tổng SHAP = 0.001984 + (0.539950) = 0.541934.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- IAT = 0.00342319: đóng góp tăng 14.734 điểm phần trăm so với mốc tham chiếu.
+- Number = 5.5: đóng góp tăng 13.421 điểm phần trăm so với mốc tham chiếu.
+- Magnitue = 27.1304: đóng góp tăng 6.979 điểm phần trăm so với mốc tham chiếu.
+- Header_Length = 45802.4: đóng góp tăng 4.894 điểm phần trăm so với mốc tham chiếu.
+- Weight = 38.5: đóng góp tăng 4.331 điểm phần trăm so với mốc tham chiếu.

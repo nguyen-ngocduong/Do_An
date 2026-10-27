@@ -1,0 +1,10 @@
+Model dự đoán Recon với xác suất 99.71%.
+Nhãn thật: Recon. Nhãn gốc: Recon-HostDiscovery.
+Mốc tham chiếu của lớp này trên background train: 0.001103.
+Mốc tham chiếu + tổng SHAP = 0.001103 + (0.995967) = 0.997071.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- IAT = 1.66848e+08: đóng góp tăng 50.908 điểm phần trăm so với mốc tham chiếu.
+- Number = 13.5: đóng góp tăng 16.523 điểm phần trăm so với mốc tham chiếu.
+- syn_count = 0.6: đóng góp tăng 6.238 điểm phần trăm so với mốc tham chiếu.
+- Protocol Type = 10.4: đóng góp tăng 4.938 điểm phần trăm so với mốc tham chiếu.
+- Duration = 95.2: đóng góp tăng 3.421 điểm phần trăm so với mốc tham chiếu.

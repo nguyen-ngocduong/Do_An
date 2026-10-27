@@ -1,0 +1,112 @@
+{
+  "request_sha256": "5dc29bf03216ee3fef1179777b7d6dbbc3533c5f8d78a9c0d12e8ab21470ebf2",
+  "requested_model": "gemini-3.5-flash-lite",
+  "attempt": 1,
+  "response": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Thu, 22 Oct 2026 07:59:30 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=3158",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"tom_tat\": \"Mẫu dữ liệu được mô hình dự đoán thuộc lớp DoS với sự hỗ trợ mạnh mẽ từ đặc trưng IAT trong nhóm năm yếu tố dẫn đầu. Sự cạnh tranh giữa lớp đứng đầu và lớp đứng thứ hai có khoảng cách lớn, trong đó lớp DDoS đứng ở vị trí tiếp theo nhưng có xác suất vô cùng nhỏ.\",\n  \"lop_du_doan\": \"DoS\",\n  \"so_sanh_hai_lop\": {\n    \"lop_thu_hai\": \"DDoS\",\n    \"khoang_cach_nho\": false,\n    \"dien_giai\": \"Lớp đứng thứ hai là DDoS có chênh lệch rất lớn so với lớp được dự đoán và cờ khoảng cách nhỏ đang tắt, tuy nhiên chênh lệch lớn này không phải là sự bảo đảm tuyệt đối rằng dự đoán là chính xác.\"\n  },\n  \"tong_hop_shap\": {\n    \"ho_tro_manh_nhat\": \"IAT\",\n    \"phan_doi_manh_nhat\": null,\n    \"dien_giai\": \"Trong top năm đặc trưng, IAT đóng vai trò hỗ trợ mạnh nhất đẩy giá trị đầu ra tăng cao, trong khi không ghi nhận tác động phản đối nào từ nhóm này.\"\n  },\n  \"giai_thich_dac_trung\": [\n    {\n      \"ten_dac_trung\": \"IAT\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố hỗ trợ nổi bật nhất trong top năm với mức đóng góp lớn nhất vào đầu ra của lớp được dự đoán.\"\n    },\n    {\n      \"ten_dac_trung\": \"Weight\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tác động này cùng chiều với yếu tố dẫn đầu nhưng có độ lớn nhỏ hơn đáng kể, đóng vai trò hỗ trợ bổ sung.\"\n    },\n    {\n      \"ten_dac_trung\": \"Number\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đặc trưng này mang lại mức gia tăng dương nhỏ, tiếp tục củng cố thêm cho kết quả phân loại.\"\n    },\n    {\n      \"ten_dac_trung\": \"Tot size\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Sự hiện diện của đặc trưng này tạo ra một tác động dương thấp hơn, góp phần nhỏ vào tổng điểm SHAP.\"\n    },\n    {\n      \"ten_dac_trung\": \"Min\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố có đóng góp dương nhỏ nhất trong nhóm năm đặc trưng hàng đầu đang được xem xét.\"\n    }\n  ],\n  \"de_xuat_kiem_tra\": [\n    {\n      \"nguon_du_lieu\": \"Nhật ký kết nối\",\n      \"noi_dung_can_kiem_tra\": \"Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu hệ thống có ghi nhận metadata này.\",\n      \"muc_dich\": \"Đối chiếu hành vi lưu lượng mạng thực tế với kết quả phân loại của mô hình.\"\n    },\n    {\n      \"nguon_du_lieu\": \"Nhật ký tài nguyên dịch vụ\",\n      \"noi_dung_can_kiem_tra\": \"Tìm các dấu hiệu lỗi, gián đoạn hoặc biến động tài nguyên diễn ra cùng thời điểm.\",\n      \"muc_dich\": \"Xác minh xem có sự cố hệ thống tương ứng đi kèm hay không.\"\n    }\n  ],\n  \"gioi_han\": [\n    \"Giá trị SHAP chỉ phản ánh mức độ đóng góp của đặc trưng đối với đầu ra của mô hình ở mẫu hiện tại chứ không chứng minh quan hệ nhân quả trong thực tế.\",\n    \"Xác suất dự đoán của mô hình chưa qua bước kiểm định hiệu chỉnh xác suất chính thức.\",\n    \"Phạm vi giải thích chỉ giới hạn ở top năm đặc trưng và phần còn lại ngoài top năm chưa được phân tích chi tiết từng yếu tố riêng lẻ.\"\n  ]\n}",
+              "thought_signature": "EmAKXgFpFH0T_vPLJjaOCPPYsqKhemTg7PzEIzF39pzMErsqvdd7Uw6nSZEt4abUydrh35jr6-nlPc56rwlTxat-9_tQiETHxFLccBi7ok6lT51DjWS2Sn0aztts32p6LUo="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "X8LZatuHCPijvdIPkpKssQc",
+    "usage_metadata": {
+      "candidates_token_count": 933,
+      "prompt_token_count": 2737,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 2737
+        }
+      ],
+      "total_token_count": 3670
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "tom_tat": "Mẫu dữ liệu được mô hình dự đoán thuộc lớp DoS với sự hỗ trợ mạnh mẽ từ đặc trưng IAT trong nhóm năm yếu tố dẫn đầu. Sự cạnh tranh giữa lớp đứng đầu và lớp đứng thứ hai có khoảng cách lớn, trong đó lớp DDoS đứng ở vị trí tiếp theo nhưng có xác suất vô cùng nhỏ.",
+      "lop_du_doan": "DoS",
+      "so_sanh_hai_lop": {
+        "lop_thu_hai": "DDoS",
+        "khoang_cach_nho": false,
+        "dien_giai": "Lớp đứng thứ hai là DDoS có chênh lệch rất lớn so với lớp được dự đoán và cờ khoảng cách nhỏ đang tắt, tuy nhiên chênh lệch lớn này không phải là sự bảo đảm tuyệt đối rằng dự đoán là chính xác."
+      },
+      "tong_hop_shap": {
+        "ho_tro_manh_nhat": "IAT",
+        "phan_doi_manh_nhat": null,
+        "dien_giai": "Trong top năm đặc trưng, IAT đóng vai trò hỗ trợ mạnh nhất đẩy giá trị đầu ra tăng cao, trong khi không ghi nhận tác động phản đối nào từ nhóm này."
+      },
+      "giai_thich_dac_trung": [
+        {
+          "ten_dac_trung": "IAT",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm với mức đóng góp lớn nhất vào đầu ra của lớp được dự đoán."
+        },
+        {
+          "ten_dac_trung": "Weight",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Tác động này cùng chiều với yếu tố dẫn đầu nhưng có độ lớn nhỏ hơn đáng kể, đóng vai trò hỗ trợ bổ sung."
+        },
+        {
+          "ten_dac_trung": "Number",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Đặc trưng này mang lại mức gia tăng dương nhỏ, tiếp tục củng cố thêm cho kết quả phân loại."
+        },
+        {
+          "ten_dac_trung": "Tot size",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Sự hiện diện của đặc trưng này tạo ra một tác động dương thấp hơn, góp phần nhỏ vào tổng điểm SHAP."
+        },
+        {
+          "ten_dac_trung": "Min",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Đây là yếu tố có đóng góp dương nhỏ nhất trong nhóm năm đặc trưng hàng đầu đang được xem xét."
+        }
+      ],
+      "de_xuat_kiem_tra": [
+        {
+          "nguon_du_lieu": "Nhật ký kết nối",
+          "noi_dung_can_kiem_tra": "Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu hệ thống có ghi nhận metadata này.",
+          "muc_dich": "Đối chiếu hành vi lưu lượng mạng thực tế với kết quả phân loại của mô hình."
+        },
+        {
+          "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+          "noi_dung_can_kiem_tra": "Tìm các dấu hiệu lỗi, gián đoạn hoặc biến động tài nguyên diễn ra cùng thời điểm.",
+          "muc_dich": "Xác minh xem có sự cố hệ thống tương ứng đi kèm hay không."
+        }
+      ],
+      "gioi_han": [
+        "Giá trị SHAP chỉ phản ánh mức độ đóng góp của đặc trưng đối với đầu ra của mô hình ở mẫu hiện tại chứ không chứng minh quan hệ nhân quả trong thực tế.",
+        "Xác suất dự đoán của mô hình chưa qua bước kiểm định hiệu chỉnh xác suất chính thức.",
+        "Phạm vi giải thích chỉ giới hạn ở top năm đặc trưng và phần còn lại ngoài top năm chưa được phân tích chi tiết từng yếu tố riêng lẻ."
+      ]
+    }
+  },
+  "text": "{\n  \"tom_tat\": \"Mẫu dữ liệu được mô hình dự đoán thuộc lớp DoS với sự hỗ trợ mạnh mẽ từ đặc trưng IAT trong nhóm năm yếu tố dẫn đầu. Sự cạnh tranh giữa lớp đứng đầu và lớp đứng thứ hai có khoảng cách lớn, trong đó lớp DDoS đứng ở vị trí tiếp theo nhưng có xác suất vô cùng nhỏ.\",\n  \"lop_du_doan\": \"DoS\",\n  \"so_sanh_hai_lop\": {\n    \"lop_thu_hai\": \"DDoS\",\n    \"khoang_cach_nho\": false,\n    \"dien_giai\": \"Lớp đứng thứ hai là DDoS có chênh lệch rất lớn so với lớp được dự đoán và cờ khoảng cách nhỏ đang tắt, tuy nhiên chênh lệch lớn này không phải là sự bảo đảm tuyệt đối rằng dự đoán là chính xác.\"\n  },\n  \"tong_hop_shap\": {\n    \"ho_tro_manh_nhat\": \"IAT\",\n    \"phan_doi_manh_nhat\": null,\n    \"dien_giai\": \"Trong top năm đặc trưng, IAT đóng vai trò hỗ trợ mạnh nhất đẩy giá trị đầu ra tăng cao, trong khi không ghi nhận tác động phản đối nào từ nhóm này.\"\n  },\n  \"giai_thich_dac_trung\": [\n    {\n      \"ten_dac_trung\": \"IAT\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố hỗ trợ nổi bật nhất trong top năm với mức đóng góp lớn nhất vào đầu ra của lớp được dự đoán.\"\n    },\n    {\n      \"ten_dac_trung\": \"Weight\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tác động này cùng chiều với yếu tố dẫn đầu nhưng có độ lớn nhỏ hơn đáng kể, đóng vai trò hỗ trợ bổ sung.\"\n    },\n    {\n      \"ten_dac_trung\": \"Number\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đặc trưng này mang lại mức gia tăng dương nhỏ, tiếp tục củng cố thêm cho kết quả phân loại.\"\n    },\n    {\n      \"ten_dac_trung\": \"Tot size\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Sự hiện diện của đặc trưng này tạo ra một tác động dương thấp hơn, góp phần nhỏ vào tổng điểm SHAP.\"\n    },\n    {\n      \"ten_dac_trung\": \"Min\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố có đóng góp dương nhỏ nhất trong nhóm năm đặc trưng hàng đầu đang được xem xét.\"\n    }\n  ],\n  \"de_xuat_kiem_tra\": [\n    {\n      \"nguon_du_lieu\": \"Nhật ký kết nối\",\n      \"noi_dung_can_kiem_tra\": \"Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu hệ thống có ghi nhận metadata này.\",\n      \"muc_dich\": \"Đối chiếu hành vi lưu lượng mạng thực tế với kết quả phân loại của mô hình.\"\n    },\n    {\n      \"nguon_du_lieu\": \"Nhật ký tài nguyên dịch vụ\",\n      \"noi_dung_can_kiem_tra\": \"Tìm các dấu hiệu lỗi, gián đoạn hoặc biến động tài nguyên diễn ra cùng thời điểm.\",\n      \"muc_dich\": \"Xác minh xem có sự cố hệ thống tương ứng đi kèm hay không.\"\n    }\n  ],\n  \"gioi_han\": [\n    \"Giá trị SHAP chỉ phản ánh mức độ đóng góp của đặc trưng đối với đầu ra của mô hình ở mẫu hiện tại chứ không chứng minh quan hệ nhân quả trong thực tế.\",\n    \"Xác suất dự đoán của mô hình chưa qua bước kiểm định hiệu chỉnh xác suất chính thức.\",\n    \"Phạm vi giải thích chỉ giới hạn ở top năm đặc trưng và phần còn lại ngoài top năm chưa được phân tích chi tiết từng yếu tố riêng lẻ.\"\n  ]\n}",
+  "api_status": "received",
+  "api_seconds": 3.1627648559997397
+}

@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_041",
+  "input_row_index": 40,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DDoS",
+  "predicted_probability": 0.9999812841415405,
+  "probabilities": {
+    "Normal": 1.9585720565373776e-06,
+    "BruteForce": 1.0410764161861152e-07,
+    "DDoS": 0.9999812841415405,
+    "DoS": 1.056712972058449e-05,
+    "Mirai": 3.833641130768228e-06,
+    "Recon": 9.904275657390826e-07,
+    "Spoofing": 1.0322711432309006e-06,
+    "Web-Based": 1.7173323385577532e-07
+  },
+  "explained_class": "DDoS",
+  "output_unit": "probability",
+  "base_probability": 0.6250662721304252,
+  "shap_sum": 0.3749150120111154,
+  "other_features_shap_sum": 0.03404568078792647,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 83089968.0,
+      "missing": false,
+      "shap_value": 0.27383187518497226,
+      "impact_percentage_points": 27.383187518497227,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Protocol Type",
+      "value": 6.0,
+      "missing": false,
+      "shap_value": 0.021993574101401236,
+      "impact_percentage_points": 2.1993574101401236,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Magnitue",
+      "value": 10.392304420471191,
+      "missing": false,
+      "shap_value": 0.02098387455598072,
+      "impact_percentage_points": 2.098387455598072,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Tot size",
+      "value": 54.0,
+      "missing": false,
+      "shap_value": 0.014894465615630756,
+      "impact_percentage_points": 1.4894465615630756,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Min",
+      "value": 54.0,
+      "missing": false,
+      "shap_value": 0.009165541765203974,
+      "impact_percentage_points": 0.9165541765203974,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 2.7755575615628914e-17,
+  "shap_seconds": 0.7878673609993712,
+  "seed": 82
+}

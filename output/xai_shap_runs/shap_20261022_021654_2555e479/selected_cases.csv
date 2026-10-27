@@ -1,0 +1,17 @@
+case_id,validation_row_index,val_row,class_id,true_class,predicted_id,predicted_class,correct,source_split,source_row_index,original_label,shap_seed
+case_001_Normal_correct,731895,731895,0,Normal,0,Normal,True,val,1140385,BenignTraffic,142
+case_002_Normal_wrong,328040,328040,0,Normal,5,Recon,False,val,511598,BenignTraffic,242
+case_003_BruteForce_correct,268986,268986,1,BruteForce,1,BruteForce,True,val,419600,DictionaryBruteForce,342
+case_004_BruteForce_wrong,655179,655179,1,BruteForce,6,Spoofing,False,val,1021202,DictionaryBruteForce,442
+case_005_DDoS_correct,279961,279961,2,DDoS,2,DDoS,True,val,436722,DDoS-UDP_Flood,542
+case_006_DDoS_wrong,50811,50811,2,DDoS,3,DoS,False,val,79390,DDoS-SynonymousIP_Flood,642
+case_007_DoS_correct,353665,353665,3,DoS,3,DoS,True,val,551468,DoS-TCP_Flood,742
+case_008_DoS_wrong,583352,583352,3,DoS,2,DDoS,False,val,909201,DoS-UDP_Flood,842
+case_009_Mirai_correct,143474,143474,4,Mirai,4,Mirai,True,val,223703,Mirai-udpplain,942
+case_010_Mirai_wrong,379992,379992,4,Mirai,0,Normal,False,val,592497,Mirai-greip_flood,1042
+case_011_Recon_correct,99118,99118,5,Recon,5,Recon,True,val,154600,Recon-HostDiscovery,1142
+case_012_Recon_wrong,506052,506052,5,Recon,6,Spoofing,False,val,788772,Recon-PortScan,1242
+case_013_Spoofing_correct,359948,359948,6,Spoofing,6,Spoofing,True,val,561228,DNS_Spoofing,1342
+case_014_Spoofing_wrong,257822,257822,6,Spoofing,0,Normal,False,val,402090,DNS_Spoofing,1442
+case_015_Web-Based_correct,180934,180934,7,Web-Based,7,Web-Based,True,val,282137,SqlInjection,1542
+case_016_Web-Based_wrong,442237,442237,7,Web-Based,5,Recon,False,val,689538,SqlInjection,1642

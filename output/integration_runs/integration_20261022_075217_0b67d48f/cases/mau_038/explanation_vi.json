@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mẫu được dự đoán là lớp Spoofing với độ tin cậy vượt trội, trong khi lớp đứng thứ hai là Recon chiếm tỷ lệ rất thấp. Các đặc trưng trong top năm đều đóng vai trò thúc đẩy đầu ra của mô hình, dẫn dắt bởi IAT với mức đóng góp lớn nhất.",
+  "lop_du_doan": "Spoofing",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "Recon",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ đang tắt, cho thấy sự chênh lệch lớn giữa hai lớp đứng đầu; tuy nhiên, điều này không được xem là bảo đảm dự đoán đúng mà chỉ phản ánh trạng thái hiện tại của mô hình."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Trong top năm đặc trưng, tất cả đều mang giá trị dương giúp tăng đầu ra của lớp dự đoán so với nền tham chiếu, trong đó không ghi nhận yếu tố nào đóng vai trò phản đối."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể vào kết quả phân loại của mô hình."
+    },
+    {
+      "ten_dac_trung": "Number",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng có mức độ đóng góp nhỏ hơn yếu tố dẫn đầu."
+    },
+    {
+      "ten_dac_trung": "Protocol Type",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đặc trưng này cung cấp thêm một bước hỗ trợ bổ sung cho xu hướng dự đoán hiện tại."
+    },
+    {
+      "ten_dac_trung": "urg_count",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Sự hiện diện của đặc trưng này tiếp tục củng cố đầu ra với một khoản tăng dương nhẹ."
+    },
+    {
+      "ten_dac_trung": "Header_Length",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đóng góp nhỏ hơn từ đặc trưng này hoàn thiện nhóm các yếu tố tác động cùng chiều trong top năm."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký ánh xạ địa chỉ",
+      "noi_dung_can_kiem_tra": "Nếu hệ thống có lưu trữ thông tin ánh xạ địa chỉ hoặc định danh thiết bị, cần tìm kiếm các thay đổi bất thường hay mâu thuẫn.",
+      "muc_dich": "Đối chiếu với dữ liệu ghi nhận nhằm xác thực tính nhất quán của định danh nguồn."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký thiết bị mạng",
+      "noi_dung_can_kiem_tra": "Nếu hệ thống ghi lại nhật ký thiết bị mạng, cần tìm đối chiếu định danh nguồn với cấu hình, các thay đổi được phép và cảnh báo liên quan.",
+      "muc_dich": "Xác minh xem có sự kiện cấu hình hoặc cảnh báo nào đi kèm với lưu lượng đang xét hay không."
+    }
+  ],
+  "gioi_han": [
+    "Giải thích này phản ánh đầu ra của mô hình ở mức độ dự đoán, không chứng minh sự tồn tại của một cuộc tấn công thực tế hay quan hệ nhân quả.",
+    "Các giá trị SHAP chỉ thể hiện sự đóng góp so với nền tham chiếu trong top năm đặc trưng và chưa bao hàm toàn bộ phần dư ngoài nhóm.",
+    "Xác suất của mô hình chưa được kiểm chứng về độ hiệu chỉnh và không thể dùng làm thước đo an toàn tuyệt đối."
+  ]
+}

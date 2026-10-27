@@ -1,0 +1,12 @@
+{
+  "candidate_id": "XGB_d4_n200",
+  "split": "test",
+  "accuracy": 0.9943748233557335,
+  "macro_f1": 0.8894950991604018,
+  "weighted_f1": 0.9942695391533984,
+  "meta_fit_seconds_this_run": 341.7713021960001,
+  "predict_seconds": 38.81430972499993,
+  "inference_scope": "end-to-end; raw input -> bases -> meta",
+  "rows": 728866,
+  "predict_ms_per_row": 0.053253011836194755
+}

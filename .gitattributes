@@ -1,0 +1,8 @@
+*.ipynb text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# Giữ nguyên byte của artifact Kaggle để không làm sai SHA256 khi checkout.
+/output/** -text

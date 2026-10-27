@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mô hình dự đoán mẫu dữ liệu thuộc lớp DDoS với sự hỗ trợ nổi bật từ đặc trưng IAT trong top năm đặc trưng quan trọng. Khoảng cách giữa lớp đứng đầu và lớp đứng thứ hai khá lớn, thể hiện sự chênh lệch rõ rệt trong kết quả phân loại.",
+  "lop_du_doan": "DDoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ đang tắt, cho thấy sự chênh lệch lớn giữa lớp đứng đầu và lớp đứng thứ hai. Tuy nhiên, mức chênh lệch lớn này không được coi là sự bảo đảm tuyệt đối cho độ chính xác của dự đoán."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Trong top năm đặc trưng được phân tích, IAT đóng vai trò hỗ trợ mạnh mẽ nhất làm tăng giá trị đầu ra của lớp DDoS, trong khi không có đặc trưng nào trong nhóm này tạo ra tác động phản đối mang giá trị âm."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể làm tăng đầu ra của lớp dự đoán."
+    },
+    {
+      "ten_dac_trung": "Magnitue",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng nhỏ hơn yếu tố dẫn đầu, đóng vai trò hỗ trợ bổ sung cho kết quả phân loại."
+    },
+    {
+      "ten_dac_trung": "Protocol Type",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đặc trưng này thể hiện xu hướng đóng góp dương, tiếp tục củng cố thêm cho đầu ra của mô hình."
+    },
+    {
+      "ten_dac_trung": "Tot size",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Sự hiện diện của đặc trưng này mang lại một mức tác động dương nhỏ hơn trong nhóm."
+    },
+    {
+      "ten_dac_trung": "Number",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là thành phần có đóng góp dương ở mức độ thấp nhất trong số năm đặc trưng hàng đầu được xem xét."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký lưu lượng mạng",
+      "noi_dung_can_kiem_tra": "Kiểm tra sự đồng thời của nhiều nguồn đến cùng dịch vụ nếu hệ thống có ghi nhận địa chỉ và thời gian.",
+      "muc_dich": "Đối chiếu hành vi lưu lượng thực tế với kết quả dự đoán của mô hình."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Đối chiếu lưu lượng với tình trạng tài nguyên và khả năng phục vụ của hệ thống dựa trên dữ liệu nhật ký sẵn có.",
+      "muc_dich": "Kiểm tra mức độ ảnh hưởng đến tài nguyên hệ thống nhằm phục vụ công tác rà soát."
+    }
+  ],
+  "gioi_han": [
+    "Kết quả giải thích này chỉ phản ánh đầu ra của mô hình đối với mẫu dữ liệu hiện tại và không chứng minh được quan hệ nhân quả hay sự tồn tại của một cuộc tấn công thực tế.",
+    "Giá trị xác suất từ mô hình chưa được kiểm chứng về độ hiệu chỉnh và các giá trị SHAP chỉ thuộc về lớp được dự đoán.",
+    "Tổng các đặc trưng trong top năm chưa bao trùm toàn bộ sự thay đổi, phần còn lại được đóng góp bởi các đặc trưng ngoài top."
+  ]
+}

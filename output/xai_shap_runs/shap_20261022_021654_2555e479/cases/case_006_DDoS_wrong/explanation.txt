@@ -1,0 +1,10 @@
+Model dự đoán DoS với xác suất 87.23%.
+Nhãn thật: DDoS. Nhãn gốc: DDoS-SynonymousIP_Flood.
+Mốc tham chiếu của lớp này trên background train: 0.218782.
+Mốc tham chiếu + tổng SHAP = 0.218782 + (0.653562) = 0.872344.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- IAT = 5.65168e+07: đóng góp tăng 46.803 điểm phần trăm so với mốc tham chiếu.
+- Weight = 137.831: đóng góp giảm 15.419 điểm phần trăm so với mốc tham chiếu.
+- Rate = 0.217114: đóng góp tăng 12.045 điểm phần trăm so với mốc tham chiếu.
+- Header_Length = 108: đóng góp tăng 11.394 điểm phần trăm so với mốc tham chiếu.
+- Variance = 0: đóng góp tăng 4.748 điểm phần trăm so với mốc tham chiếu.

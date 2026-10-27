@@ -1,0 +1,10 @@
+Model dự đoán BruteForce với xác suất 49.54%.
+Nhãn thật: BruteForce. Nhãn gốc: DictionaryBruteForce.
+Mốc tham chiếu của lớp này trên background train: 0.000088.
+Mốc tham chiếu + tổng SHAP = 0.000088 + (0.495288) = 0.495376.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- rst_count = 1464.9: đóng góp tăng 23.824 điểm phần trăm so với mốc tham chiếu.
+- Protocol Type = 6: đóng góp tăng 6.338 điểm phần trăm so với mốc tham chiếu.
+- Magnitue = 26.9422: đóng góp tăng 6.106 điểm phần trăm so với mốc tham chiếu.
+- IAT = 0.00924659: đóng góp tăng 5.823 điểm phần trăm so với mốc tham chiếu.
+- Tot size = 193.4: đóng góp giảm 4.448 điểm phần trăm so với mốc tham chiếu.

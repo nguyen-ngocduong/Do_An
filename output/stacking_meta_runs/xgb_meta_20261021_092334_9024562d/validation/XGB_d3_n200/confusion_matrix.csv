@@ -1,0 +1,9 @@
+,Normal,BruteForce,DDoS,DoS,Mirai,Recon,Spoofing,Web-Based
+Normal,25426,0,0,0,0,283,464,3
+BruteForce,43,163,0,0,0,32,38,1
+DDoS,4,0,487090,40,1,6,2,0
+DoS,2,0,46,165861,1,2,0,0
+Mirai,2,0,1,1,54829,0,0,0
+Recon,939,0,7,0,0,7169,426,6
+Spoofing,1178,3,0,0,1,347,10177,11
+Web-Based,49,0,0,0,0,71,138,370

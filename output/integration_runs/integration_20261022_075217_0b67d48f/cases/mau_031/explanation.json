@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_031",
+  "input_row_index": 30,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DDoS",
+  "predicted_probability": 0.9999812841415405,
+  "probabilities": {
+    "Normal": 1.9585720565373776e-06,
+    "BruteForce": 1.0757619151036124e-07,
+    "DDoS": 0.9999812841415405,
+    "DoS": 1.056712972058449e-05,
+    "Mirai": 3.849600034300238e-06,
+    "Recon": 9.93544631455734e-07,
+    "Spoofing": 1.0470291726960568e-06,
+    "Web-Based": 1.6570768934798252e-07
+  },
+  "explained_class": "DDoS",
+  "output_unit": "probability",
+  "base_probability": 0.6250662721304252,
+  "shap_sum": 0.3749150120111154,
+  "other_features_shap_sum": 0.035494521579437444,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 83343856.0,
+      "missing": false,
+      "shap_value": 0.2777042139309647,
+      "impact_percentage_points": 27.770421393096473,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Magnitue",
+      "value": 10.392304420471191,
+      "missing": false,
+      "shap_value": 0.024163397948029797,
+      "impact_percentage_points": 2.4163397948029797,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Protocol Type",
+      "value": 6.0,
+      "missing": false,
+      "shap_value": 0.016850367205468803,
+      "impact_percentage_points": 1.6850367205468804,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Min",
+      "value": 54.0,
+      "missing": false,
+      "shap_value": 0.010845789047692733,
+      "impact_percentage_points": 1.0845789047692733,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Max",
+      "value": 54.0,
+      "missing": false,
+      "shap_value": 0.00985672229952191,
+      "impact_percentage_points": 0.9856722299521911,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 2.7755575615628914e-17,
+  "shap_seconds": 0.847120234000613,
+  "seed": 72
+}

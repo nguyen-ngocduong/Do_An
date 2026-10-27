@@ -1,0 +1,12 @@
+[
+  {
+    "candidate_id": "XGB_d4_n200",
+    "rows": 32,
+    "passed": true
+  },
+  {
+    "candidate_id": "STACK_DT_RF_HGB_LR_C1",
+    "rows": 32,
+    "passed": true
+  }
+]

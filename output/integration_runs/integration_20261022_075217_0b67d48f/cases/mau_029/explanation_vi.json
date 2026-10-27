@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Hệ thống dự đoán mẫu thuộc lớp DDoS với sự hỗ trợ nổi bật từ đặc trưng IAT trong top năm đặc trưng quan trọng. Khoảng cách giữa lớp dẫn đầu và lớp đứng thứ hai là rất lớn, cho thấy mô hình phân loại nghiêng hẳn về một hướng duy nhất.",
+  "lop_du_doan": "DDoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ đang tắt, thể hiện sự chênh lệch lớn giữa hai lớp đứng đầu; tuy nhiên, điều này không được coi là sự bảo đảm tuyệt đối về độ chính xác của dự đoán."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Đặc trưng IAT đóng vai trò hỗ trợ mạnh mẽ nhất trong nhóm năm đặc trưng hàng đầu, trong khi không có yếu tố nào mang lại tác động phản đối trong nhóm này."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, đẩy mạnh giá trị đầu ra của lớp được giải thích."
+    },
+    {
+      "ten_dac_trung": "Min",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng có mức độ nhỏ hơn yếu tố dẫn đầu."
+    },
+    {
+      "ten_dac_trung": "Magnitue",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đóng góp bổ sung làm tăng thêm giá trị đầu ra nhưng ở mức thấp hơn."
+    },
+    {
+      "ten_dac_trung": "Tot sum",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Yếu tố này mang lại sự hỗ trợ ở mức độ nhẹ đối với lớp dự đoán."
+    },
+    {
+      "ten_dac_trung": "AVG",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đóng góp cuối cùng trong nhóm top năm có tác động nhỏ nhất nhưng vẫn cùng chiều tăng."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký lưu lượng mạng",
+      "noi_dung_can_kiem_tra": "Kiểm tra sự đồng thời của nhiều nguồn đến cùng dịch vụ nếu hệ thống có ghi nhận địa chỉ và thời gian.",
+      "muc_dich": "Đối chiếu sự gia tăng lưu lượng từ các nguồn khác nhau với kết quả dự đoán."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Đối chiếu lưu lượng với tình trạng tài nguyên và khả năng phục vụ của hệ thống.",
+      "muc_dich": "Xem xét ảnh hưởng của lưu lượng đến trạng thái hoạt động thực tế."
+    }
+  ],
+  "gioi_han": [
+    "Các giá trị SHAP chỉ giải thích đầu ra của mô hình đối với mẫu hiện tại, không chứng minh cuộc tấn công thực tế hay quan hệ nhân quả.",
+    "Tổng các giá trị SHAP trong top năm chưa phải là toàn bộ mức thay đổi của toàn hệ thống đặc trưng.",
+    "Xác suất dự đoán từ mô hình chưa được xác minh là đã hiệu chỉnh hoàn toàn."
+  ]
+}

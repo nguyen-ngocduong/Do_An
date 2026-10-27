@@ -1,0 +1,10 @@
+[
+  {
+    "reference": "full_train_input_hashes.npy",
+    "overlap_groups": 0
+  },
+  {
+    "reference": "val_input_hashes.npy",
+    "overlap_groups": 0
+  }
+]
