@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mô hình dự đoán mẫu dữ liệu thuộc lớp Mirai với mức độ tự tin rất cao, vượt xa các lớp khác trong hệ thống. Các đặc trưng trong top năm đều đóng vai trò đẩy mạnh đầu ra của lớp được chọn. Sự cạnh tranh giữa lớp Mirai đứng đầu và lớp DDoS đứng thứ hai có khoảng cách rất lớn.",
+  "lop_du_doan": "Mirai",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DDoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Lớp đứng thứ hai là DDoS có xác suất rất nhỏ so với lớp dẫn đầu. Cờ khoảng cách nhỏ đang tắt và chênh lệch điểm phần trăm giữa hai lớp rất lớn, tuy nhiên điều này không coi là bảo đảm tuyệt đối dự đoán là đúng."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "Min",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Trong top năm đặc trưng xét đến, Min là yếu tố hỗ trợ mạnh nhất đẩy đầu ra tăng lên, trong khi không có đặc trưng nào nằm trong nhóm này tạo tác động phản đối. Các đóng góp dương khác cùng phần ngoài top năm tạo nên kết quả cuối cùng."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "Min",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể làm tăng giá trị đầu ra của lớp được dự đoán."
+    },
+    {
+      "ten_dac_trung": "Magnitue",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng có phần đóng góp nhỏ hơn yếu tố dẫn đầu trong nhóm."
+    },
+    {
+      "ten_dac_trung": "Tot size",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đặc trưng này mang lại một mức hỗ trợ bổ sung đáng chú ý để củng cố thêm cho kết quả phân loại."
+    },
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Sự hiện diện của yếu tố này tiếp tục đóng góp một lực đẩy dương với mức độ vừa phải vào tổng giá trị SHAP."
+    },
+    {
+      "ten_dac_trung": "flow_duration",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là tác động có chiều hướng đồng thuận nhưng mang lại mức thay đổi nhỏ nhất trong nhóm năm đặc trưng."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối thiết bị",
+      "noi_dung_can_kiem_tra": "Đối chiếu đích kết nối và hoạt động lặp với hành vi được phép của thiết bị IoT.",
+      "muc_dich": "Xem xét xem hệ thống có ghi nhận các kết nối mạng bất thường hay không nếu có dữ liệu nhật ký này."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tiến trình thiết bị",
+      "noi_dung_can_kiem_tra": "Nếu truy cập được thiết bị, tìm tiến trình hoặc cảnh báo liên quan; chưa kết luận đã nhiễm mã độc.",
+      "muc_dich": "Kiểm tra tình trạng hoạt động thực tế bên trong thiết bị nếu hệ thống lưu trữ các bản ghi này."
+    }
+  ],
+  "gioi_han": [
+    "Kết quả này chỉ là giải thích đầu ra của mô hình máy học, không phải là bằng chứng chứng minh một cuộc tấn công thực tế hay quan hệ nhân quả.",
+    "Giá trị SHAP phản ánh mức độ đóng góp so với nền tham chiếu của mô hình chứ không suy ra thay đổi giá trị đặc trưng sẽ sửa đổi được dự đoán.",
+    "Xác suất dự đoán hiện tại chưa được xác minh là đã hiệu chỉnh và tổng top năm chưa bao trùm toàn bộ các yếu tố của mô hình."
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_026",
+  "input_row_index": 25,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DDoS",
+  "predicted_probability": 0.9999812841415405,
+  "probabilities": {
+    "Normal": 1.9585720565373776e-06,
+    "BruteForce": 1.0541964456933783e-07,
+    "DDoS": 0.9999812841415405,
+    "DoS": 1.056712972058449e-05,
+    "Mirai": 3.833641130768228e-06,
+    "Recon": 9.904275657390826e-07,
+    "Spoofing": 1.0470291726960568e-06,
+    "Web-Based": 1.7173323385577532e-07
+  },
+  "explained_class": "DDoS",
+  "output_unit": "probability",
+  "base_probability": 0.6250662721304252,
+  "shap_sum": 0.3749150120111154,
+  "other_features_shap_sum": 0.015864296241649867,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 83067368.0,
+      "missing": false,
+      "shap_value": 0.28826675244179495,
+      "impact_percentage_points": 28.826675244179494,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Protocol Type",
+      "value": 6.0,
+      "missing": false,
+      "shap_value": 0.03042854916152275,
+      "impact_percentage_points": 3.042854916152275,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Magnitue",
+      "value": 10.392304420471191,
+      "missing": false,
+      "shap_value": 0.025972437982147767,
+      "impact_percentage_points": 2.5972437982147767,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Number",
+      "value": 9.5,
+      "missing": false,
+      "shap_value": 0.008035939719320595,
+      "impact_percentage_points": 0.8035939719320595,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "rst_count",
+      "value": 0.0,
+      "missing": false,
+      "shap_value": 0.006347036464679452,
+      "impact_percentage_points": 0.6347036464679452,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 1.3877787807814457e-17,
+  "shap_seconds": 0.7236813560002702,
+  "seed": 67
+}

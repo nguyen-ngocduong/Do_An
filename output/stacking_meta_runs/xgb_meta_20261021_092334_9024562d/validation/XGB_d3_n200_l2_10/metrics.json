@@ -1,0 +1,12 @@
+{
+  "candidate_id": "XGB_d3_n200_l2_10",
+  "split": "validation",
+  "accuracy": 0.994515599821512,
+  "macro_f1": 0.8952806476196601,
+  "weighted_f1": 0.9944192424234894,
+  "meta_fit_seconds_this_run": 326.38708035800005,
+  "predict_seconds": 6.968400544999895,
+  "inference_scope": "meta-only; reused cached base probabilities",
+  "rows": 755233,
+  "predict_ms_per_row": 0.009226822113175529
+}

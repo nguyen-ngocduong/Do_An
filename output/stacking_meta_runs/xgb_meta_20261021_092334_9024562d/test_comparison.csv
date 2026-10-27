@@ -1,0 +1,3 @@
+candidate_id,split,accuracy,macro_f1,weighted_f1,meta_fit_seconds_this_run,predict_seconds,inference_scope,rows,predict_ms_per_row,kind,primary_selected_on_validation,test_previously_viewed
+XGB_d4_n200,test,0.9943748233557335,0.8894950991604018,0.9942695391533984,341.7713021960001,38.81430972499993,end-to-end; raw input -> bases -> meta,728866,0.053253011836194755,xgboost_meta,True,True
+STACK_DT_RF_HGB_LR_C1,test,0.9938726734406599,0.8594012288538586,0.993823822288205,0.0,30.859198644000116,end-to-end; raw input -> bases -> meta,728866,0.04233864474951516,baseline_lr,False,True

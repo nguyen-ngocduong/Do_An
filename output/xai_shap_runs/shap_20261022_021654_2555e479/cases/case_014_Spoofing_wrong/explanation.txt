@@ -1,0 +1,10 @@
+Model dự đoán Normal với xác suất 39.83%.
+Nhãn thật: Spoofing. Nhãn gốc: DNS_Spoofing.
+Mốc tham chiếu của lớp này trên background train: 0.059206.
+Mốc tham chiếu + tổng SHAP = 0.059206 + (0.339087) = 0.398292.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- Magnitue = 15.4883: đóng góp tăng 6.982 điểm phần trăm so với mốc tham chiếu.
+- Number = 5.5: đóng góp tăng 5.743 điểm phần trăm so với mốc tham chiếu.
+- IAT = 0.0046541: đóng góp tăng 5.582 điểm phần trăm so với mốc tham chiếu.
+- syn_count = 1.6: đóng góp giảm 5.216 điểm phần trăm so với mốc tham chiếu.
+- Variance = 0.9: đóng góp tăng 2.837 điểm phần trăm so với mốc tham chiếu.

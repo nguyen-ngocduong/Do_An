@@ -1,0 +1,10 @@
+Model dự đoán Web-Based với xác suất 98.75%.
+Nhãn thật: Web-Based. Nhãn gốc: SqlInjection.
+Mốc tham chiếu của lớp này trên background train: 0.000010.
+Mốc tham chiếu + tổng SHAP = 0.000010 + (0.987504) = 0.987514.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- IAT = 1.66482e+08: đóng góp tăng 23.518 điểm phần trăm so với mốc tham chiếu.
+- Magnitue = 19.558: đóng góp tăng 18.206 điểm phần trăm so với mốc tham chiếu.
+- Protocol Type = 5.5: đóng góp tăng 9.972 điểm phần trăm so với mốc tham chiếu.
+- Number = 13.5: đóng góp tăng 8.347 điểm phần trăm so với mốc tham chiếu.
+- Tot size = 236.5: đóng góp tăng 6.021 điểm phần trăm so với mốc tham chiếu.

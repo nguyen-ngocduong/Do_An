@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_029",
+  "input_row_index": 28,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DDoS",
+  "predicted_probability": 0.9999812841415405,
+  "probabilities": {
+    "Normal": 1.9585720565373776e-06,
+    "BruteForce": 1.0582235887568459e-07,
+    "DDoS": 0.9999812841415405,
+    "DoS": 1.056712972058449e-05,
+    "Mirai": 3.833641130768228e-06,
+    "Recon": 9.904275657390826e-07,
+    "Spoofing": 1.0470291726960568e-06,
+    "Web-Based": 1.8183068561938853e-07
+  },
+  "explained_class": "DDoS",
+  "output_unit": "probability",
+  "base_probability": 0.6250662721304252,
+  "shap_sum": 0.3749150120111153,
+  "other_features_shap_sum": 0.023029395730674196,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 83097808.0,
+      "missing": false,
+      "shap_value": 0.2832872312954559,
+      "impact_percentage_points": 28.32872312954559,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Min",
+      "value": 50.0,
+      "missing": false,
+      "shap_value": 0.0335708885212019,
+      "impact_percentage_points": 3.35708885212019,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Magnitue",
+      "value": 10.015085220336914,
+      "missing": false,
+      "shap_value": 0.01722804812058598,
+      "impact_percentage_points": 1.7228048120585981,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Tot sum",
+      "value": 526.5999755859375,
+      "missing": false,
+      "shap_value": 0.009515534769102866,
+      "impact_percentage_points": 0.9515534769102866,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "AVG",
+      "value": 50.15143966674805,
+      "missing": false,
+      "shap_value": 0.00828391357409449,
+      "impact_percentage_points": 0.8283913574094489,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 2.7755575615628914e-17,
+  "shap_seconds": 0.773952472000019,
+  "seed": 70
+}

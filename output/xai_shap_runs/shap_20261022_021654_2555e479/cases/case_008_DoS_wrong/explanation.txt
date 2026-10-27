@@ -1,0 +1,10 @@
+Model dự đoán DDoS với xác suất 63.98%.
+Nhãn thật: DoS. Nhãn gốc: DoS-UDP_Flood.
+Mốc tham chiếu của lớp này trên background train: 0.625066.
+Mốc tham chiếu + tổng SHAP = 0.625066 + (0.014695) = 0.639761.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- IAT = 4.23855e-06: đóng góp giảm 24.176 điểm phần trăm so với mốc tham chiếu.
+- Weight = 31.6667: đóng góp tăng 22.365 điểm phần trăm so với mốc tham chiếu.
+- Srate = 9621.37: đóng góp giảm 5.493 điểm phần trăm so với mốc tham chiếu.
+- Header_Length = 24050: đóng góp giảm 4.804 điểm phần trăm so với mốc tham chiếu.
+- Magnitue = 10: đóng góp tăng 4.605 điểm phần trăm so với mốc tham chiếu.

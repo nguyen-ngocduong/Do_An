@@ -1,0 +1,206 @@
+[
+  {
+    "category": "source stacking",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/protocol.json",
+    "bytes": 4158,
+    "sha256": "e32b8942119d97513a1ee21aaf45e0c714ca4a5b32718cf9cc323ba23889bda4"
+  },
+  {
+    "category": "source stacking",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/run_status.json",
+    "bytes": 240,
+    "sha256": "0105fa19649b9c49c0db573260bee087043c035acb0b7bf5449a87b7a46dec70"
+  },
+  {
+    "category": "source stacking",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/frozen_candidates.json",
+    "bytes": 1497,
+    "sha256": "464429ec5c87aa8c8d898fc9a7e85bc4d13c5e540644078f98a9ef9ad5a4fa17"
+  },
+  {
+    "category": "source stacking",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/validation_comparison.csv",
+    "bytes": 1529,
+    "sha256": "d6eda6ce570444d20a8f8e6e6fafe65a9fd59a4a54310798fbbefaf980ad37f8"
+  },
+  {
+    "category": "source stacking",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/reload_checks.json",
+    "bytes": 161,
+    "sha256": "ae951f65a5310dc925ab5b9a33eef6e23bde9e81306df0dd2e6ca17645f20d5e"
+  },
+  {
+    "category": "source stacking",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/effective_overlap_audit.json",
+    "bytes": 750,
+    "sha256": "b20e415c87a914048cf470ed1d7e8d7167e0de11fb7dda7afc90fec38846415a"
+  },
+  {
+    "category": "source frozen baseline bundle",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/frozen_models/STACK_DT_RF_HGB_LR_C1.joblib",
+    "bytes": 244593232,
+    "sha256": "098be299181aacb5333753363da2d6e25baf05b6d2401e48afdc9313b3f7cdca"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/preprocessing_config.json",
+    "bytes": 3097,
+    "sha256": "02485255fa24a74b90a1d6f8f6e758ffbead0a057459460aa9a6d26e6f2e1c3d"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/feature_schema.json",
+    "bytes": 1900,
+    "sha256": "bbb80ef95b8f49feb54c45201174b609b8761eed0ec4ac41fa7fdee389eca890"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/label_mapping.json",
+    "bytes": 1634,
+    "sha256": "c5ccd34c1c587cd0627fcabea491037cacf945a109d8f7546615bef25deb5914"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/split_protocol.json",
+    "bytes": 742,
+    "sha256": "cf4ffa2d68285846b7db4e799784eae747aec1e3c08f8475329fc7d36d500d56"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/fold_id_train.npy",
+    "bytes": 4114906,
+    "sha256": "7c91980c82db6af34d34d0866d6c67d6b6e25540c607bce63c0f77acb3febd8e"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/y_train.npy",
+    "bytes": 4114906,
+    "sha256": "c256f1a1f327a0519dab2abdceb81e8f4bb86b4e76594e06dd3a7e548fcf4f79"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/y_val.npy",
+    "bytes": 755361,
+    "sha256": "0353b49cef9749a0fe5484154a2b084e0cc6cdcf2f0c2b86c524115f3a79c49d"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/X_val_unprocessed.npy",
+    "bytes": 138963000,
+    "sha256": "bc73a045d7e4bfc8a5ab7aa1a515506726969b0d0b24426f508e64d7985d4d6a"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/X_test_unprocessed.npy",
+    "bytes": 134111472,
+    "sha256": "9c8d715bb9d11b1b8e112cccb646939d7526a47b046b03754ea2eedbdfefe944"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/y_test.npy",
+    "bytes": 728994,
+    "sha256": "c801a6cbc354b82e519cf5cd8eefcfb037e3f9319e6b2a42e30466964d893eff"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/group_id_train.npy",
+    "bytes": 32918352,
+    "sha256": "e767652c0c14cd7da43bd27f383712c4911507fdd1235a170d416e64c0111bfe"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/group_id_val.npy",
+    "bytes": 6041992,
+    "sha256": "e4fe754c57cd1eb57e265c1e14489f5e38f57e63e7572e45fb4c79a6d91e409e"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/group_id_test.npy",
+    "bytes": 5831056,
+    "sha256": "f7771aa06fd82eadc9639770941993eb63c8c88aa08b5f7ddbce875fa0732c80"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/sample_metadata_train.pkl",
+    "bytes": 82306992,
+    "sha256": "9c54d13f948258bf22bf146e251fa2cab39d24e10f12d6100430289e8ccbcc22"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/sample_metadata_val.pkl",
+    "bytes": 15108454,
+    "sha256": "5553abeba4c9cdff9c7a09d4168b519db999997960e36cba7830128bfa357f3d"
+  },
+  {
+    "category": "processing",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/sample_metadata_test.pkl",
+    "bytes": 14581052,
+    "sha256": "bd1e5566c41ea9a5cbeaeaf1f6c63132519b82e66c5daaeb92c7b3236507bbe9"
+  },
+  {
+    "category": "processing checksum manifest",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-processing/processed_data/20261021_052521_96f61f19/checksums.json",
+    "bytes": 2962,
+    "sha256": "f9c4cf30b1e9b62b9c2d95f804a24a94f4d5e77b85b5e2055ae1ceebdbff9553"
+  },
+  {
+    "category": "OOF coverage",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/oof/coverage.npy",
+    "bytes": 12344462,
+    "sha256": "b697b8d36eed0daa751bf8aa03e0b82cf3a08b65a99ec7eaccd3675c61f1c663"
+  },
+  {
+    "category": "source fold IDs",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/oof/fold_ids.npy",
+    "bytes": 4114906,
+    "sha256": "7c91980c82db6af34d34d0866d6c67d6b6e25540c607bce63c0f77acb3febd8e"
+  },
+  {
+    "category": "OOF probabilities",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/oof/DT_probabilities.npy",
+    "bytes": 131673024,
+    "sha256": "d457667b1748f38e334b33065ed28e7d9877f37569f362bd01cc6a335e2a6e04"
+  },
+  {
+    "category": "cached validation probabilities",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/validation_DT_probabilities.npy",
+    "bytes": 24167584,
+    "sha256": "cceee272762d8b5ae9ec0a0400b6525c1dfbb0a06d853b6acec5a029ccd9feef"
+  },
+  {
+    "category": "OOF probabilities",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/oof/RF_probabilities.npy",
+    "bytes": 131673024,
+    "sha256": "d90591ad4f18ade08da3a8f3e21163407c8459940f598881fab7929b4ed4d3d8"
+  },
+  {
+    "category": "cached validation probabilities",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/validation_RF_probabilities.npy",
+    "bytes": 24167584,
+    "sha256": "2c7438f75bbb0bc20e56f4ac8b7fdf13b7890aa258eb786355c56529d6dbcb02"
+  },
+  {
+    "category": "OOF probabilities",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/oof/HGB_probabilities.npy",
+    "bytes": 131673024,
+    "sha256": "d5ed55ea996f32f6bdda30a8b46d43f290acc8da54f5f221751939d5f66cb42f"
+  },
+  {
+    "category": "cached validation probabilities",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/validation_HGB_probabilities.npy",
+    "bytes": 24167584,
+    "sha256": "39a3479f37d40bebe1496c0cf4bd4ec4e834d0f2ea3a19b956f2716247ee315c"
+  },
+  {
+    "category": "source effective-input hashes",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/full_train_input_hashes.npy",
+    "bytes": 65836576,
+    "sha256": "6502e280b7908f2da0fa1dc28d8b82ced7ac1f4a1ec6969f5725e24fa1c6d101"
+  },
+  {
+    "category": "source effective-input hashes",
+    "path": "/kaggle/input/notebooks/phungdinhdat/ciciot2023-do-an-stacking/stacking_runs/stacking_20261021_064141_916da555/val_input_hashes.npy",
+    "bytes": 11853968,
+    "sha256": "58150ea69a3e552b0ddb25e7a990cf63e41dd441fa8bf45c82fb5a202083f51f"
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "case_id": "case_010_Mirai_wrong",
+  "model_id": "XGB_d4_n200",
+  "source_xgb_run_id": "xgb_meta_20261021_092334_9024562d",
+  "data_run_id": "20261021_052521_96f61f19",
+  "validation_row_index": 379992,
+  "source_split": "val",
+  "source_row_index": 592497,
+  "original_label": "Mirai-greip_flood",
+  "true_class": "Mirai",
+  "predicted_class": "Normal",
+  "correct": false,
+  "probabilities": {
+    "Normal": 0.3331584930419922,
+    "BruteForce": 0.01150900311768055,
+    "DDoS": 0.23022326827049255,
+    "DoS": 0.08965539187192917,
+    "Mirai": 0.0026658675633370876,
+    "Recon": 0.31060075759887695,
+    "Spoofing": 0.01608925126492977,
+    "Web-Based": 0.006097950041294098
+  },
+  "explained_class": "Normal",
+  "output_unit": "probability",
+  "base_probability": 0.05920576997039717,
+  "predicted_probability": 0.3331584930419922,
+  "shap_sum": 0.273952723071595,
+  "other_features_shap_sum": 0.08176697993215262,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 76043032.0,
+      "missing": false,
+      "shap_value": 0.05452458129181714,
+      "impact_percentage_points": 5.452458129181714,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Magnitue",
+      "value": 35.38740539550781,
+      "missing": false,
+      "shap_value": 0.037311779495638575,
+      "impact_percentage_points": 3.7311779495638575,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "HTTPS",
+      "value": 1.0,
+      "missing": false,
+      "shap_value": 0.03458413115695613,
+      "impact_percentage_points": 3.4584131156956133,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "rst_count",
+      "value": 209.8333282470703,
+      "missing": false,
+      "shap_value": 0.03427290259559612,
+      "impact_percentage_points": 3.427290259559612,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Weight",
+      "value": 130.06060791015625,
+      "missing": false,
+      "shap_value": 0.03149234859943443,
+      "impact_percentage_points": 3.149234859943443,
+      "direction": "increase"
+    }
+  ],
+  "comparison": {
+    "class": "Mirai",
+    "reason": "true class for a misclassified sample",
+    "probability": 0.0026658675633370876,
+    "base_probability_gap": -0.03455431645914331,
+    "predicted_probability_gap": 0.3304926254786551
+  },
+  "max_additivity_error_all_classes": 1.1102230246251565e-16,
+  "seed": 1042,
+  "max_evals": 465,
+  "shap_seconds": 0.7565570720000778,
+  "interpretation": "Contributions relative to the saved train background; not causal evidence."
+}

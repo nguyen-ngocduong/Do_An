@@ -1,0 +1,10 @@
+Model dự đoán DDoS với xác suất 100.00%.
+Nhãn thật: DDoS. Nhãn gốc: DDoS-UDP_Flood.
+Mốc tham chiếu của lớp này trên background train: 0.625066.
+Mốc tham chiếu + tổng SHAP = 0.625066 + (0.374915) = 0.999981.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- IAT = 8.31024e+07: đóng góp tăng 28.760 điểm phần trăm so với mốc tham chiếu.
+- Min = 50: đóng góp tăng 3.525 điểm phần trăm so với mốc tham chiếu.
+- Magnitue = 10: đóng góp tăng 1.357 điểm phần trăm so với mốc tham chiếu.
+- Tot sum = 525: đóng góp tăng 1.003 điểm phần trăm so với mốc tham chiếu.
+- Number = 9.5: đóng góp tăng 0.773 điểm phần trăm so với mốc tham chiếu.

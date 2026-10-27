@@ -1,0 +1,88 @@
+{
+  "case_id": "case_014_Spoofing_wrong",
+  "model_id": "XGB_d4_n200",
+  "source_xgb_run_id": "xgb_meta_20261021_092334_9024562d",
+  "data_run_id": "20261021_052521_96f61f19",
+  "validation_row_index": 257822,
+  "source_split": "val",
+  "source_row_index": 402090,
+  "original_label": "DNS_Spoofing",
+  "true_class": "Spoofing",
+  "predicted_class": "Normal",
+  "correct": false,
+  "probabilities": {
+    "Normal": 0.3982924520969391,
+    "BruteForce": 0.027609828859567642,
+    "DDoS": 0.00193009281065315,
+    "DoS": 0.000977706047706306,
+    "Mirai": 0.0003711720055434853,
+    "Recon": 0.38261982798576355,
+    "Spoofing": 0.16133137047290802,
+    "Web-Based": 0.026867568492889404
+  },
+  "explained_class": "Normal",
+  "output_unit": "probability",
+  "base_probability": 0.05920576997039717,
+  "predicted_probability": 0.3982924520969391,
+  "shap_sum": 0.33908668212654197,
+  "other_features_shap_sum": 0.17980210182379788,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "Magnitue",
+      "value": 15.48830509185791,
+      "missing": false,
+      "shap_value": 0.06982202666759167,
+      "impact_percentage_points": 6.982202666759167,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Number",
+      "value": 5.5,
+      "missing": false,
+      "shap_value": 0.05743026824040953,
+      "impact_percentage_points": 5.743026824040953,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "IAT",
+      "value": 0.004654097370803356,
+      "missing": false,
+      "shap_value": 0.055822221606541454,
+      "impact_percentage_points": 5.582222160654146,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "syn_count",
+      "value": 1.600000023841858,
+      "missing": false,
+      "shap_value": -0.052160871033644085,
+      "impact_percentage_points": -5.2160871033644085,
+      "direction": "decrease"
+    },
+    {
+      "rank": 5,
+      "feature": "Variance",
+      "value": 0.8999999761581421,
+      "missing": false,
+      "shap_value": 0.028370934821845495,
+      "impact_percentage_points": 2.8370934821845495,
+      "direction": "increase"
+    }
+  ],
+  "comparison": {
+    "class": "Spoofing",
+    "reason": "true class for a misclassified sample",
+    "probability": 0.16133137047290802,
+    "base_probability_gap": 0.057221275139291095,
+    "predicted_probability_gap": 0.23696108162403107
+  },
+  "max_additivity_error_all_classes": 5.551115123125783e-17,
+  "seed": 1442,
+  "max_evals": 465,
+  "shap_seconds": 0.7583497630000693,
+  "interpretation": "Contributions relative to the saved train background; not causal evidence."
+}

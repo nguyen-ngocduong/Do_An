@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_038",
+  "input_row_index": 37,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "Spoofing",
+  "predicted_probability": 0.9977109432220459,
+  "probabilities": {
+    "Normal": 7.47901140130125e-05,
+    "BruteForce": 9.171715646516532e-06,
+    "DDoS": 0.00028669240418821573,
+    "DoS": 0.00014354668383020908,
+    "Mirai": 5.269905523164198e-05,
+    "Recon": 0.0013957795454189181,
+    "Spoofing": 0.9977109432220459,
+    "Web-Based": 0.00032641564030200243
+  },
+  "explained_class": "Spoofing",
+  "output_unit": "probability",
+  "base_probability": 0.001984494831106076,
+  "shap_sum": 0.9957264483909398,
+  "other_features_shap_sum": 0.11780666141042762,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 166852992.0,
+      "missing": false,
+      "shap_value": 0.5643859983111973,
+      "impact_percentage_points": 56.43859983111973,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Number",
+      "value": 13.5,
+      "missing": false,
+      "shap_value": 0.1306961702400032,
+      "impact_percentage_points": 13.06961702400032,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Protocol Type",
+      "value": 8.800000190734863,
+      "missing": false,
+      "shap_value": 0.07240793081105827,
+      "impact_percentage_points": 7.240793081105827,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "urg_count",
+      "value": 42.5,
+      "missing": false,
+      "shap_value": 0.06075093756776676,
+      "impact_percentage_points": 6.075093756776676,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Header_Length",
+      "value": 8377.2998046875,
+      "missing": false,
+      "shap_value": 0.04967875005048672,
+      "impact_percentage_points": 4.967875005048672,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 1.1102230246251565e-16,
+  "shap_seconds": 0.9306727490002231,
+  "seed": 79
+}

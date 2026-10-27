@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_019",
+  "input_row_index": 18,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "Mirai",
+  "predicted_probability": 0.9999306201934814,
+  "probabilities": {
+    "Normal": 3.944432137359399e-06,
+    "BruteForce": 2.783857553367852e-07,
+    "DDoS": 4.002833884442225e-05,
+    "DoS": 1.948363751580473e-05,
+    "Mirai": 0.9999306201934814,
+    "Recon": 2.3770405732648214e-06,
+    "Spoofing": 2.6615193746692967e-06,
+    "Web-Based": 6.159446570563887e-07
+  },
+  "explained_class": "Mirai",
+  "output_unit": "probability",
+  "base_probability": 0.09376008642954048,
+  "shap_sum": 0.9061705337639409,
+  "other_features_shap_sum": 0.1129261327965948,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "Protocol Type",
+      "value": 47.0,
+      "missing": false,
+      "shap_value": 0.25783366183776596,
+      "impact_percentage_points": 25.783366183776597,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "IAT",
+      "value": 83650864.0,
+      "missing": false,
+      "shap_value": 0.25061509762707246,
+      "impact_percentage_points": 25.061509762707246,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Magnitue",
+      "value": 34.0,
+      "missing": false,
+      "shap_value": 0.18706486324763816,
+      "impact_percentage_points": 18.706486324763816,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Tot size",
+      "value": 578.0,
+      "missing": false,
+      "shap_value": 0.063840286975631,
+      "impact_percentage_points": 6.3840286975631,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Min",
+      "value": 578.0,
+      "missing": false,
+      "shap_value": 0.033890491279238454,
+      "impact_percentage_points": 3.3890491279238453,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 1.1102230246251565e-16,
+  "shap_seconds": 0.8432335659999808,
+  "seed": 60
+}

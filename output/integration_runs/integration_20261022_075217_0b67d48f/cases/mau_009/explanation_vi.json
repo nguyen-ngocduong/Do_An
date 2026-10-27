@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mẫu được mô hình dự đoán là DDoS với xác suất rất cao vượt trội so với lớp đứng thứ hai là DoS. Đặc trưng IAT đóng vai trò hỗ trợ mạnh mẽ nhất, trong khi tất cả các đặc trưng trong top năm đều có chiều hướng tăng giá trị đầu ra.",
+  "lop_du_doan": "DDoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ đang tắt do khoảng cách giữa hai lớp lớn, cho thấy mô hình phân định rõ ràng nhưng không coi đây là sự bảo đảm tuyệt đối về nhãn thật."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Trong top năm đặc trưng, IAT là yếu tố hỗ trợ mạnh nhất đẩy giá trị dự đoán lên cao, không có yếu tố nào mang chiều phản đối."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, đóng góp lớn nhất vào việc nâng cao giá trị đầu ra."
+    },
+    {
+      "ten_dac_trung": "Protocol Type",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng có quy mô nhỏ hơn yếu tố dẫn đầu trong nhóm."
+    },
+    {
+      "ten_dac_trung": "Magnitue",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đóng góp dương mang tính bổ sung, góp phần củng cố thêm xu hướng dự đoán."
+    },
+    {
+      "ten_dac_trung": "Min",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Yếu tố này mang lại mức tác động dương ở mức độ thấp hơn."
+    },
+    {
+      "ten_dac_trung": "Number",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là đóng góp dương nhỏ nhất trong nhóm top năm đặc trưng đang xem xét."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký lưu lượng mạng",
+      "noi_dung_can_kiem_tra": "Kiểm tra sự đồng thời của nhiều nguồn đến cùng dịch vụ nếu có địa chỉ và thời gian",
+      "muc_dich": "Đối chiếu hành vi lưu lượng thực tế phát sinh trong hệ thống."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Đối chiếu lưu lượng với tình trạng tài nguyên và khả năng phục vụ",
+      "muc_dich": "Đánh giá mức độ ảnh hưởng đến hạ tầng ứng dụng."
+    }
+  ],
+  "gioi_han": [
+    "Giá trị SHAP chỉ phản ánh mức độ đóng góp của đặc trưng đối với đầu ra của mô hình, không chứng minh quan hệ nhân quả.",
+    "Xác suất dự đoán chưa được hiệu chỉnh chính thức và không thể coi là độ chính xác tuyệt đối.",
+    "Phạm vi giải thích chỉ giới hạn trong top năm đặc trưng, chưa bao gồm toàn bộ tác động ngoại vi."
+  ]
+}

@@ -1,0 +1,10 @@
+Model dự đoán Normal với xác suất 33.32%.
+Nhãn thật: Mirai. Nhãn gốc: Mirai-greip_flood.
+Mốc tham chiếu của lớp này trên background train: 0.059206.
+Mốc tham chiếu + tổng SHAP = 0.059206 + (0.273953) = 0.333158.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- IAT = 7.6043e+07: đóng góp tăng 5.452 điểm phần trăm so với mốc tham chiếu.
+- Magnitue = 35.3874: đóng góp tăng 3.731 điểm phần trăm so với mốc tham chiếu.
+- HTTPS = 1: đóng góp tăng 3.458 điểm phần trăm so với mốc tham chiếu.
+- rst_count = 209.833: đóng góp tăng 3.427 điểm phần trăm so với mốc tham chiếu.
+- Weight = 130.061: đóng góp tăng 3.149 điểm phần trăm so với mốc tham chiếu.

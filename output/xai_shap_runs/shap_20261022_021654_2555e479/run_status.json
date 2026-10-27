@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "run_id": "shap_20261022_021654_2555e479",
+  "protocol": "stacking_shap_local_v1",
+  "source_xgb_run_id": "xgb_meta_20261021_092334_9024562d",
+  "data_run_id": "20261021_052521_96f61f19",
+  "model_id": "XGB_d4_n200",
+  "explained_cases": 16,
+  "test_loaded": false,
+  "model_refitted": false,
+  "finished_at": "2026-10-22 02:18:22",
+  "total_seconds": 88.00929008799994
+}

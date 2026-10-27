@@ -1,0 +1,82 @@
+{
+  "Normal": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối",
+      "goi_y": "Đối chiếu đích kết nối, dịch vụ và thời điểm với hoạt động được phép."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký thiết bị",
+      "goi_y": "Kiểm tra lỗi hoặc cảnh báo đồng thời; dự đoán Normal không bảo đảm an toàn."
+    }
+  ],
+  "BruteForce": [
+    {
+      "nguon_du_lieu": "Nhật ký xác thực",
+      "goi_y": "Tìm các lần đăng nhập thất bại lặp lại theo tài khoản, nguồn và thời điểm nếu có log."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký dịch vụ",
+      "goi_y": "Đối chiếu kết nối đến dịch vụ xác thực với hoạt động người dùng được phép."
+    }
+  ],
+  "DDoS": [
+    {
+      "nguon_du_lieu": "Nhật ký lưu lượng mạng",
+      "goi_y": "Kiểm tra sự đồng thời của nhiều nguồn đến cùng dịch vụ nếu có địa chỉ và thời gian."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "goi_y": "Đối chiếu lưu lượng với tình trạng tài nguyên và khả năng phục vụ, không tự đặt ngưỡng."
+    }
+  ],
+  "DoS": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối",
+      "goi_y": "Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu có metadata."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "goi_y": "Tìm lỗi, gián đoạn hoặc thay đổi tài nguyên cùng thời điểm để xác minh thêm."
+    }
+  ],
+  "Mirai": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối thiết bị",
+      "goi_y": "Đối chiếu đích kết nối và hoạt động lặp với hành vi được phép của thiết bị IoT."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tiến trình thiết bị",
+      "goi_y": "Nếu truy cập được thiết bị, tìm tiến trình hoặc cảnh báo liên quan; chưa kết luận đã nhiễm mã độc."
+    }
+  ],
+  "Recon": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối",
+      "goi_y": "Tìm chuỗi truy cập nhiều đích hoặc cổng từ cùng nguồn nếu có dữ liệu chi tiết."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký quản trị mạng",
+      "goi_y": "Đối chiếu với lịch quét hoặc giám sát được phép trước khi coi đó là hành vi bất thường."
+    }
+  ],
+  "Spoofing": [
+    {
+      "nguon_du_lieu": "Nhật ký ánh xạ địa chỉ",
+      "goi_y": "Nếu có ánh xạ địa chỉ hoặc định danh thiết bị, tìm thay đổi hay mâu thuẫn cần xác minh."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký thiết bị mạng",
+      "goi_y": "Đối chiếu định danh nguồn với cấu hình, thay đổi được phép và cảnh báo liên quan."
+    }
+  ],
+  "Web-Based": [
+    {
+      "nguon_du_lieu": "Nhật ký truy cập ứng dụng web",
+      "goi_y": "Nếu có, kiểm tra đường dẫn, phương thức, trạng thái phản hồi và các yêu cầu lặp liên quan."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký ứng dụng hoặc WAF",
+      "goi_y": "Đối chiếu lỗi, yêu cầu bị từ chối hoặc cảnh báo với truy cập tương ứng nếu hệ thống có ghi nhận."
+    }
+  ]
+}

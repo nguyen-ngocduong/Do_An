@@ -10,3 +10,45 @@
 *.ubj
 *.gz
 work_dir
+Viet_Quyen
+
+# Môi trường và tệp tạm trên máy cá nhân.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Chỉ đồng bộ kết quả chốt và hai run nguồn cần cho tích hợp.
+/output/*
+!/output/README.md
+!/output/plots/
+!/output/stacking_meta_runs/
+!/output/xai_shap_runs/
+!/output/integration_runs/
+/output/stacking_meta_runs/*
+!/output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/
+/output/xai_shap_runs/*
+!/output/xai_shap_runs/shap_20261022_021654_2555e479/
+/output/integration_runs/*
+!/output/integration_runs/integration_20261022_075217_0b67d48f/
+
+# Metadata và báo cáo nhỏ; bundle lớn/cache train vẫn ở Kaggle hoặc local.
+!/output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/**/*.json
+!/output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/**/*.csv
+!/output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/requirements.txt
+/output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/meta_models/
+!/output/xai_shap_runs/shap_20261022_021654_2555e479/**/*.json
+!/output/xai_shap_runs/shap_20261022_021654_2555e479/**/*.csv
+!/output/xai_shap_runs/shap_20261022_021654_2555e479/**/*.txt
+!/output/xai_shap_runs/shap_20261022_021654_2555e479/**/*.npy
+!/output/xai_shap_runs/shap_20261022_021654_2555e479/**/*.npz
+!/output/integration_runs/integration_20261022_075217_0b67d48f/**/*.json
+!/output/integration_runs/integration_20261022_075217_0b67d48f/**/*.csv
+!/output/integration_runs/integration_20261022_075217_0b67d48f/**/*.txt
+!/output/integration_runs/integration_20261022_075217_0b67d48f/**/*.npz
+
+# Không đưa thông tin xác thực lên Git, kể cả trong thư mục output được chọn.
+.env
+.env.*
+*.env

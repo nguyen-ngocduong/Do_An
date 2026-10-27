@@ -1,0 +1,23 @@
+{
+  "parameters": {
+    "objective": "multi:softprob",
+    "num_class": 8,
+    "eval_metric": "mlogloss",
+    "tree_method": "hist",
+    "learning_rate": 0.05,
+    "min_child_weight": 5.0,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_alpha": 0.0,
+    "random_state": 42,
+    "n_jobs": 2,
+    "max_depth": 4,
+    "n_estimators": 200,
+    "reg_lambda": 5.0
+  },
+  "rare_weight": 1.0,
+  "meta_fit_seconds": 341.7713021960001,
+  "model_file": "meta_models/XGB_d4_n200.json",
+  "model_sha256": "5f2ad1a64fc94d9edb923687016e64022b7a63f170cc270eee3241fd5cd43616",
+  "validation_probabilities_file": "validation_XGB_d4_n200_probabilities.npy"
+}

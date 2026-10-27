@@ -1,0 +1,112 @@
+{
+  "request_sha256": "3f63cf790b74c55e77b4f89ba2bb6b642eacf60be933f0e2d36a8c6cd1108577",
+  "requested_model": "gemini-3.5-flash-lite",
+  "attempt": 1,
+  "response": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Thu, 22 Oct 2026 07:59:08 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=2675",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"tom_tat\": \"Mẫu được dự đoán là lớp DoS với mức độ ưu tiên vượt trội so với các lớp còn lại. Đặc trưng IAT đóng vai trò hỗ trợ mạnh nhất, trong khi không có yếu tố nào trong top năm phản đối kết quả này. Khoảng cách với lớp đứng thứ hai là rất lớn.\",\n  \"lop_du_doan\": \"DoS\",\n  \"so_sanh_hai_lop\": {\n    \"lop_thu_hai\": \"DDoS\",\n    \"khoang_cach_nho\": false,\n    \"dien_giai\": \"Cờ khoảng cách nhỏ tắt, thể hiện khoảng cách lớn giữa hai đầu ra. Tuy nhiên, điều này không bảo đảm dự đoán hoàn toàn chính xác do thiếu nhãn thực tế.\"\n  },\n  \"tong_hop_shap\": {\n    \"ho_tro_manh_nhat\": \"IAT\",\n    \"phan_doi_manh_nhat\": null,\n    \"dien_giai\": \"IAT là yếu tố hỗ trợ mạnh nhất trong nhóm, đồng thời không ghi nhận yếu tố phản đối nào trong top năm đặc trưng.\"\n  },\n  \"giai_thich_dac_trung\": [\n    {\n      \"ten_dac_trung\": \"IAT\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể vào đầu ra của mô hình.\"\n    },\n    {\n      \"ten_dac_trung\": \"Magnitue\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tác động này cùng chiều nhưng có độ lớn nhỏ hơn nhiều so với yếu tố dẫn đầu.\"\n    },\n    {\n      \"ten_dac_trung\": \"Number\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đóng góp bổ sung tiếp theo theo chiều dương cho lớp được dự đoán.\"\n    },\n    {\n      \"ten_dac_trung\": \"Max\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Mang lại một mức hỗ trợ dương nhỏ hơn trong nhóm đặc trưng đang xét.\"\n    },\n    {\n      \"ten_dac_trung\": \"Tot sum\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tác động dương cuối cùng trong top năm với mức đóng góp thấp nhất.\"\n    }\n  ],\n  \"de_xuat_kiem_tra\": [\n    {\n      \"nguon_du_lieu\": \"Nhật ký kết nối\",\n      \"noi_dung_can_kiem_tra\": \"Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu có metadata.\",\n      \"muc_dich\": \"Đối chiếu sự xuất hiện của các kết nối lặp trong hệ thống.\"\n    },\n    {\n      \"nguon_du_lieu\": \"Nhật ký tài nguyên dịch vụ\",\n      \"noi_dung_can_kiem_tra\": \"Tìm lỗi, gián đoạn hoặc thay đổi tài nguyên cùng thời điểm để xác minh thêm.\",\n      \"muc_dich\": \"Xác minh các dấu hiệu bất thường về tài nguyên nếu có log.\"\n    }\n  ],\n  \"gioi_han\": [\n    \"Kết quả giải thích chỉ phản ánh đầu ra của mô hình đối với mẫu dữ liệu hiện tại, không chứng minh quan hệ nhân quả.\",\n    \"Giá trị SHAP chỉ đại diện cho một phần thay đổi và chưa bao gồm toàn bộ không gian đặc trưng.\",\n    \"Xác suất dự đoán chưa qua bước hiệu chỉnh xác suất thực tế.\"\n  ]\n}",
+              "thought_signature": "EmAKXgFpFH0TEwRWVgP9GimwU8v4_dDtkJ95ch2dakHOcm47qUAFluUGaOKhkSsvZ62b6bCBVn2H8j3BKkEpM0nknw7FJxWk4CpZsacqidi1eWn17qr1Zt7jiyi524sC2t0="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "SsLZarD0EKv4vdIPlPva2AY",
+    "usage_metadata": {
+      "candidates_token_count": 841,
+      "prompt_token_count": 2725,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 2725
+        }
+      ],
+      "total_token_count": 3566
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "tom_tat": "Mẫu được dự đoán là lớp DoS với mức độ ưu tiên vượt trội so với các lớp còn lại. Đặc trưng IAT đóng vai trò hỗ trợ mạnh nhất, trong khi không có yếu tố nào trong top năm phản đối kết quả này. Khoảng cách với lớp đứng thứ hai là rất lớn.",
+      "lop_du_doan": "DoS",
+      "so_sanh_hai_lop": {
+        "lop_thu_hai": "DDoS",
+        "khoang_cach_nho": false,
+        "dien_giai": "Cờ khoảng cách nhỏ tắt, thể hiện khoảng cách lớn giữa hai đầu ra. Tuy nhiên, điều này không bảo đảm dự đoán hoàn toàn chính xác do thiếu nhãn thực tế."
+      },
+      "tong_hop_shap": {
+        "ho_tro_manh_nhat": "IAT",
+        "phan_doi_manh_nhat": null,
+        "dien_giai": "IAT là yếu tố hỗ trợ mạnh nhất trong nhóm, đồng thời không ghi nhận yếu tố phản đối nào trong top năm đặc trưng."
+      },
+      "giai_thich_dac_trung": [
+        {
+          "ten_dac_trung": "IAT",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể vào đầu ra của mô hình."
+        },
+        {
+          "ten_dac_trung": "Magnitue",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Tác động này cùng chiều nhưng có độ lớn nhỏ hơn nhiều so với yếu tố dẫn đầu."
+        },
+        {
+          "ten_dac_trung": "Number",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Đóng góp bổ sung tiếp theo theo chiều dương cho lớp được dự đoán."
+        },
+        {
+          "ten_dac_trung": "Max",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Mang lại một mức hỗ trợ dương nhỏ hơn trong nhóm đặc trưng đang xét."
+        },
+        {
+          "ten_dac_trung": "Tot sum",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Tác động dương cuối cùng trong top năm với mức đóng góp thấp nhất."
+        }
+      ],
+      "de_xuat_kiem_tra": [
+        {
+          "nguon_du_lieu": "Nhật ký kết nối",
+          "noi_dung_can_kiem_tra": "Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu có metadata.",
+          "muc_dich": "Đối chiếu sự xuất hiện của các kết nối lặp trong hệ thống."
+        },
+        {
+          "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+          "noi_dung_can_kiem_tra": "Tìm lỗi, gián đoạn hoặc thay đổi tài nguyên cùng thời điểm để xác minh thêm.",
+          "muc_dich": "Xác minh các dấu hiệu bất thường về tài nguyên nếu có log."
+        }
+      ],
+      "gioi_han": [
+        "Kết quả giải thích chỉ phản ánh đầu ra của mô hình đối với mẫu dữ liệu hiện tại, không chứng minh quan hệ nhân quả.",
+        "Giá trị SHAP chỉ đại diện cho một phần thay đổi và chưa bao gồm toàn bộ không gian đặc trưng.",
+        "Xác suất dự đoán chưa qua bước hiệu chỉnh xác suất thực tế."
+      ]
+    }
+  },
+  "text": "{\n  \"tom_tat\": \"Mẫu được dự đoán là lớp DoS với mức độ ưu tiên vượt trội so với các lớp còn lại. Đặc trưng IAT đóng vai trò hỗ trợ mạnh nhất, trong khi không có yếu tố nào trong top năm phản đối kết quả này. Khoảng cách với lớp đứng thứ hai là rất lớn.\",\n  \"lop_du_doan\": \"DoS\",\n  \"so_sanh_hai_lop\": {\n    \"lop_thu_hai\": \"DDoS\",\n    \"khoang_cach_nho\": false,\n    \"dien_giai\": \"Cờ khoảng cách nhỏ tắt, thể hiện khoảng cách lớn giữa hai đầu ra. Tuy nhiên, điều này không bảo đảm dự đoán hoàn toàn chính xác do thiếu nhãn thực tế.\"\n  },\n  \"tong_hop_shap\": {\n    \"ho_tro_manh_nhat\": \"IAT\",\n    \"phan_doi_manh_nhat\": null,\n    \"dien_giai\": \"IAT là yếu tố hỗ trợ mạnh nhất trong nhóm, đồng thời không ghi nhận yếu tố phản đối nào trong top năm đặc trưng.\"\n  },\n  \"giai_thich_dac_trung\": [\n    {\n      \"ten_dac_trung\": \"IAT\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể vào đầu ra của mô hình.\"\n    },\n    {\n      \"ten_dac_trung\": \"Magnitue\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tác động này cùng chiều nhưng có độ lớn nhỏ hơn nhiều so với yếu tố dẫn đầu.\"\n    },\n    {\n      \"ten_dac_trung\": \"Number\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đóng góp bổ sung tiếp theo theo chiều dương cho lớp được dự đoán.\"\n    },\n    {\n      \"ten_dac_trung\": \"Max\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Mang lại một mức hỗ trợ dương nhỏ hơn trong nhóm đặc trưng đang xét.\"\n    },\n    {\n      \"ten_dac_trung\": \"Tot sum\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tác động dương cuối cùng trong top năm với mức đóng góp thấp nhất.\"\n    }\n  ],\n  \"de_xuat_kiem_tra\": [\n    {\n      \"nguon_du_lieu\": \"Nhật ký kết nối\",\n      \"noi_dung_can_kiem_tra\": \"Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu có metadata.\",\n      \"muc_dich\": \"Đối chiếu sự xuất hiện của các kết nối lặp trong hệ thống.\"\n    },\n    {\n      \"nguon_du_lieu\": \"Nhật ký tài nguyên dịch vụ\",\n      \"noi_dung_can_kiem_tra\": \"Tìm lỗi, gián đoạn hoặc thay đổi tài nguyên cùng thời điểm để xác minh thêm.\",\n      \"muc_dich\": \"Xác minh các dấu hiệu bất thường về tài nguyên nếu có log.\"\n    }\n  ],\n  \"gioi_han\": [\n    \"Kết quả giải thích chỉ phản ánh đầu ra của mô hình đối với mẫu dữ liệu hiện tại, không chứng minh quan hệ nhân quả.\",\n    \"Giá trị SHAP chỉ đại diện cho một phần thay đổi và chưa bao gồm toàn bộ không gian đặc trưng.\",\n    \"Xác suất dự đoán chưa qua bước hiệu chỉnh xác suất thực tế.\"\n  ]\n}",
+  "api_status": "received",
+  "api_seconds": 2.6798002080004153
+}

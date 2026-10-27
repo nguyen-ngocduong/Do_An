@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_022",
+  "input_row_index": 21,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DDoS",
+  "predicted_probability": 0.9999812841415405,
+  "probabilities": {
+    "Normal": 1.9585720565373776e-06,
+    "BruteForce": 1.0757619151036124e-07,
+    "DDoS": 0.9999812841415405,
+    "DoS": 1.056712972058449e-05,
+    "Mirai": 3.833641130768228e-06,
+    "Recon": 9.93544631455734e-07,
+    "Spoofing": 1.0470291726960568e-06,
+    "Web-Based": 1.6570768934798252e-07
+  },
+  "explained_class": "DDoS",
+  "output_unit": "probability",
+  "base_probability": 0.6250662721304252,
+  "shap_sum": 0.3749150120111152,
+  "other_features_shap_sum": 0.025284963706345254,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 83332152.0,
+      "missing": false,
+      "shap_value": 0.26354237487006077,
+      "impact_percentage_points": 26.354237487006078,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Magnitue",
+      "value": 10.392304420471191,
+      "missing": false,
+      "shap_value": 0.033082378716178105,
+      "impact_percentage_points": 3.3082378716178105,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Protocol Type",
+      "value": 6.0,
+      "missing": false,
+      "shap_value": 0.030142202043530613,
+      "impact_percentage_points": 3.0142202043530615,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Min",
+      "value": 54.0,
+      "missing": false,
+      "shap_value": 0.013304078038847441,
+      "impact_percentage_points": 1.3304078038847442,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Max",
+      "value": 54.0,
+      "missing": false,
+      "shap_value": 0.009559014636153051,
+      "impact_percentage_points": 0.9559014636153051,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 1.3877787807814457e-17,
+  "shap_seconds": 0.9085489029994278,
+  "seed": 63
+}

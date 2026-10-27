@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mẫu dữ liệu được mô hình dự đoán là lớp DoS với sự hỗ trợ áp đảo từ đặc trưng IAT trong top năm đặc trưng hàng đầu. Khoảng cách giữa lớp DoS và lớp đứng thứ hai là rất lớn, cho thấy mô hình phân loại rõ rệt mà không có sự cạnh tranh đáng kể từ các lớp khác.",
+  "lop_du_doan": "DoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DDoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ đang tắt, cho thấy sự chênh lệch lớn giữa lớp đứng đầu và lớp đứng thứ hai không có nghĩa là sự đảm bảo tuyệt đối về nhãn thật do chưa có thông tin xác thực."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Trong nhóm năm đặc trưng đang xét, IAT đóng vai trò hỗ trợ mạnh nhất cho lựa chọn của mô hình, trong khi không có yếu tố nào trong top năm mang lại tác động phản đối."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, đóng góp lớn nhất vào đầu ra của mô hình."
+    },
+    {
+      "ten_dac_trung": "Number",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng nhỏ hơn đáng kể so với yếu tố dẫn đầu."
+    },
+    {
+      "ten_dac_trung": "Protocol Type",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đóng góp bổ sung một lượng nhỏ theo chiều làm tăng giá trị đầu ra."
+    },
+    {
+      "ten_dac_trung": "Magnitue",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Ghi nhận mức hỗ trợ theo chiều dương với quy mô tương đương nhóm đóng góp phụ."
+    },
+    {
+      "ten_dac_trung": "Weight",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là tác động có độ lớn thấp nhất trong số năm đặc trưng hàng đầu."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối",
+      "noi_dung_can_kiem_tra": "Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu có metadata.",
+      "muc_dich": "Đối chiếu sự xuất hiện của các kết nối lặp nhằm làm rõ bối cảnh mạng."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Tìm lỗi, gián đoạn hoặc thay đổi tài nguyên cùng thời điểm để xác minh thêm.",
+      "muc_dich": "Xác định tình trạng hệ thống có khớp với các dấu hiệu bất thường hay không."
+    }
+  ],
+  "gioi_han": [
+    "Giá trị SHAP chỉ phản ánh cách mô hình đưa ra quyết định dựa trên mẫu hiện tại, không chứng minh mối quan hệ nhân quả hay hành vi tấn công thực tế.",
+    "Xác suất dự đoán từ mô hình chưa được kiểm chứng hay hiệu chỉnh để đảm bảo độ chính xác tuyệt đối.",
+    "Phần giá trị SHAP nằm ngoài top năm tuy nhỏ nhưng vẫn góp phần cấu thành đầu ra cuối cùng của mô hình."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mô hình dự đoán mẫu thuộc lớp Mirai với sự đóng góp tích cực từ toàn bộ các yếu tố trong top năm. Lớp đứng thứ hai là DDoS nhưng có khoảng cách rất lớn về đầu ra so với lớp dẫn đầu.",
+  "lop_du_doan": "Mirai",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DDoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ đang tắt, cho thấy sự chênh lệch lớn giữa lớp Mirai và lớp DDoS. Tuy nhiên, chênh lệch lớn không bảo đảm dự đoán này hoàn toàn chính xác mà vẫn cần đối chiếu thêm."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "Protocol Type",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Yếu tố Protocol Type mang lại tác động hỗ trợ mạnh nhất trong top năm, trong khi không có yếu tố nào đóng vai trò phản đối trong nhóm này. Các tác động còn lại cùng phần ngoài top năm kết hợp tạo nên đầu ra cuối."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "Protocol Type",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, làm tăng đáng kể giá trị đầu ra của lớp được giải thích so với nền tham chiếu."
+    },
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đặc trưng này đóng vai trò hỗ trợ bổ sung với mức độ tác động lớn đứng thứ hai trong nhóm."
+    },
+    {
+      "ten_dac_trung": "Magnitue",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Sự hiện diện của đặc trưng này tiếp tục củng cố đầu ra dự đoán theo chiều hướng tăng."
+    },
+    {
+      "ten_dac_trung": "Tot size",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đặc trưng này mang lại mức đóng góp dương ở mức độ nhỏ hơn các yếu tố dẫn đầu."
+    },
+    {
+      "ten_dac_trung": "Min",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố có tác động dương nhỏ nhất trong top năm đặc trưng đang xem xét."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối thiết bị",
+      "noi_dung_can_kiem_tra": "Đối chiếu đích kết nối và hoạt động lặp với hành vi được phép của thiết bị IoT",
+      "muc_dich": "Nhằm xác định xem thiết bị có đang thực hiện các kết nối bất thường hay không nếu hệ thống lưu trữ log này."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tiến trình thiết bị",
+      "noi_dung_can_kiem_tra": "Nếu truy cập được thiết bị, tìm tiến trình hoặc cảnh báo liên quan; chưa kết luận đã nhiễm mã độc",
+      "muc_dich": "Nhằm kiểm tra các tiến trình đang chạy bên trong thiết bị khi có quyền truy cập nhật ký."
+    }
+  ],
+  "gioi_han": [
+    "Giải thích này phản ánh đầu ra của mô hình máy học và không chứng minh cuộc tấn công thực tế hay quan hệ nhân quả.",
+    "Các giá trị SHAP chỉ thể hiện sự thay đổi so với nền tham chiếu trong phạm vi top năm đặc trưng được cung cấp.",
+    "Xác suất của mô hình chưa được xác minh là đã hiệu chỉnh và không thể coi là độ chắc chắn tuyệt đối."
+  ]
+}

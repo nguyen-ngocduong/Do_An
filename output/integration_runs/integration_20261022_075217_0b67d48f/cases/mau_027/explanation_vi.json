@@ -1,0 +1,57 @@
+{
+  "tom_tat": "Mô hình dự đoán mẫu dữ liệu thuộc lớp DDoS với sự hỗ trợ nổi bật từ đặc trưng IAT trong top 5. Lớp đứng thứ hai là DoS có khoảng cách chênh lệch lớn và cờ khoảng cách nhỏ tắt, thể hiện sự phân tách rõ rệt trong đầu ra hiện tại.",
+  "lop_du_doan": "DDoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ đang tắt, cho thấy hai đầu ra có sự chênh lệch rõ rệt và không nằm trong diện cần đối chiếu gần; tuy nhiên điều này không bảo đảm dự đoán là đúng."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Trong năm đặc trưng hàng đầu, IAT đóng vai trò hỗ trợ mạnh nhất đẩy giá trị đầu ra lên, trong khi không có yếu tố nào trong nhóm này tạo ra tác động phản đối mang giá trị âm."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể vào việc đẩy giá trị dự đoán của lớp."
+    },
+    {
+      "ten_dac_trung": "Protocol Type",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng nhỏ hơn yếu tố dẫn đầu, đóng vai trò hỗ trợ bổ sung cho mô hình."
+    },
+    {
+      "ten_dac_trung": "Number",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Sự hiện diện của đặc trưng này mang lại thêm một mức đóng góp dương ở mức độ thấp hơn."
+    },
+    {
+      "ten_dac_trung": "Header_Length",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đặc trưng này tiếp tục cung cấp một hướng tác động tăng nhỏ đối với đầu ra của mô hình."
+    },
+    {
+      "ten_dac_trung": "Max",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là đóng góp dương nhỏ nhất trong nhóm năm đặc trưng hàng đầu được xem xét."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký lưu lượng mạng",
+      "noi_dung_can_kiem_tra": "Kiểm tra sự đồng thời của nhiều nguồn đến cùng dịch vụ nếu có địa chỉ và thời gian.",
+      "muc_dich": "Đối chiếu mô hình với các bản ghi lưu lượng thực tế nếu hệ thống có thu thập."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Đối chiếu lưu lượng với tình trạng tài nguyên và khả năng phục vụ, không tự đặt ngưỡng.",
+      "muc_dich": "So sánh đầu ra với trạng thái tải của hệ thống trong điều kiện có dữ liệu."
+    }
+  ],
+  "gioi_han": [
+    "Giải thích SHAP chỉ phản ánh cách mô hình XGBoost tính toán trên mẫu này, không chứng minh quan hệ nhân quả hay sự tồn tại của tấn công thực tế.",
+    "Xác suất dự đoán chưa qua kiểm định hiệu chỉnh và các giá trị đặc trưng chỉ là dữ liệu đầu vào, không mang ý nghĩa chuẩn mực tuyệt đối."
+  ]
+}

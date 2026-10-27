@@ -1,0 +1,10 @@
+Model dự đoán Recon với xác suất 78.93%.
+Nhãn thật: Normal. Nhãn gốc: BenignTraffic.
+Mốc tham chiếu của lớp này trên background train: 0.001103.
+Mốc tham chiếu + tổng SHAP = 0.001103 + (0.788225) = 0.789329.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- Magnitue = 62.528: đóng góp tăng 9.757 điểm phần trăm so với mốc tham chiếu.
+- Header_Length = 1.14054e+06: đóng góp tăng 9.478 điểm phần trăm so với mốc tham chiếu.
+- Srate = 2135.48: đóng góp tăng 7.661 điểm phần trăm so với mốc tham chiếu.
+- urg_count = 141: đóng góp tăng 7.487 điểm phần trăm so với mốc tham chiếu.
+- Protocol Type = 6: đóng góp tăng 7.018 điểm phần trăm so với mốc tham chiếu.

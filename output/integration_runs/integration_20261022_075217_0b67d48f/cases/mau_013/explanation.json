@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_013",
+  "input_row_index": 12,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DDoS",
+  "predicted_probability": 0.9999812841415405,
+  "probabilities": {
+    "Normal": 1.9585720565373776e-06,
+    "BruteForce": 1.0410764161861152e-07,
+    "DDoS": 0.9999812841415405,
+    "DoS": 1.056712972058449e-05,
+    "Mirai": 3.833641130768228e-06,
+    "Recon": 9.904275657390826e-07,
+    "Spoofing": 1.0322711432309006e-06,
+    "Web-Based": 1.7173323385577532e-07
+  },
+  "explained_class": "DDoS",
+  "output_unit": "probability",
+  "base_probability": 0.6250662721304252,
+  "shap_sum": 0.37491501201111527,
+  "other_features_shap_sum": 0.029602166148227527,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 83093200.0,
+      "missing": false,
+      "shap_value": 0.2788285179116106,
+      "impact_percentage_points": 27.882851791161062,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Magnitue",
+      "value": 10.402575492858887,
+      "missing": false,
+      "shap_value": 0.03461878015044325,
+      "impact_percentage_points": 3.461878015044325,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Protocol Type",
+      "value": 6.050000190734863,
+      "missing": false,
+      "shap_value": 0.017079398718815735,
+      "impact_percentage_points": 1.7079398718815735,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Header_Length",
+      "value": 53.81999969482422,
+      "missing": false,
+      "shap_value": 0.00825582350487745,
+      "impact_percentage_points": 0.825582350487745,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Min",
+      "value": 54.0,
+      "missing": false,
+      "shap_value": 0.006530325577140654,
+      "impact_percentage_points": 0.6530325577140654,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 1.3877787807814457e-17,
+  "shap_seconds": 0.8322246959996846,
+  "seed": 54
+}

@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_028",
+  "input_row_index": 27,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DoS",
+  "predicted_probability": 0.9999525547027588,
+  "probabilities": {
+    "Normal": 3.20089429806103e-06,
+    "BruteForce": 2.0799031119622668e-07,
+    "DDoS": 3.416198887862265e-05,
+    "DoS": 0.9999525547027588,
+    "Mirai": 6.19254524281132e-06,
+    "Recon": 1.3877880746804294e-06,
+    "Spoofing": 1.8969356005982263e-06,
+    "Web-Based": 3.5721245694730897e-07
+  },
+  "explained_class": "DoS",
+  "output_unit": "probability",
+  "base_probability": 0.21878188563130152,
+  "shap_sum": 0.7811706690714573,
+  "other_features_shap_sum": 0.016818110369861472,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 82977024.0,
+      "missing": false,
+      "shap_value": 0.7226126319412339,
+      "impact_percentage_points": 72.26126319412339,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Weight",
+      "value": 141.5500030517578,
+      "missing": false,
+      "shap_value": 0.012256741531321799,
+      "impact_percentage_points": 1.22567415313218,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Protocol Type",
+      "value": 6.0,
+      "missing": false,
+      "shap_value": 0.010477772248727035,
+      "impact_percentage_points": 1.0477772248727035,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Number",
+      "value": 9.5,
+      "missing": false,
+      "shap_value": 0.010203630724011722,
+      "impact_percentage_points": 1.0203630724011723,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "AVG",
+      "value": 54.0,
+      "missing": false,
+      "shap_value": 0.008801782256301275,
+      "impact_percentage_points": 0.8801782256301275,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 1.1102230246251565e-16,
+  "shap_seconds": 0.8005601620006928,
+  "seed": 69
+}

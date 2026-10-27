@@ -1,0 +1,3 @@
+candidate_id,rows,predict_seconds,predict_ms_per_row,macro_f1,scope
+XGB_d4_n200,755233,40.064737656000034,0.05304950612062772,0.8961367826425903,raw input -> preprocessor -> bases -> meta
+STACK_DT_RF_HGB_LR_C1,755233,31.964397358000042,0.042323888598617965,0.8669590286551329,raw input -> preprocessor -> bases -> meta

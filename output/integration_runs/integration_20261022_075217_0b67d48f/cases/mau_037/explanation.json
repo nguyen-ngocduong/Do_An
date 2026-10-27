@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_037",
+  "input_row_index": 36,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DDoS",
+  "predicted_probability": 0.9999812841415405,
+  "probabilities": {
+    "Normal": 1.9585720565373776e-06,
+    "BruteForce": 1.0757619151036124e-07,
+    "DDoS": 0.9999812841415405,
+    "DoS": 1.056712972058449e-05,
+    "Mirai": 3.833641130768228e-06,
+    "Recon": 9.93544631455734e-07,
+    "Spoofing": 1.0470291726960568e-06,
+    "Web-Based": 1.6570768934798252e-07
+  },
+  "explained_class": "DDoS",
+  "output_unit": "probability",
+  "base_probability": 0.6250662721304252,
+  "shap_sum": 0.3749150120111154,
+  "other_features_shap_sum": 0.02493732913284441,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 83128120.0,
+      "missing": false,
+      "shap_value": 0.28778066968061466,
+      "impact_percentage_points": 28.778066968061466,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Protocol Type",
+      "value": 1.0,
+      "missing": false,
+      "shap_value": 0.028256494793443682,
+      "impact_percentage_points": 2.825649479344368,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Tot size",
+      "value": 42.0,
+      "missing": false,
+      "shap_value": 0.011652855953068789,
+      "impact_percentage_points": 1.1652855953068788,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Number",
+      "value": 9.5,
+      "missing": false,
+      "shap_value": 0.011372873918541396,
+      "impact_percentage_points": 1.1372873918541395,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Magnitue",
+      "value": 9.165151596069336,
+      "missing": false,
+      "shap_value": 0.010914788532602415,
+      "impact_percentage_points": 1.0914788532602415,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 8.673617379884035e-19,
+  "shap_seconds": 0.8796412020001299,
+  "seed": 78
+}

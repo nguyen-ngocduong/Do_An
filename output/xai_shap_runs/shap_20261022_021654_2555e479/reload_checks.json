@@ -1,0 +1,88 @@
+{
+  "source_baseline_validation_reproduced": true,
+  "golden_csv_all_selected_cases": true,
+  "saved_shap_arrays": [
+    {
+      "case_id": "case_001_Normal_correct",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_002_Normal_wrong",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_003_BruteForce_correct",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_004_BruteForce_wrong",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_005_DDoS_correct",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_006_DDoS_wrong",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_007_DoS_correct",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_008_DoS_wrong",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_009_Mirai_correct",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_010_Mirai_wrong",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_011_Recon_correct",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_012_Recon_wrong",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_013_Spoofing_correct",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_014_Spoofing_wrong",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_015_Web-Based_correct",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    },
+    {
+      "case_id": "case_016_Web-Based_wrong",
+      "saved_arrays_and_additivity": true,
+      "passed": true
+    }
+  ],
+  "first_case_same_seed_shap_replay": true,
+  "shap_replay_seconds": 1.6937520100000256
+}

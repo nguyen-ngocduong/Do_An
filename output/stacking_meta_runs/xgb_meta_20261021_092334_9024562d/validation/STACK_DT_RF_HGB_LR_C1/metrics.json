@@ -1,0 +1,12 @@
+{
+  "candidate_id": "STACK_DT_RF_HGB_LR_C1",
+  "split": "validation",
+  "accuracy": 0.994154121972954,
+  "macro_f1": 0.8669590286551329,
+  "weighted_f1": 0.9941129276098448,
+  "meta_fit_seconds_this_run": 0.0,
+  "predict_seconds": 0.25982066400001713,
+  "inference_scope": "meta-only; reused cached base probabilities",
+  "rows": 755233,
+  "predict_ms_per_row": 0.0003440271598301678
+}

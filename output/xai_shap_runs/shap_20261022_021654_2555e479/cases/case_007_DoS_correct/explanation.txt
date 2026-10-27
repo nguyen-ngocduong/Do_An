@@ -1,0 +1,10 @@
+Model dự đoán DoS với xác suất 100.00%.
+Nhãn thật: DoS. Nhãn gốc: DoS-TCP_Flood.
+Mốc tham chiếu của lớp này trên background train: 0.218782.
+Mốc tham chiếu + tổng SHAP = 0.218782 + (0.781171) = 0.999952.
+Top đặc trưng theo độ lớn đóng góp vào xác suất lớp được dự đoán:
+- IAT = 8.29434e+07: đóng góp tăng 71.930 điểm phần trăm so với mốc tham chiếu.
+- Magnitue = 10.3923: đóng góp tăng 1.189 điểm phần trăm so với mốc tham chiếu.
+- Weight = 141.55: đóng góp tăng 0.912 điểm phần trăm so với mốc tham chiếu.
+- Number = 9.5: đóng góp tăng 0.909 điểm phần trăm so với mốc tham chiếu.
+- Tot sum = 567: đóng góp tăng 0.715 điểm phần trăm so với mốc tham chiếu.

@@ -1,0 +1,13 @@
+{
+  "bundle_sha256": "72d62f8760e48287fff7dcb590944f7169055d7fc0fb6a5b2969e6287f389033",
+  "shap_files": {
+    "protocol.json": "e0382731e70166cdd7e19cfbb878309f3159f3298217aa6b88cc99db7807b7ad",
+    "background.npy": "e8211b73a6108f2b5b468973965ab987862e38cb4642795f2c484a8f196f63f5",
+    "background_probabilities.csv": "282f9874822f7972a823b5f081ff402d45030e30aa72f2549d66ce68660556ab",
+    "model_reference.json": "7daa0ac7a4fc1ebe027bc5540b0ad95a70e58357a69cd89686e11152938b2b56",
+    "selected_input.csv": "7cffb5e22b6f7715f65aac9963a17f20849c497fd653af1c6c415f870942802e",
+    "golden_predictions.csv": "3fcf153089ac63a9949a34523eadd081432767a81be94916eeb4b68757e28cba"
+  },
+  "golden_csv_prediction_match": true,
+  "golden_rows": 16
+}

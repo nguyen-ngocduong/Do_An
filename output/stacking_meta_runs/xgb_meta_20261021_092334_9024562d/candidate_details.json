@@ -1,0 +1,140 @@
+{
+  "XGB_d2_n100": {
+    "parameters": {
+      "objective": "multi:softprob",
+      "num_class": 8,
+      "eval_metric": "mlogloss",
+      "tree_method": "hist",
+      "learning_rate": 0.05,
+      "min_child_weight": 5.0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_alpha": 0.0,
+      "random_state": 42,
+      "n_jobs": 2,
+      "max_depth": 2,
+      "n_estimators": 100,
+      "reg_lambda": 5.0
+    },
+    "rare_weight": 1.0,
+    "meta_fit_seconds": 156.43008210300002,
+    "model_file": "meta_models/XGB_d2_n100.json",
+    "model_sha256": "36256fbcf1e555e695a48cdc5eb9ec868719b7079d65d73d225b794de216253a",
+    "validation_probabilities_file": "validation_XGB_d2_n100_probabilities.npy"
+  },
+  "XGB_d3_n100": {
+    "parameters": {
+      "objective": "multi:softprob",
+      "num_class": 8,
+      "eval_metric": "mlogloss",
+      "tree_method": "hist",
+      "learning_rate": 0.05,
+      "min_child_weight": 5.0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_alpha": 0.0,
+      "random_state": 42,
+      "n_jobs": 2,
+      "max_depth": 3,
+      "n_estimators": 100,
+      "reg_lambda": 5.0
+    },
+    "rare_weight": 1.0,
+    "meta_fit_seconds": 163.6974887329999,
+    "model_file": "meta_models/XGB_d3_n100.json",
+    "model_sha256": "f52da392a74b004fc053c2892bcee0a3d221244b1775fcf2938485687716ee84",
+    "validation_probabilities_file": "validation_XGB_d3_n100_probabilities.npy"
+  },
+  "XGB_d3_n200": {
+    "parameters": {
+      "objective": "multi:softprob",
+      "num_class": 8,
+      "eval_metric": "mlogloss",
+      "tree_method": "hist",
+      "learning_rate": 0.05,
+      "min_child_weight": 5.0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_alpha": 0.0,
+      "random_state": 42,
+      "n_jobs": 2,
+      "max_depth": 3,
+      "n_estimators": 200,
+      "reg_lambda": 5.0
+    },
+    "rare_weight": 1.0,
+    "meta_fit_seconds": 340.51646921199995,
+    "model_file": "meta_models/XGB_d3_n200.json",
+    "model_sha256": "055851cbd983d2272f69a192f6b710aca4f18fec41af266077b2f71a879337fe",
+    "validation_probabilities_file": "validation_XGB_d3_n200_probabilities.npy"
+  },
+  "XGB_d4_n200": {
+    "parameters": {
+      "objective": "multi:softprob",
+      "num_class": 8,
+      "eval_metric": "mlogloss",
+      "tree_method": "hist",
+      "learning_rate": 0.05,
+      "min_child_weight": 5.0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_alpha": 0.0,
+      "random_state": 42,
+      "n_jobs": 2,
+      "max_depth": 4,
+      "n_estimators": 200,
+      "reg_lambda": 5.0
+    },
+    "rare_weight": 1.0,
+    "meta_fit_seconds": 341.7713021960001,
+    "model_file": "meta_models/XGB_d4_n200.json",
+    "model_sha256": "5f2ad1a64fc94d9edb923687016e64022b7a63f170cc270eee3241fd5cd43616",
+    "validation_probabilities_file": "validation_XGB_d4_n200_probabilities.npy"
+  },
+  "XGB_d3_n200_l2_10": {
+    "parameters": {
+      "objective": "multi:softprob",
+      "num_class": 8,
+      "eval_metric": "mlogloss",
+      "tree_method": "hist",
+      "learning_rate": 0.05,
+      "min_child_weight": 5.0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_alpha": 0.0,
+      "random_state": 42,
+      "n_jobs": 2,
+      "max_depth": 3,
+      "n_estimators": 200,
+      "reg_lambda": 10.0
+    },
+    "rare_weight": 1.0,
+    "meta_fit_seconds": 326.38708035800005,
+    "model_file": "meta_models/XGB_d3_n200_l2_10.json",
+    "model_sha256": "de15bc5152302ad6eca6301afd9821257754134690998f8fb1df0ab6c1467c8f",
+    "validation_probabilities_file": "validation_XGB_d3_n200_l2_10_probabilities.npy"
+  },
+  "XGB_d3_n200_rare2": {
+    "parameters": {
+      "objective": "multi:softprob",
+      "num_class": 8,
+      "eval_metric": "mlogloss",
+      "tree_method": "hist",
+      "learning_rate": 0.05,
+      "min_child_weight": 5.0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_alpha": 0.0,
+      "random_state": 42,
+      "n_jobs": 2,
+      "max_depth": 3,
+      "n_estimators": 200,
+      "reg_lambda": 5.0
+    },
+    "rare_weight": 2.0,
+    "meta_fit_seconds": 327.322609889,
+    "model_file": "meta_models/XGB_d3_n200_rare2.json",
+    "model_sha256": "5a271bb086dffdbba5e6e92a9072d7f0065668f83fe980d0f95952b439ca60e7",
+    "validation_probabilities_file": "validation_XGB_d3_n200_rare2_probabilities.npy"
+  }
+}

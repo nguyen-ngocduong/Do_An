@@ -1,0 +1,6 @@
+rank,feature,value,missing,shap_value,impact_percentage_points,direction
+1,IAT,83150312.0,False,0.2686335579944341,26.86335579944341,increase
+2,Protocol Type,1.0,False,0.03785083411816951,3.785083411816951,increase
+3,Number,9.5,False,0.011489857307954784,1.1489857307954785,increase
+4,Header_Length,0.0,False,0.0090723560433806,0.9072356043380599,increase
+5,Max,42.0,False,0.008797845560896652,0.8797845560896652,increase

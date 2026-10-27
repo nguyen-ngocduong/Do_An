@@ -1,0 +1,112 @@
+{
+  "request_sha256": "d1e936632b62dcd43628569f6c61f3536fb30e24d61f43ffa0ac341a934c1660",
+  "requested_model": "gemini-3.5-flash-lite",
+  "attempt": 1,
+  "response": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Thu, 22 Oct 2026 07:54:14 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=2971",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"tom_tat\": \"Mẫu được dự đoán là lớp Normal với xác suất cao, trong đó đặc trưng urg_count đóng vai trò hỗ trợ mạnh nhất và không ghi nhận yếu tố phản đối nào trong top năm. Lớp đứng thứ hai là Spoofing có khoảng cách chênh lệch lớn so với lớp dẫn đầu và cờ khoảng cách nhỏ không bật.\",\n  \"lop_du_doan\": \"Normal\",\n  \"so_sanh_hai_lop\": {\n    \"lop_thu_hai\": \"Spoofing\",\n    \"khoang_cach_nho\": false,\n    \"dien_giai\": \"Cờ khoảng cách nhỏ đang tắt và chênh lệch giữa hai đầu ra lớn. Tuy nhiên, việc không bật cờ này không bảo đảm dự đoán chắc chắn là đúng nhãn thật.\"\n  },\n  \"tong_hop_shap\": {\n    \"ho_tro_manh_nhat\": \"urg_count\",\n    \"phan_doi_manh_nhat\": null,\n    \"dien_giai\": \"Trong nhóm năm đặc trưng hàng đầu, urg_count là yếu tố hỗ trợ mạnh nhất đẩy giá trị đầu ra lên cao, trong khi không có yếu tố nào mang giá trị âm để phản đối trong nhóm này.\"\n  },\n  \"giai_thich_dac_trung\": [\n    {\n      \"ten_dac_trung\": \"urg_count\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, đóng góp tích cực vào đầu ra của lớp được dự đoán.\"\n    },\n    {\n      \"ten_dac_trung\": \"rst_count\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tác động này cùng chiều nhưng có độ lớn nhỏ hơn yếu tố dẫn đầu trong nhóm.\"\n    },\n    {\n      \"ten_dac_trung\": \"IAT\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đặc trưng này cung cấp thêm một mức hỗ trợ dương với mức đóng góp ở ngưỡng trung bình.\"\n    },\n    {\n      \"ten_dac_trung\": \"Number\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Sự hiện diện của đặc trưng này tiếp tục củng cố đầu ra theo chiều hướng tăng.\"\n    },\n    {\n      \"ten_dac_trung\": \"flow_duration\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố có mức tác động nhỏ nhất trong top năm nhưng vẫn duy trì chiều hướng đóng góp dương.\"\n    }\n  ],\n  \"de_xuat_kiem_tra\": [\n    {\n      \"nguon_du_lieu\": \"Nhật ký kết nối\",\n      \"noi_dung_can_kiem_tra\": \"Đối chiếu đích kết nối, dịch vụ và thời điểm với hoạt động được phép\",\n      \"muc_dich\": \"Xác định xem lưu lượng có tuân thủ các quy tắc truy cập chuẩn hay không nếu hệ thống có lưu trữ log này.\"\n    },\n    {\n      \"nguon_du_lieu\": \"Nhật ký thiết bị\",\n      \"noi_dung_can_kiem_tra\": \"Kiểm tra lỗi hoặc cảnh báo đồng thời; dự đoán Normal không bảo đảm an toàn\",\n      \"muc_dich\": \"Kiểm tra các dấu hiệu bất thường tiềm ẩn ở tầng thiết bị nếu hệ thống ghi nhận.\"\n    }\n  ],\n  \"gioi_han\": [\n    \"Giá trị SHAP chỉ giải thích đầu ra của mô hình đối với mẫu hiện tại, không chứng minh quan hệ nhân quả hay hành vi tấn công thực tế.\",\n    \"Dự đoán lớp Normal không bảo đảm hệ thống hoàn toàn an toàn hay không có rủi ro tiềm ẩn.\",\n    \"Tổng giá trị SHAP của top năm chưa bao trùm toàn bộ các đặc trưng và xác suất chưa được hiệu chỉnh chính thức.\"\n  ]\n}",
+              "thought_signature": "EmAKXgFpFH0TiApWn3Hjo0eAmyNOLaMQgWda8tBKrcIla1iyezjTHUNgqI4CQXU_YhEMXmFMPq8j7vBEIDuLyI9y6l0ndjsin8vg_dfk6bpsqo9uv6KzGxLWtlol8yII1hg="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "I8HZaoDoOvj5xN8PoY3BgQ0",
+    "usage_metadata": {
+      "candidates_token_count": 919,
+      "prompt_token_count": 2746,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 2746
+        }
+      ],
+      "total_token_count": 3665
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "tom_tat": "Mẫu được dự đoán là lớp Normal với xác suất cao, trong đó đặc trưng urg_count đóng vai trò hỗ trợ mạnh nhất và không ghi nhận yếu tố phản đối nào trong top năm. Lớp đứng thứ hai là Spoofing có khoảng cách chênh lệch lớn so với lớp dẫn đầu và cờ khoảng cách nhỏ không bật.",
+      "lop_du_doan": "Normal",
+      "so_sanh_hai_lop": {
+        "lop_thu_hai": "Spoofing",
+        "khoang_cach_nho": false,
+        "dien_giai": "Cờ khoảng cách nhỏ đang tắt và chênh lệch giữa hai đầu ra lớn. Tuy nhiên, việc không bật cờ này không bảo đảm dự đoán chắc chắn là đúng nhãn thật."
+      },
+      "tong_hop_shap": {
+        "ho_tro_manh_nhat": "urg_count",
+        "phan_doi_manh_nhat": null,
+        "dien_giai": "Trong nhóm năm đặc trưng hàng đầu, urg_count là yếu tố hỗ trợ mạnh nhất đẩy giá trị đầu ra lên cao, trong khi không có yếu tố nào mang giá trị âm để phản đối trong nhóm này."
+      },
+      "giai_thich_dac_trung": [
+        {
+          "ten_dac_trung": "urg_count",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, đóng góp tích cực vào đầu ra của lớp được dự đoán."
+        },
+        {
+          "ten_dac_trung": "rst_count",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Tác động này cùng chiều nhưng có độ lớn nhỏ hơn yếu tố dẫn đầu trong nhóm."
+        },
+        {
+          "ten_dac_trung": "IAT",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Đặc trưng này cung cấp thêm một mức hỗ trợ dương với mức đóng góp ở ngưỡng trung bình."
+        },
+        {
+          "ten_dac_trung": "Number",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Sự hiện diện của đặc trưng này tiếp tục củng cố đầu ra theo chiều hướng tăng."
+        },
+        {
+          "ten_dac_trung": "flow_duration",
+          "huong_tac_dong": "tang",
+          "dien_giai": "Đây là yếu tố có mức tác động nhỏ nhất trong top năm nhưng vẫn duy trì chiều hướng đóng góp dương."
+        }
+      ],
+      "de_xuat_kiem_tra": [
+        {
+          "nguon_du_lieu": "Nhật ký kết nối",
+          "noi_dung_can_kiem_tra": "Đối chiếu đích kết nối, dịch vụ và thời điểm với hoạt động được phép",
+          "muc_dich": "Xác định xem lưu lượng có tuân thủ các quy tắc truy cập chuẩn hay không nếu hệ thống có lưu trữ log này."
+        },
+        {
+          "nguon_du_lieu": "Nhật ký thiết bị",
+          "noi_dung_can_kiem_tra": "Kiểm tra lỗi hoặc cảnh báo đồng thời; dự đoán Normal không bảo đảm an toàn",
+          "muc_dich": "Kiểm tra các dấu hiệu bất thường tiềm ẩn ở tầng thiết bị nếu hệ thống ghi nhận."
+        }
+      ],
+      "gioi_han": [
+        "Giá trị SHAP chỉ giải thích đầu ra của mô hình đối với mẫu hiện tại, không chứng minh quan hệ nhân quả hay hành vi tấn công thực tế.",
+        "Dự đoán lớp Normal không bảo đảm hệ thống hoàn toàn an toàn hay không có rủi ro tiềm ẩn.",
+        "Tổng giá trị SHAP của top năm chưa bao trùm toàn bộ các đặc trưng và xác suất chưa được hiệu chỉnh chính thức."
+      ]
+    }
+  },
+  "text": "{\n  \"tom_tat\": \"Mẫu được dự đoán là lớp Normal với xác suất cao, trong đó đặc trưng urg_count đóng vai trò hỗ trợ mạnh nhất và không ghi nhận yếu tố phản đối nào trong top năm. Lớp đứng thứ hai là Spoofing có khoảng cách chênh lệch lớn so với lớp dẫn đầu và cờ khoảng cách nhỏ không bật.\",\n  \"lop_du_doan\": \"Normal\",\n  \"so_sanh_hai_lop\": {\n    \"lop_thu_hai\": \"Spoofing\",\n    \"khoang_cach_nho\": false,\n    \"dien_giai\": \"Cờ khoảng cách nhỏ đang tắt và chênh lệch giữa hai đầu ra lớn. Tuy nhiên, việc không bật cờ này không bảo đảm dự đoán chắc chắn là đúng nhãn thật.\"\n  },\n  \"tong_hop_shap\": {\n    \"ho_tro_manh_nhat\": \"urg_count\",\n    \"phan_doi_manh_nhat\": null,\n    \"dien_giai\": \"Trong nhóm năm đặc trưng hàng đầu, urg_count là yếu tố hỗ trợ mạnh nhất đẩy giá trị đầu ra lên cao, trong khi không có yếu tố nào mang giá trị âm để phản đối trong nhóm này.\"\n  },\n  \"giai_thich_dac_trung\": [\n    {\n      \"ten_dac_trung\": \"urg_count\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, đóng góp tích cực vào đầu ra của lớp được dự đoán.\"\n    },\n    {\n      \"ten_dac_trung\": \"rst_count\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Tác động này cùng chiều nhưng có độ lớn nhỏ hơn yếu tố dẫn đầu trong nhóm.\"\n    },\n    {\n      \"ten_dac_trung\": \"IAT\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đặc trưng này cung cấp thêm một mức hỗ trợ dương với mức đóng góp ở ngưỡng trung bình.\"\n    },\n    {\n      \"ten_dac_trung\": \"Number\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Sự hiện diện của đặc trưng này tiếp tục củng cố đầu ra theo chiều hướng tăng.\"\n    },\n    {\n      \"ten_dac_trung\": \"flow_duration\",\n      \"huong_tac_dong\": \"tang\",\n      \"dien_giai\": \"Đây là yếu tố có mức tác động nhỏ nhất trong top năm nhưng vẫn duy trì chiều hướng đóng góp dương.\"\n    }\n  ],\n  \"de_xuat_kiem_tra\": [\n    {\n      \"nguon_du_lieu\": \"Nhật ký kết nối\",\n      \"noi_dung_can_kiem_tra\": \"Đối chiếu đích kết nối, dịch vụ và thời điểm với hoạt động được phép\",\n      \"muc_dich\": \"Xác định xem lưu lượng có tuân thủ các quy tắc truy cập chuẩn hay không nếu hệ thống có lưu trữ log này.\"\n    },\n    {\n      \"nguon_du_lieu\": \"Nhật ký thiết bị\",\n      \"noi_dung_can_kiem_tra\": \"Kiểm tra lỗi hoặc cảnh báo đồng thời; dự đoán Normal không bảo đảm an toàn\",\n      \"muc_dich\": \"Kiểm tra các dấu hiệu bất thường tiềm ẩn ở tầng thiết bị nếu hệ thống ghi nhận.\"\n    }\n  ],\n  \"gioi_han\": [\n    \"Giá trị SHAP chỉ giải thích đầu ra của mô hình đối với mẫu hiện tại, không chứng minh quan hệ nhân quả hay hành vi tấn công thực tế.\",\n    \"Dự đoán lớp Normal không bảo đảm hệ thống hoàn toàn an toàn hay không có rủi ro tiềm ẩn.\",\n    \"Tổng giá trị SHAP của top năm chưa bao trùm toàn bộ các đặc trưng và xác suất chưa được hiệu chỉnh chính thức.\"\n  ]\n}",
+  "api_status": "received",
+  "api_seconds": 2.9758294229995954
+}

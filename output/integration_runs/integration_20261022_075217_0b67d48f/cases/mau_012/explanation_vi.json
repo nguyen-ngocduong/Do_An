@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mô hình dự đoán mẫu dữ liệu thuộc lớp DoS với xác suất rất cao, trong đó đặc trưng IAT đóng vai trò hỗ trợ nổi bật nhất làm tăng mạnh giá trị đầu ra. Lớp đứng thứ hai là DDoS có xác suất vô cùng nhỏ, cho thấy sự chênh lệch rõ rệt và không có sự cạnh tranh đáng kể trong trường hợp này.",
+  "lop_du_doan": "DoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DDoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ đang tắt và chênh lệch giữa hai lớp rất lớn, tuy nhiên điều này không bảo đảm dự đoán hoàn toàn chính xác. Lớp DDoS đứng thứ hai nhưng có đầu ra thấp hơn nhiều so với lớp được dự đoán."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "Trong top năm đặc trưng, IAT là yếu tố hỗ trợ mạnh nhất đẩy giá trị đầu ra lên cao, trong khi không ghi nhận bất kỳ tác động phản đối nào do toàn bộ đặc trưng trong nhóm đều mang chiều hướng tăng."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, đóng góp mức tăng lớn nhất cho đầu ra của lớp được giải thích."
+    },
+    {
+      "ten_dac_trung": "Number",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này mang chiều hướng cùng chiều nhưng có độ lớn nhỏ hơn đáng kể so với yếu tố dẫn đầu."
+    },
+    {
+      "ten_dac_trung": "Weight",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đặc trưng này cung cấp thêm một mức hỗ trợ bổ sung với giá trị đóng góp ở mức trung bình trong nhóm."
+    },
+    {
+      "ten_dac_trung": "Min",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Sự hiện diện của đặc trưng này tạo ra một tác động dương nhỏ hơn để thúc đẩy đầu ra dự đoán."
+    },
+    {
+      "ten_dac_trung": "Tot sum",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đóng góp này mang lại ảnh hưởng dương thấp nhất trong số năm đặc trưng được xem xét của mẫu."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối",
+      "noi_dung_can_kiem_tra": "Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu có metadata.",
+      "muc_dich": "Đối chiếu xem hệ thống có ghi nhận các lượt truy cập lặp lại tương ứng hay không."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Tìm lỗi, gián đoạn hoặc thay đổi tài nguyên cùng thời điểm để xác minh thêm.",
+      "muc_dich": "Kiểm tra xem dịch vụ có dấu hiệu quá tải hoặc gián đoạn tài nguyên hay không."
+    }
+  ],
+  "gioi_han": [
+    "Các giá trị SHAP chỉ thể hiện mức độ đóng góp của đặc trưng đối với đầu ra của mô hình cho mẫu này và không chứng minh quan hệ nhân quả hay sự tồn tại chắc chắn của một cuộc tấn công thực tế.",
+    "Xác suất dự đoán từ mô hình chưa qua bước hiệu chỉnh xác suất, do đó không đại diện cho độ tin cậy tuyệt đối.",
+    "Tổng hợp SHAP chỉ giới hạn trong top năm đặc trưng được liệt kê và không phản ánh toàn bộ các yếu tố khác ngoài nhóm."
+  ]
+}

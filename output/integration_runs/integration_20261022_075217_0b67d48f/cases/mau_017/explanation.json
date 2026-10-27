@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_017",
+  "input_row_index": 16,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DDoS",
+  "predicted_probability": 0.9999812841415405,
+  "probabilities": {
+    "Normal": 1.9585720565373776e-06,
+    "BruteForce": 1.0078937151547507e-07,
+    "DDoS": 0.9999812841415405,
+    "DoS": 1.0639673746482003e-05,
+    "Mirai": 3.833641130768228e-06,
+    "Recon": 9.904275657390826e-07,
+    "Spoofing": 1.0322711432309006e-06,
+    "Web-Based": 1.7242182082100044e-07
+  },
+  "explained_class": "DDoS",
+  "output_unit": "probability",
+  "base_probability": 0.6250662721304252,
+  "shap_sum": 0.3749150120111154,
+  "other_features_shap_sum": 0.032730120381643246,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 83089232.0,
+      "missing": false,
+      "shap_value": 0.2708854736678177,
+      "impact_percentage_points": 27.088547366781768,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Protocol Type",
+      "value": 6.0,
+      "missing": false,
+      "shap_value": 0.028467861227691554,
+      "impact_percentage_points": 2.8467861227691555,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Magnitue",
+      "value": 10.45093059539795,
+      "missing": false,
+      "shap_value": 0.02104907679854288,
+      "impact_percentage_points": 2.1049076798542883,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Tot size",
+      "value": 54.2400016784668,
+      "missing": false,
+      "shap_value": 0.010938694814853989,
+      "impact_percentage_points": 1.0938694814853989,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Number",
+      "value": 9.5,
+      "missing": false,
+      "shap_value": 0.010843785120565977,
+      "impact_percentage_points": 1.0843785120565976,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 1.1102230246251565e-16,
+  "shap_seconds": 0.9680931949997102,
+  "seed": 58
+}

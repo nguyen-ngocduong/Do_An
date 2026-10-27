@@ -1,0 +1,72 @@
+{
+  "case_id": "mau_012",
+  "input_row_index": 11,
+  "model_id": "XGB_d4_n200",
+  "predicted_class": "DoS",
+  "predicted_probability": 0.9999525547027588,
+  "probabilities": {
+    "Normal": 3.20089429806103e-06,
+    "BruteForce": 2.0301435199598927e-07,
+    "DDoS": 3.416198887862265e-05,
+    "DoS": 0.9999525547027588,
+    "Mirai": 6.19254524281132e-06,
+    "Recon": 1.3877880746804294e-06,
+    "Spoofing": 1.885534970824665e-06,
+    "Web-Based": 3.5194847214370384e-07
+  },
+  "explained_class": "DoS",
+  "output_unit": "probability",
+  "base_probability": 0.21878188563130152,
+  "shap_sum": 0.7811706690714573,
+  "other_features_shap_sum": 0.016223071761667485,
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "IAT",
+      "value": 82943424.0,
+      "missing": false,
+      "shap_value": 0.7358667340903082,
+      "impact_percentage_points": 73.58667340903082,
+      "direction": "increase"
+    },
+    {
+      "rank": 2,
+      "feature": "Number",
+      "value": 9.5,
+      "missing": false,
+      "shap_value": 0.008934306568410951,
+      "impact_percentage_points": 0.8934306568410951,
+      "direction": "increase"
+    },
+    {
+      "rank": 3,
+      "feature": "Weight",
+      "value": 141.5500030517578,
+      "missing": false,
+      "shap_value": 0.007812674964725375,
+      "impact_percentage_points": 0.7812674964725375,
+      "direction": "increase"
+    },
+    {
+      "rank": 4,
+      "feature": "Min",
+      "value": 54.0,
+      "missing": false,
+      "shap_value": 0.006386786076196434,
+      "impact_percentage_points": 0.6386786076196433,
+      "direction": "increase"
+    },
+    {
+      "rank": 5,
+      "feature": "Tot sum",
+      "value": 567.0,
+      "missing": false,
+      "shap_value": 0.00594709561014876,
+      "impact_percentage_points": 0.594709561014876,
+      "direction": "increase"
+    }
+  ],
+  "max_additivity_error_all_classes": 6.938893903907228e-18,
+  "shap_seconds": 0.7703866720003134,
+  "seed": 53
+}

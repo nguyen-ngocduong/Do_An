@@ -1,0 +1,58 @@
+{
+  "tom_tat": "Mẫu được dự đoán là lớp DoS với mức độ ưu tiên vượt trội so với các lớp còn lại. Đặc trưng IAT đóng vai trò hỗ trợ mạnh nhất, trong khi không có yếu tố nào trong top năm phản đối kết quả này. Khoảng cách với lớp đứng thứ hai là rất lớn.",
+  "lop_du_doan": "DoS",
+  "so_sanh_hai_lop": {
+    "lop_thu_hai": "DDoS",
+    "khoang_cach_nho": false,
+    "dien_giai": "Cờ khoảng cách nhỏ tắt, thể hiện khoảng cách lớn giữa hai đầu ra. Tuy nhiên, điều này không bảo đảm dự đoán hoàn toàn chính xác do thiếu nhãn thực tế."
+  },
+  "tong_hop_shap": {
+    "ho_tro_manh_nhat": "IAT",
+    "phan_doi_manh_nhat": null,
+    "dien_giai": "IAT là yếu tố hỗ trợ mạnh nhất trong nhóm, đồng thời không ghi nhận yếu tố phản đối nào trong top năm đặc trưng."
+  },
+  "giai_thich_dac_trung": [
+    {
+      "ten_dac_trung": "IAT",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đây là yếu tố hỗ trợ nổi bật nhất trong top năm, góp phần đáng kể vào đầu ra của mô hình."
+    },
+    {
+      "ten_dac_trung": "Magnitue",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động này cùng chiều nhưng có độ lớn nhỏ hơn nhiều so với yếu tố dẫn đầu."
+    },
+    {
+      "ten_dac_trung": "Number",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Đóng góp bổ sung tiếp theo theo chiều dương cho lớp được dự đoán."
+    },
+    {
+      "ten_dac_trung": "Max",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Mang lại một mức hỗ trợ dương nhỏ hơn trong nhóm đặc trưng đang xét."
+    },
+    {
+      "ten_dac_trung": "Tot sum",
+      "huong_tac_dong": "tang",
+      "dien_giai": "Tác động dương cuối cùng trong top năm với mức đóng góp thấp nhất."
+    }
+  ],
+  "de_xuat_kiem_tra": [
+    {
+      "nguon_du_lieu": "Nhật ký kết nối",
+      "noi_dung_can_kiem_tra": "Kiểm tra kết nối lặp đến dịch vụ đích và nguồn liên quan nếu có metadata.",
+      "muc_dich": "Đối chiếu sự xuất hiện của các kết nối lặp trong hệ thống."
+    },
+    {
+      "nguon_du_lieu": "Nhật ký tài nguyên dịch vụ",
+      "noi_dung_can_kiem_tra": "Tìm lỗi, gián đoạn hoặc thay đổi tài nguyên cùng thời điểm để xác minh thêm.",
+      "muc_dich": "Xác minh các dấu hiệu bất thường về tài nguyên nếu có log."
+    }
+  ],
+  "gioi_han": [
+    "Kết quả giải thích chỉ phản ánh đầu ra của mô hình đối với mẫu dữ liệu hiện tại, không chứng minh quan hệ nhân quả.",
+    "Giá trị SHAP chỉ đại diện cho một phần thay đổi và chưa bao gồm toàn bộ không gian đặc trưng.",
+    "Xác suất dự đoán chưa qua bước hiệu chỉnh xác suất thực tế."
+  ]
+}
