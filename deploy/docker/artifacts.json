@@ -1,0 +1,22 @@
+[
+  "output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/output_checksums.json",
+  "output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/protocol.json",
+  "output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/frozen_candidates.json",
+  "output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/run_status.json",
+  "output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/predict_csv.py",
+  "output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/frozen_models/XGB_d4_n200.joblib",
+  "output/xai_shap_runs/shap_20261022_021654_2555e479/output_checksums.json",
+  "output/xai_shap_runs/shap_20261022_021654_2555e479/protocol.json",
+  "output/xai_shap_runs/shap_20261022_021654_2555e479/run_status.json",
+  "output/xai_shap_runs/shap_20261022_021654_2555e479/background.npy",
+  "output/xai_shap_runs/shap_20261022_021654_2555e479/background_probabilities.csv",
+  "output/xai_shap_runs/shap_20261022_021654_2555e479/model_reference.json",
+  "output/xai_shap_runs/shap_20261022_021654_2555e479/selected_input.csv",
+  "output/xai_shap_runs/shap_20261022_021654_2555e479/golden_predictions.csv",
+  "output/integration_runs/integration_20261022_075217_0b67d48f/output_checksums.json",
+  "output/integration_runs/integration_20261022_075217_0b67d48f/protocol.json",
+  "output/integration_runs/integration_20261022_075217_0b67d48f/input_schema.json",
+  "output/integration_runs/integration_20261022_075217_0b67d48f/system_prompt.txt",
+  "output/integration_runs/integration_20261022_075217_0b67d48f/generation_config.json",
+  "output/integration_runs/integration_20261022_075217_0b67d48f/check_guide.json"
+]

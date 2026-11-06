@@ -1,5 +1,6 @@
 *.docx
 *.env
+
 *.pkl
 *.json
 *.csv
@@ -52,3 +53,52 @@ __pycache__/
 .env
 .env.*
 *.env
+
+# Backend: cấu hình mẫu và dependencies được lưu, dữ liệu chạy giữ ở local.
+!/BE/.env.example
+!/BE/requirements.txt
+!/BE/requirements-dev.txt
+!/BE/requirements-lock.txt
+/BE/runtime/
+.pytest_cache/
+PRODUCT.md
+
+# Ảnh/báo cáo FE tái tạo bằng browser_check.py; không đưa vào source.
+/FE/tests/results/
+
+# Frontend Next.js: source/config được lưu, build và môi trường riêng bỏ qua.
+!/FE/package.json
+!/FE/package-lock.json
+!/FE/tsconfig.json
+!/FE/.env.example
+/FE/node_modules/
+/FE/.next/
+/FE/*.tsbuildinfo
+
+# Task AGY: prompt, snapshot và log cục bộ, không đưa lên Git.
+/.agent-runs/
+.codex
+.cursor
+.gemini
+.impeccable
+.taste-skill
+scripts
+# Docker release archives/config secrets and reproducible metadata.
+/dist/
+!/.env.docker.example
+!/deploy/docker/artifacts.json
+!/scripts/
+/scripts/*
+!/scripts/package_docker.py
+
+# Công cụ điều phối/kiểm tra và bước đóng gói Next standalone cần có khi clone repo.
+!/scripts/agy_frontend.py
+!/scripts/check_frontend.py
+!/scripts/tests/
+/scripts/tests/*
+!/scripts/tests/test_agy_frontend.py
+!/FE/scripts/
+/FE/scripts/*
+!/FE/scripts/prepare-standalone.mjs
+!/FE/design/reference/*.png.json
+docs-md

@@ -1,0 +1,90 @@
+# Bộ chạy cho máy thành viên: nạp image trước bằng docker load, rồi compose up -d --wait.
+# Compose tự đọc .env cùng thư mục; không ghi mật khẩu/API key trực tiếp vào file này.
+# Tên project mặc định cũng là tiền tố của network và volume (có thể ghi đè bằng -p).
+name: nidr
+# YAML anchor để ba service dùng chung cấu hình log.
+# Mỗi service giữ tối đa ba file log, mỗi file khoảng 10 MiB.
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+services:
+  # BE thực hiện suy luận/SHAP/Gemini và lưu SQLite. Không scale nhiều replica.
+  backend:
+    # Tag phải khớp bộ image đã nạp. Không tự pull image khác từ registry.
+    # linux/amd64 phù hợp Windows/Linux Intel–AMD; Windows dùng Linux containers.
+    image: nidr-backend:${NIDR_VERSION:-1.0.0}
+    platform: linux/amd64
+    pull_policy: never
+    # Init chuyển tiếp tín hiệu và thu dọn tiến trình con; restart trừ khi chủ động dừng.
+    init: true
+    restart: unless-stopped
+    # Chừa thời gian để worker kết thúc hoặc đánh dấu tác vụ bị gián đoạn.
+    stop_grace_period: 120s
+    # Chỉ BE nhận tài khoản/Gemini key. :? chặn khởi động nếu thiếu mật khẩu;
+    # :- dùng giá trị mặc định. Key trống vẫn cho phép dự đoán và SHAP.
+    environment:
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in .env}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.5-flash-lite}
+      RUNTIME_DIR: /app/BE/runtime
+    # Volume lưu CSV, database, SHAP/Gemini, cảnh báo và Human review.
+    # docker compose down giữ dữ liệu; down -v sẽ xóa volume của project.
+    volumes:
+      - runtime:/app/BE/runtime
+    networks: [app]
+    # ready chỉ xuất hiện sau khi model đã nạp và kiểm tra golden thành công.
+    # start_period là thời gian khởi động được bỏ qua khi đếm lỗi healthcheck.
+    healthcheck:
+      test: [CMD, python, -c, "import json,urllib.request; assert json.load(urllib.request.urlopen('http://127.0.0.1:8000/health',timeout=4))['status']=='ready'"]
+      interval: 10s
+      timeout: 5s
+      start_period: 120s
+      retries: 6
+    logging: *logging
+  # FE chỉ phục vụ Next.js production. Browser gọi API cùng origin qua gateway.
+  frontend:
+    # Dùng image đã dựng sẵn, người nhận không cần Node.js hoặc source.
+    image: nidr-frontend:${NIDR_VERSION:-1.0.0}
+    platform: linux/amd64
+    pull_policy: never
+    init: true
+    restart: unless-stopped
+    networks: [app]
+    healthcheck:
+      # Đọc /login công khai để kiểm tra Next đã phục vụ HTTP, không cần phiên.
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/login').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 6
+    logging: *logging
+  # Chỉ gateway mở cổng ra máy chủ; frontend/backend vẫn ở mạng Docker.
+  gateway:
+    image: nidr-gateway:${NIDR_VERSION:-1.0.0}
+    platform: linux/amd64
+    pull_policy: never
+    restart: unless-stopped
+    # Chờ cả hai service healthy trước khi tạo gateway, không chỉ chờ process chạy.
+    depends_on:
+      backend: {condition: service_healthy}
+      frontend: {condition: service_healthy}
+    # Dạng host_ip:host_port:container_port. 127.0.0.1 giới hạn truy cập trên máy này.
+    # Đổi NIDR_PORT trong .env khi cổng 8080 đang được ứng dụng khác sử dụng.
+    ports:
+      - "127.0.0.1:${NIDR_PORT:-8080}:8080"
+    networks: [app]
+    healthcheck:
+      test: [CMD-SHELL, "wget -q -O /dev/null http://127.0.0.1:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    logging: *logging
+# Mạng bridge riêng cho stack; vẫn cho phép BE kết nối API Gemini ra Internet.
+networks:
+  app:
+# Docker quản lý vị trí lưu thực tế, không phụ thuộc đường dẫn Windows/Linux.
+volumes:
+  runtime:

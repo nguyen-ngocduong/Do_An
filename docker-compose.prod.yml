@@ -1,0 +1,16 @@
+# Cần Docker Compose >=2.24.4 để dùng !override.
+# Chạy cùng file gốc: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --wait.
+# Cần DNS và chứng chỉ hợp lệ cho domain trước khi triển khai trên VPS.
+services:
+  gateway:
+    # !override THAY toàn bộ danh sách cổng localhost, tránh Compose cộng dồn ports.
+    # 80 nhận HTTP để chuyển HTTPS; 443 chuyển tới cổng TLS8443 trong gateway.
+    ports: !override
+      - "80:8080"
+      - "443:8443"
+    # Thay cấu hình local trong image bằng cấu hình production, chỉ đọc.
+    # NIDR_TLS_DIR trỏ thư mục ngoài repo chứa server.crt và server.key;
+    # :? chặn cấu hình nếu chưa đặt đường dẫn. Không đưa private key vào image/Git.
+    volumes:
+      - ./deploy/docker/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ${NIDR_TLS_DIR:?Set NIDR_TLS_DIR to certificate directory}:/etc/nginx/tls:ro

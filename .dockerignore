@@ -1,0 +1,80 @@
+# Chặn mặc định. Mở thư mục cha để Docker tìm đường dẫn, rồi chặn lại nội dung con.
+# Chỉ các ngoại lệ ! bên dưới mới được gửi cho builder; không mang cache/runtime máy cá nhân.
+**
+!Dockerfile
+
+# Backend: module Python và lock dependencies.
+!BE/
+BE/**
+!BE/*.py
+!BE/requirements-lock.txt
+
+# Frontend: source/config cần build; không gửi node_modules, .next hoặc tests/browser results.
+!FE/
+FE/**
+!FE/src/
+!FE/src/**
+!FE/public/
+!FE/public/**
+!FE/scripts/
+!FE/scripts/**
+!FE/package.json
+!FE/package-lock.json
+!FE/tsconfig.json
+!FE/next-env.d.ts
+!FE/next.config.ts
+!FE/postcss.config.mjs
+# Next kiểm tra cả test trong src/; cần khai báo matcher của Testing Library.
+!FE/vitest.setup.ts
+
+# Gateway: chỉ cấu hình Nginx.
+!deploy/
+deploy/**
+!deploy/docker/
+deploy/docker/**
+!deploy/docker/*.conf
+
+# Artifact đóng băng: chỉ mở các thư mục cha và đúng 20 file đã chọn.
+!output/
+output/**
+!output/stacking_meta_runs/
+output/stacking_meta_runs/**
+!output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/
+output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/**
+!output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/frozen_models/
+output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/frozen_models/**
+!output/xai_shap_runs/
+output/xai_shap_runs/**
+!output/xai_shap_runs/shap_20261022_021654_2555e479/
+output/xai_shap_runs/shap_20261022_021654_2555e479/**
+!output/integration_runs/
+output/integration_runs/**
+!output/integration_runs/integration_20261022_075217_0b67d48f/
+output/integration_runs/integration_20261022_075217_0b67d48f/**
+!output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/output_checksums.json
+!output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/protocol.json
+!output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/frozen_candidates.json
+!output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/run_status.json
+!output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/predict_csv.py
+!output/stacking_meta_runs/xgb_meta_20261021_092334_9024562d/frozen_models/XGB_d4_n200.joblib
+!output/xai_shap_runs/shap_20261022_021654_2555e479/output_checksums.json
+!output/xai_shap_runs/shap_20261022_021654_2555e479/protocol.json
+!output/xai_shap_runs/shap_20261022_021654_2555e479/run_status.json
+!output/xai_shap_runs/shap_20261022_021654_2555e479/background.npy
+!output/xai_shap_runs/shap_20261022_021654_2555e479/background_probabilities.csv
+!output/xai_shap_runs/shap_20261022_021654_2555e479/model_reference.json
+!output/xai_shap_runs/shap_20261022_021654_2555e479/selected_input.csv
+!output/xai_shap_runs/shap_20261022_021654_2555e479/golden_predictions.csv
+!output/integration_runs/integration_20261022_075217_0b67d48f/output_checksums.json
+!output/integration_runs/integration_20261022_075217_0b67d48f/protocol.json
+!output/integration_runs/integration_20261022_075217_0b67d48f/input_schema.json
+!output/integration_runs/integration_20261022_075217_0b67d48f/system_prompt.txt
+!output/integration_runs/integration_20261022_075217_0b67d48f/generation_config.json
+!output/integration_runs/integration_20261022_075217_0b67d48f/check_guide.json
+
+# Phòng trường hợp thư mục được mở lại: luôn loại bí mật và cache.
+**/.env
+**/.env.*
+**/__pycache__/**
+**/node_modules/**
+**/.next/**
