@@ -14,6 +14,14 @@ Các notebook theo thứ tự sử dụng:
 6. [SHAP → Gemini](notebook/ciciot2023-do-an-shap-gemini.ipynb): xây dựng diễn giải tiếng Việt và kiểm tra phản hồi.
 7. [Tích hợp CSV → dự đoán → SHAP → Gemini](notebook/ciciot2023-do-an-integration.ipynb): đã chạy thử 50 mẫu trên Kaggle.
 
+[Xuất test thành CSV upload NIDR](notebook/ciciot2023-do-an-test-upload-csv.ipynb): chạy trên Kaggle với output processing `20261021_052521_96f61f19`; chỉ lấy test đã chuẩn bị, giữ 46 đặc trưng thang đo gốc để BE tự transform. Mỗi CSV tối đa 1.000 dòng / 10 MiB, có thể kèm `label`, có kiểm checksum nguồn và đọc lại CSV. Notebook chưa được thực thi với tập test thật trên Kaggle; các kiểm tra local chỉ dùng dữ liệu tổng hợp.
+
 Processing và training chạy trên Kaggle. Dùng đúng phiên bản thư viện và thứ tự đặc trưng/lớp ghi trong protocol của run được chọn. Không lưu API key trong notebook; sử dụng Kaggle Secrets hoặc biến môi trường khi chuyển sang local.
 
-Công việc tiếp theo của Kiên là tách pipeline đã kiểm chứng thành các module Python trên local, nạp model/background một lần và đối chiếu CSV golden trước khi xây dựng API/giao diện. Phần này chưa được triển khai trong bộ kết quả hiện tại; human review đang được tạm hoãn theo phạm vi đã chốt.
+Backend local đã được tách trong [BE/](BE/README.md): REST API FastAPI, Swagger, CSV batch/phát lại, SHAP và module Gemini. Model/background nạp một lần và có đối chiếu CSV golden khi khởi động. [Frontend NIDR](FE/README.md) nằm riêng trong `FE/`, gọi REST API trên cùng server; đánh giá thủ công từng mẫu có thể lưu, mở lại và tải về. Xem [kiểm chứng BE](BE/VERIFICATION.md) và [kiểm chứng FE](FE/VERIFICATION.md).
+
+BE chạy từ repo root bằng `.venv/bin/python -m BE`; Swagger ở `http://127.0.0.1:8000/docs`. FE dùng **Next.js App Router + React + TypeScript**, cấu trúc theo P-150: từ `FE/` chạy Node.js 22, `npm ci`, rồi `npm run dev -- --hostname 127.0.0.1 --port 3000`. Mở `http://127.0.0.1:3000/login`, dùng tài khoản BE hiện có (BE 1.4.0); phiên cookie tối đa tám giờ, có nút Đăng xuất. Tài khoản và Gemini key chỉ cấu hình ở `BE/.env`. [Hướng dẫn FE](FE/README.md) và [gateway HTTPS một server](FE/deploy/README.md) ghi cách chạy production.
+
+## Chạy bằng Docker
+
+Bộ Docker NIDR gồm backend có sẵn model, Next.js production và Nginx; chạy CPU trên Windows/Linux amd64. Xem [hướng dẫn bàn giao](deploy/docker/README.md), [kế hoạch đã chốt](docs-md/PLAN_DOCKER_NIDR.md) và [kiểm chứng Docker](deploy/docker/VERIFICATION.md). Người nhận dùng archive image và Compose, không cần source/model rời. Producer dựng gói mới bằng `python scripts/package_docker.py --version 1.0.0`; archive nằm trong `dist/` (không commit). Không đưa .env, Gemini key hoặc BE/runtime vào image.
