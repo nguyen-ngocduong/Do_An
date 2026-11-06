@@ -102,3 +102,5 @@ scripts
 !/FE/scripts/prepare-standalone.mjs
 !/FE/design/reference/*.png.json
 docs-md
+!/.env.observability.example
+!/streaming/requirements.txt
