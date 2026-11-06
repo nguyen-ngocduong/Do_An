@@ -26,6 +26,11 @@ class Store:
                     created_at TEXT NOT NULL, updated_at TEXT NOT NULL,
                     signature TEXT NOT NULL, message TEXT NOT NULL DEFAULT ''
                 );
+                -- Giữ receipt kể cả khi run bị xóa: đọc lại Kafka không tự hồi sinh dữ liệu đã xóa.
+                CREATE TABLE IF NOT EXISTS ingestion_receipts (
+                    source_id TEXT PRIMARY KEY, request_hash TEXT NOT NULL,
+                    run_id TEXT NOT NULL, created_at TEXT NOT NULL
+                );
                 CREATE TABLE IF NOT EXISTS predictions (
                     run_id TEXT NOT NULL REFERENCES runs(id), row_index INTEGER NOT NULL,
                     predicted_class TEXT NOT NULL, predicted_probability REAL NOT NULL,
@@ -142,7 +147,8 @@ class Store:
             ).fetchall()
         return [json.loads(row["payload"]) for row in rows]
 
-    def create_run(self, run_id, filename, mode, interval, total_rows, signature):
+    def create_run(self, run_id, filename, mode, interval, total_rows, signature,
+                   source_id=None, request_hash=None):
         now = utc_now()
         with self.connect() as connection:
             connection.execute(
@@ -150,6 +156,16 @@ class Store:
                 "created_at,updated_at,signature) VALUES(?,?,?,?,?,?,?,?,?)",
                 (run_id, filename, mode, interval, "queued", total_rows, now, now, signature),
             )
+            if source_id is not None:
+                connection.execute(
+                    "INSERT INTO ingestion_receipts(source_id,request_hash,run_id,created_at) VALUES(?,?,?,?)",
+                    (source_id, request_hash, run_id, now),
+                )
+
+    def ingestion_receipt(self, source_id):
+        with self.connect() as connection:
+            row = connection.execute("SELECT * FROM ingestion_receipts WHERE source_id=?", (source_id,)).fetchone()
+        return dict(row) if row else None
 
     def get_run(self, run_id):
         with self.connect() as connection:

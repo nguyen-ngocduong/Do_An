@@ -1,6 +1,7 @@
 """Hai worker trong cùng process: dự đoán và giải thích theo yêu cầu."""
 
 import logging
+import hashlib
 import queue
 import shutil
 import threading
@@ -15,6 +16,7 @@ from BE.config import MODEL_ID
 from BE.reporting import write_report
 from BE.shap_service import explain_sample
 from BE.storage import Store
+from BE.telemetry import Telemetry
 from BE.utils import read_json, sha256_file, utc_now, write_json
 
 
@@ -34,6 +36,8 @@ class JobManager:
         self.runtime = runtime
         self.settings = settings
         self.gemini = gemini
+        self.telemetry = Telemetry(settings)
+        self.gemini.telemetry = self.telemetry
         self.store = Store(settings.runtime_dir / "app.sqlite3")
         self.runs_dir = settings.runtime_dir / "runs"
         self.runs_dir.mkdir(parents=True, exist_ok=True)
@@ -71,10 +75,20 @@ class JobManager:
             raise RequestConflict("Lần chạy dùng artifact/cấu hình khác. Tạo lần chạy mới để giữ kết quả nguồn.")
         return run
 
-    def create_run(self, content, filename, mode, interval):
+    def create_run(self, content, filename, mode, interval, source_id=None):
+        request_hash = hashlib.sha256(content + f"\n{filename}\n{mode}\n{interval}".encode()).hexdigest()
         with self.control_lock:
             if self.shutdown_event.is_set():
                 raise RequestConflict("Server đang dừng.")
+            if source_id is not None:
+                receipt = self.store.ingestion_receipt(source_id)
+                if receipt is not None:
+                    if receipt["request_hash"] != request_hash:
+                        raise RequestConflict("Idempotency-Key đã được dùng với nội dung khác.")
+                    previous = self.store.get_run(receipt["run_id"])
+                    if previous is None:
+                        raise RequestConflict("Nguồn này đã được nhập rồi xóa; không tự tạo lại lần chạy.")
+                    return previous
             if self.active_run is not None:
                 raise RequestConflict("Đang có lần chạy dự đoán/phát lại. Hoàn tất hoặc dừng lần chạy đó trước.")
             run_id = uuid.uuid4().hex
@@ -101,8 +115,10 @@ class JobManager:
                     "threads": self.settings.threads, "created_at": utc_now(),
                     "ground_truth_used": False, "model_refitted": False,
                     "validation_test_previously_viewed": True, "human_semantic_review": "deferred",
+                    "ingestion_source_id": source_id,
                 })
-                self.store.create_run(run_id, filename, mode, interval, len(values), self.runtime.signature)
+                self.store.create_run(run_id, filename, mode, interval, len(values), self.runtime.signature,
+                                      source_id, request_hash)
             except Exception:
                 shutil.rmtree(directory)
                 raise
@@ -206,6 +222,13 @@ class JobManager:
                 self.prediction_queue.task_done()
 
     def process_predictions(self, run_id):
+        with self.telemetry.span("nidr.predict", metadata={"run_id": run_id, "model_id": MODEL_ID}) as observation:
+            observation.update(input={"run_id": run_id, "model_id": MODEL_ID})
+            self._process_predictions(run_id)
+            run = self.store.get_run(run_id)
+            observation.update(output={"status": run["status"], "processed_rows": run["processed_rows"]})
+
+    def _process_predictions(self, run_id):
         self.prediction_wakeup.clear()
         run = self.require_signature(run_id)
         values = self.load_input(run_id)
@@ -295,6 +318,15 @@ class JobManager:
                 self.explanation_queue.task_done()
 
     def process_explanation(self, run_id, index, use_gemini, retry_gemini, audience_level="technical"):
+        with self.telemetry.span("nidr.explanation", metadata={
+            "run_id": run_id, "row_index": index, "audience_level": audience_level,
+            "use_gemini": use_gemini,
+        }) as observation:
+            observation.update(input={"run_id": run_id, "row_index": index,
+                                      "audience_level": audience_level, "use_gemini": use_gemini})
+            self._process_explanation(run_id, index, use_gemini, retry_gemini, audience_level, observation)
+
+    def _process_explanation(self, run_id, index, use_gemini, retry_gemini, audience_level, observation):
         self.require_signature(run_id)
         shared_directory = self.case_dir(run_id, index)
         directory = self.explanation_dir(run_id, index, audience_level)
@@ -309,7 +341,11 @@ class JobManager:
         values = self.load_input(run_id)
         prediction = self.store.prediction(run_id, index)
         expected = np.asarray([prediction["probabilities"][name] for name in self.runtime.class_names])
-        item = explain_sample(self.runtime, values[index:index + 1], index, expected, shared_directory)
+        with self.telemetry.span("nidr.shap", metadata={"run_id": run_id, "row_index": index}) as shap_span:
+            shap_span.update(input={"row_index": index, "input_feature_count": len(self.runtime.feature_names),
+                                    "model_id": MODEL_ID})
+            item = explain_sample(self.runtime, values[index:index + 1], index, expected, shared_directory)
+            shap_span.update(output={"class": item["predicted_class"], "shap_seconds": item["shap_seconds"]})
         self.store.update_explanation(run_id, index, "gemini_running", audience_level=audience_level)
         record = self.gemini.explain(item, directory, enabled=use_gemini, audience_level=audience_level)
         write_report(item, record, directory)
@@ -321,8 +357,11 @@ class JobManager:
             "total_tokens": record["total_tokens"], "rss_mib": psutil.Process().memory_info().rss / 1024**2,
             "updated_at": utc_now(), "signature": self.runtime.signature,
             "audience_level": audience_level,
+            "langfuse_trace_id": observation.trace_id,
         })
         self.store.update_explanation(run_id, index, status, record["status"], record["message"], audience_level)
+        observation.update(output={"status": status, "gemini_status": record["status"],
+                                   "total_tokens": record["total_tokens"]})
 
     def stop(self):
         self.shutdown_event.set()
@@ -338,3 +377,4 @@ class JobManager:
                         run["id"], case["row_index"], "interrupted", "interrupted", "Server đã dừng.", case["audience_level"],
                     )
         self.gemini.close()
+        self.telemetry.close()
