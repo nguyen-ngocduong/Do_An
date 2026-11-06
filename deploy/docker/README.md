@@ -53,8 +53,8 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --wait
 
 Overlay thay cổng localhost bằng80/443, HTTP chuyển HTTPS; chỉ gateway public. Cert mount read-only, backend/frontend chỉ mạng Docker. Không thay cấu hình Nginx của website khác. Tự gia hạn chứng chỉ theo hạ tầng VPS rồi reload gateway. Chưa có dịch vụ cấp chứng chỉ tự động trong bộ này.
 
-## Monitoring: nền tảng đã chuẩn bị, chưa có stack quan sát
+## Monitoring và Kafka tùy chọn
 
 Ba service có healthcheck, version tag và log stdout/stderr giới hạn 10 MiB ×3/service. Gateway tạo X-Request-ID, log JSON thời gian/status/latency/URI, không ghi query/body/cookie/Authorization. Header request ID được chuyển tới BE/FE; chưa phải distributed tracing toàn luồng.
 
-Đợt sau có thể thêm profile Prometheus/Grafana và endpoint metrics nội bộ cho HTTP, queue, predict/SHAP/Gemini duration/error/token. Dùng nhãn hữu hạn theo route/status/lớp; không dùng run_id/row_id làm label metrics. Không mở metrics trên gateway public. Langfuse tích hợp tại GeminiService.call và JobManager.process_explanation, gắn trace metadata run/dòng và usage thực; mặc định không gửi CSV/nhãn thật/prompt, không log API key. Quan sát lỗi không được làm hỏng suy luận hoặc tự gửi lại Gemini. Chưa cài SDK Langfuse, chưa có /metrics hoặc services Grafana/Prometheus ở bản này.
+Stack tùy chọn dùng Kafka local, Langfuse Cloud và Netdata local; Airflow để sau. Không triển khai Grafana/Prometheus. Trong source repo, xem `deploy/observability/README.md` và `docker-compose.observability.yml`. Khóa Cloud đặt trong `.env.observability` riêng. Monitoring không tự gọi lại Gemini, không nạp model thứ hai. Bộ archive cơ bản vẫn chỉ gồm BE/FE/gateway; archive đã tạo trước đây chưa được cập nhật với tracing mới hoặc các dịch vụ Kafka/Netdata. Cài stack mở rộng từ source repo theo hướng dẫn trên.
