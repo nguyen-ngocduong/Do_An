@@ -415,7 +415,7 @@ export function ExplanationInspector({
         <>
             <PageHeading
                 title={`Giải thích dòng ${rowName(index)}`}
-                description="Chỉ số dòng bắt đầu từ 0 trong CSV đã upload."
+                info="Chỉ số dòng bắt đầu từ 0 trong CSV đã upload."
                 actions={
                     <Link className="button" scroll={false} href={back}>
                         Về bảng · {rowName(index)}

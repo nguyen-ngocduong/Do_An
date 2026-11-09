@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { number, statusLabel } from "@/lib/format";
 import type { DashboardSummary } from "@/types/dashboard";
+import { InfoPopover } from "@/components/shared/controls";
 
 export function DashboardPipeline({ data }: { data: DashboardSummary }) {
     const total = data.metrics.predicted_rows;
@@ -44,12 +45,15 @@ export function DashboardPipeline({ data }: { data: DashboardSummary }) {
         >
             <div className="dashboard-card-heading">
                 <div>
-                    <h2 id="dashboard-pipeline-title">
-                        Giải thích và đánh giá
-                    </h2>
-                    <p>
-                        Từ bằng chứng đến diễn giải, rồi đến nhận xét của bạn.
-                    </p>
+                    <div className="dashboard-heading-title-wrap">
+                        <h2 id="dashboard-pipeline-title">
+                            Giải thích và đánh giá
+                        </h2>
+                        <InfoPopover
+                            title="Giải thích và đánh giá"
+                            description="Quy trình từ bằng chứng SHAP đến diễn giải Gemini, rồi đến nhận xét của bạn sau khi đối chiếu kết quả. Kết quả AI cần người dùng kiểm tra; phiếu đánh giá không tự xác nhận nhãn thực tế."
+                        />
+                    </div>
                 </div>
                 {targetRun && targetRunLabel && (
                     <Link
@@ -64,10 +68,13 @@ export function DashboardPipeline({ data }: { data: DashboardSummary }) {
 
             <div className="dashboard-pipeline-columns">
                 <section className="dashboard-pipeline-card">
-                    <h3>Bằng chứng SHAP</h3>
-                    <p className="pipeline-desc">
-                        Xem những đặc trưng đã ảnh hưởng đến kết quả dự đoán.
-                    </p>
+                    <div className="dashboard-heading-title-wrap">
+                        <h3>Bằng chứng SHAP</h3>
+                        <InfoPopover
+                            title="Bằng chứng SHAP"
+                            description="Xem những đặc trưng đã ảnh hưởng đến kết quả dự đoán."
+                        />
+                    </div>
                     <div className="pipeline-stat">
                         <span>Đã có bằng chứng</span>
                         <strong>
@@ -88,10 +95,13 @@ export function DashboardPipeline({ data }: { data: DashboardSummary }) {
                 </section>
 
                 <section className="dashboard-pipeline-card">
-                    <h3>Diễn giải Gemini</h3>
-                    <p className="pipeline-desc">
-                        Đọc phần diễn giải bằng tiếng Việt từ bằng chứng SHAP.
-                    </p>
+                    <div className="dashboard-heading-title-wrap">
+                        <h3>Diễn giải Gemini</h3>
+                        <InfoPopover
+                            title="Diễn giải Gemini"
+                            description="Đọc phần diễn giải bằng tiếng Việt từ bằng chứng SHAP."
+                        />
+                    </div>
                     <div className="pipeline-stat">
                         <span>Đạt kiểm tra tự động</span>
                         <strong>
@@ -112,11 +122,13 @@ export function DashboardPipeline({ data }: { data: DashboardSummary }) {
                 </section>
 
                 <section className="dashboard-pipeline-card">
-                    <h3>Đánh giá của bạn</h3>
-                    <p className="pipeline-desc">
-                        Lưu nhận xét của bạn sau khi đối chiếu kết quả và bằng
-                        chứng.
-                    </p>
+                    <div className="dashboard-heading-title-wrap">
+                        <h3>Đánh giá của bạn</h3>
+                        <InfoPopover
+                            title="Đánh giá của bạn"
+                            description="Lưu nhận xét của bạn sau khi đối chiếu kết quả và bằng chứng."
+                        />
+                    </div>
                     <div className="pipeline-stat">
                         <span>Phiếu đã lưu</span>
                         <strong>
@@ -207,11 +219,6 @@ export function DashboardPipeline({ data }: { data: DashboardSummary }) {
                     </div>
                 </div>
             </details>
-
-            <p className="scope-note">
-                Kết quả AI cần người dùng kiểm tra. Phiếu đánh giá không tự xác
-                nhận nhãn thực tế.
-            </p>
         </section>
     );
 }

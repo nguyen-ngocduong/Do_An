@@ -8,7 +8,6 @@ import {
     ListChecks,
     FileSpreadsheet,
     ListFilter,
-    Plus,
     RefreshCw,
     ShieldAlert,
     TriangleAlert,
@@ -27,8 +26,8 @@ import {
     ClassBadge,
     Empty,
     ErrorNotice,
+    InfoPopover,
     Loading,
-    PageHeading,
 } from "@/components/shared/controls";
 import { ActivityChart, ClassDistribution, dayLabel } from "./charts";
 import { DashboardPipeline } from "./dashboard-pipeline";
@@ -45,6 +44,8 @@ function timestamp(value: string) {
         timeZone: "Asia/Ho_Chi_Minh",
     });
 }
+
+const PanelInfoButton = InfoPopover;
 
 export function Dashboard() {
     const params = useSearchParams();
@@ -69,49 +70,35 @@ export function Dashboard() {
         );
     return (
         <div className="nid-dashboard">
-            <PageHeading
-                title="Tổng quan giám sát an ninh"
-                description="Theo dõi dữ liệu mạng IoT đã xử lý, dự đoán AI, cảnh báo và bằng chứng SHAP."
-                actions={
-                    <Link className="button primary" href="/runs/new">
-                        <Plus className="icon" aria-hidden="true" />
-                        Tạo lần chạy
-                    </Link>
-                }
-            />
-            <div className="panel dashboard-toolbar">
-                <DashboardFilters
-                    key={`${period}:${runId}`}
-                    period={period}
-                    runId={runId}
-                    options={options}
-                    limited={(data?.available_run_count || 0) > 100}
-                />
-                <div className="dashboard-update">
-                    <div>
-                        <button
-                            className="text-button"
-                            id="dashboard-refresh"
-                            onClick={poll.refresh}
-                        >
-                            <RefreshCw className="icon" aria-hidden="true" />
-                            Làm mới
-                        </button>
-                        {data && (
-                            <time dateTime={data.generated_at}>
-                                {timestamp(data.generated_at)}
-                            </time>
-                        )}
+            <div className="dashboard-header-bar">
+                <div className="dashboard-header-left">
+                    <div className="pagehead-title-wrap">
+                        <h1 className="dashboard-header-title">Tổng quan giám sát an ninh</h1>
+                        <InfoPopover
+                            title="Tổng quan giám sát an ninh"
+                            description="Theo dõi dữ liệu mạng IoT đã xử lý, dự đoán AI, cảnh báo và bằng chứng SHAP theo khoảng thời gian và lần chạy đã chọn."
+                        />
                     </div>
-                    <span>Tự làm mới 15 giây · UTC+7</span>
+                    {data && (
+                        <p className="dashboard-header-desc">
+                            <span className="dashboard-header-scope">
+                                <strong>{number(data.metrics.run_count)}</strong> lần chạy có hoạt động (UTC+7)
+                            </span>
+                        </p>
+                    )}
+                </div>
+                <div className="dashboard-header-right">
+                    <DashboardFilters
+                        key={`${period}:${runId}`}
+                        period={period}
+                        runId={runId}
+                        options={options}
+                        limited={(data?.available_run_count || 0) > 100}
+                        onRefresh={poll.refresh}
+                        generatedAt={data?.generated_at}
+                    />
                 </div>
             </div>
-            <p className="dashboard-scope">
-                {data &&
-                    `${number(data.metrics.run_count)} lần chạy có hoạt động · `}
-                Theo thời gian xử lý mẫu UTC+7; trạng thái hiện tại của nhóm mẫu
-                đã chọn.
-            </p>
             <ErrorNotice error={poll.error} retry={poll.refresh} />
             {!data ? (
                 !poll.error && <Loading />
@@ -134,11 +121,14 @@ export function Dashboard() {
                             aria-labelledby="dashboard-activity-title"
                         >
                             <div className="dashboard-card-heading">
-                                <div>
+                                <div className="dashboard-heading-title-wrap">
                                     <h2 id="dashboard-activity-title">
                                         Số mẫu đã xử lý
                                     </h2>
-                                    <p>Theo phạm vi bộ lọc đang chọn</p>
+                                    <PanelInfoButton
+                                        title="Số mẫu đã xử lý"
+                                        description="Biểu diễn tổng số lượng mẫu lưu lượng mạng IoT đã được mô hình AI phân loại theo thời gian (ngày) hoặc theo từng lớp tấn công trong khoảng thời gian đã chọn. Đường cong KDE minh họa mật độ phân bố mẫu để nhận diện đột biến lưu lượng."
+                                    />
                                 </div>
                             </div>
                             <ActivityChart
@@ -152,22 +142,20 @@ export function Dashboard() {
                             aria-labelledby="dashboard-classes-title"
                         >
                             <div className="dashboard-card-heading">
-                                <div>
+                                <div className="dashboard-heading-title-wrap">
                                     <h2 id="dashboard-classes-title">
                                         Phân bố nhãn dự đoán
                                     </h2>
-                                    <p>
-                                        Tám lớp mô hình · Tổng cộng{" "}
-                                        {number(data.metrics.predicted_rows)}{" "}
-                                        mẫu
-                                    </p>
+                                    <PanelInfoButton
+                                        title="Phân bố nhãn dự đoán"
+                                        description="Biểu đồ tròn và bảng chú giải 8 lớp nhãn do mô hình AI dự đoán, được sắp xếp theo tỷ lệ phần trăm giảm dần từ cao xuống thấp. Lưu ý: Đây là kết quả do mô hình AI dự đoán, chưa phải xác nhận tấn công thực tế."
+                                    />
                                 </div>
+                                <span className="dashboard-heading-count">
+                                    Tám lớp · {number(data.metrics.predicted_rows)} mẫu
+                                </span>
                             </div>
                             <ClassDistribution counts={data.class_counts} />
-                            <p className="dashboard-distribution-note">
-                                Phân bố nhãn do mô hình dự đoán; chưa xác nhận
-                                tấn công thực tế.
-                            </p>
                         </section>
                     </div>
                     <div className="dashboard-recent">
@@ -390,11 +378,15 @@ function DashboardFilters({
     runId,
     options,
     limited,
+    onRefresh,
+    generatedAt,
 }: {
     period: DashboardPeriod;
     runId: string;
     options: DashboardRunOption[];
     limited: boolean;
+    onRefresh?: () => void;
+    generatedAt?: string;
 }) {
     const router = useRouter();
     const [selectedPeriod, setPeriod] = useState(period);
@@ -411,8 +403,8 @@ function DashboardFilters({
                 );
             }}
         >
-            <label>
-                Khoảng thời gian
+            <label className="dashboard-filter-field">
+                <span className="filter-title">Khoảng thời gian</span>
                 <select
                     name="period"
                     value={selectedPeriod}
@@ -427,8 +419,8 @@ function DashboardFilters({
                     ))}
                 </select>
             </label>
-            <label>
-                Lần chạy
+            <label className="dashboard-filter-field">
+                <span className="filter-title">Lần chạy</span>
                 <select
                     name="run_id"
                     value={selectedRun}
@@ -445,15 +437,42 @@ function DashboardFilters({
                     ))}
                 </select>
                 {limited && (
-                    <small className="muted">
+                    <small className="muted sr-only">
                         Hiện 100 lần chạy gần nhất và lần chạy đang chọn.
                     </small>
                 )}
             </label>
-            <button className="primary" type="submit">
+            <button className="primary dashboard-apply-btn" type="submit">
                 <ListFilter className="icon" aria-hidden="true" />
                 Áp dụng
             </button>
+            {onRefresh && (
+                <div className="dashboard-refresh-wrap">
+                    <button
+                        type="button"
+                        className="text-button dashboard-refresh-btn"
+                        id="dashboard-refresh"
+                        onClick={onRefresh}
+                        title={
+                            generatedAt
+                                ? `Cập nhật lúc ${timestamp(generatedAt)} · Tự làm mới 15 giây (UTC+7)`
+                                : "Làm mới dữ liệu"
+                        }
+                    >
+                        <RefreshCw className="icon" aria-hidden="true" />
+                        Làm mới
+                    </button>
+                    {generatedAt && (
+                        <time
+                            dateTime={generatedAt}
+                            className="dashboard-update-time"
+                            title="Thời gian dữ liệu UTC+7"
+                        >
+                            {timestamp(generatedAt).split(" ")[1] || timestamp(generatedAt)}
+                        </time>
+                    )}
+                </div>
+            )}
         </form>
     );
 }

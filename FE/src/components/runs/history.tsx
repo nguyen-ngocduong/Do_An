@@ -53,12 +53,7 @@ export function RunHistory() {
         <>
             <PageHeading
                 title="Lịch sử lần chạy"
-                description="Các file CSV và kết quả đã lưu trên server."
-                actions={
-                    <Link className="button primary" href="/runs/new">
-                        Tạo lần chạy
-                    </Link>
-                }
+                info="Các file CSV và kết quả đã lưu trên server."
             />
             <ErrorNotice error={poll.error} retry={poll.refresh} />
             <ErrorNotice error={action.error} />

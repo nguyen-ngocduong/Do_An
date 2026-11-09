@@ -209,10 +209,10 @@ export function PredictionBrowser({ id }: { id: string }) {
         <>
             <PageHeading
                 title="Dự đoán"
-                description={
+                info={
                     poll.data
-                        ? `${poll.data.run.filename} · ${poll.data.run.processed_rows} / ${poll.data.run.total_rows} dòng đã dự đoán · ${statusLabel(poll.data.run.status)}`
-                        : "Đang đọc lần chạy…"
+                        ? `${poll.data.run.filename} · ${number(poll.data.run.processed_rows)} / ${number(poll.data.run.total_rows)} dòng đã dự đoán · ${statusLabel(poll.data.run.status)}. Chọn tối đa 50 dòng đã dự đoán để giải thích, gồm cả Normal. Đang xếp hàng nghĩa là đã tiếp nhận, chưa phải lỗi API key.`
+                        : "Chọn tối đa 50 dòng đã dự đoán để giải thích, gồm cả Normal. Đang xếp hàng nghĩa là đã tiếp nhận, chưa phải lỗi API key."
                 }
             />
             <RunTabs id={id} selected="predictions" />
@@ -825,10 +825,6 @@ export function PredictionBrowser({ id }: { id: string }) {
                     </aside>
                 )}
             </div>
-            <p className="scope-note">
-                Chọn tối đa 50 dòng đã dự đoán để giải thích, gồm cả Normal.
-                Đang xếp hàng nghĩa là đã tiếp nhận, chưa phải lỗi API key.
-            </p>
         </>
     );
 }

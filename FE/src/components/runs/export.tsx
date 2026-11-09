@@ -21,6 +21,7 @@ import {
     DownloadButton,
     Empty,
     ErrorNotice,
+    InfoPopover,
     Loading,
     PageHeading,
     RunTabs,
@@ -85,7 +86,7 @@ export function RunExport({ id }: { id: string }) {
         <div className="export-page">
             <PageHeading
                 title="Xuất kết quả & Báo cáo"
-                description="Tải dự đoán, bằng chứng SHAP và báo cáo Gemini đã lưu của lần chạy."
+                info="Tải dự đoán, bằng chứng SHAP và báo cáo Gemini đã lưu của lần chạy. Snapshot có thể chưa đủ mọi mẫu nếu tác vụ đang chạy. ZIP gồm các mức diễn giải đã lưu; bộ chọn mức/mẫu chỉ đổi danh mục tệp bên dưới. Báo cáo có thể gồm trạng thái hoặc bản nháp cần sửa. Xuất kết quả không chạy lại model, SHAP hay gọi Gemini. Chưa hỗ trợ xuất PDF."
             />
             <RunTabs id={id} selected="export" />
             <ErrorNotice error={poll.error} retry={poll.refresh} />
@@ -115,15 +116,12 @@ export function RunExport({ id }: { id: string }) {
                                     {number(data.summary.processed_rows)} /{" "}
                                     {number(data.summary.total_rows)} dòng
                                 </strong>
+                                <InfoPopover
+                                    title="Thông tin snapshot"
+                                    description={`${data.run.filename} · Cập nhật ${time(data.run.updated_at)}. Snapshot ghi nhận trạng thái tại thời điểm tải.`}
+                                />
                             </div>
-                            <p>
-                                {data.run.filename} · Cập nhật{" "}
-                                {time(data.run.updated_at)}
-                            </p>
                         </div>
-                        <span className="export-snapshot-note">
-                            Snapshot tại thời điểm tải
-                        </span>
                     </div>
                     <div className="export-options">
                         <section className="export-card" data-format="csv">
@@ -257,7 +255,7 @@ export function RunExport({ id }: { id: string }) {
                         aria-labelledby="export-files-title"
                     >
                         <div className="export-catalog-heading">
-                            <div>
+                            <div className="dashboard-heading-title-wrap">
                                 <h2 id="export-files-title">
                                     <FolderOpen
                                         className="icon"
@@ -265,10 +263,10 @@ export function RunExport({ id }: { id: string }) {
                                     />
                                     Danh mục tệp kết quả
                                 </h2>
-                                <p>
-                                    Tệp nền trong ZIP và tệp thực tế của mẫu
-                                    đang chọn.
-                                </p>
+                                <InfoPopover
+                                    title="Danh mục tệp kết quả"
+                                    description="Tệp nền trong ZIP và tệp thực tế của mẫu đang chọn."
+                                />
                             </div>
                             <span className="badge neutral">
                                 {ZIP_FILES.length} tệp nền trong ZIP
@@ -321,49 +319,67 @@ export function RunExport({ id }: { id: string }) {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="export-case-filters filters">
-                            <label>
-                                Mức diễn giải
-                                <AudienceSelect
-                                    id="export-audience"
-                                    value={audience}
-                                    onChange={(value) => {
-                                        setAudience(value);
-                                        setChosenRow("");
-                                    }}
-                                />
-                            </label>
-                            <label>
-                                Mẫu đã giải thích
-                                <select
-                                    id="export-case"
-                                    value={data.detail?.row_index ?? ""}
-                                    disabled={!data.available.length}
-                                    onChange={(event) =>
-                                        setChosenRow(event.target.value)
-                                    }
-                                >
-                                    {!data.available.length && (
-                                        <option value="">Chưa có mẫu</option>
-                                    )}
-                                    {data.available.map((item) => (
-                                        <option
-                                            key={item.row_index}
-                                            value={item.row_index}
+                        <div className="export-case-header-bar">
+                            <div className="export-case-header-left">
+                                <div className="dashboard-heading-title-wrap">
+                                    <h3 id="export-case-title">
+                                        Tệp giải thích theo mẫu
+                                        {data.detail && (
+                                            <span className="mono"> · Dòng {rowName(data.detail.row_index)}</span>
+                                        )}
+                                    </h3>
+                                    <InfoPopover
+                                        title="Tệp giải thích theo mẫu"
+                                        description="Chọn mức diễn giải và mẫu đã giải thích để xem và tải các tệp báo cáo Markdown, hình ảnh Waterfall SHAP hoặc dữ liệu JSON tương ứng."
+                                    />
+                                </div>
+                            </div>
+                            <div className="export-case-header-right">
+                                <div className="export-case-filters">
+                                    <label>
+                                        <span className="filter-title">Mức diễn giải</span>
+                                        <AudienceSelect
+                                            id="export-audience"
+                                            value={audience}
+                                            onChange={(value) => {
+                                                setAudience(value);
+                                                setChosenRow("");
+                                            }}
+                                        />
+                                    </label>
+                                    <label>
+                                        <span className="filter-title">Mẫu đã giải thích</span>
+                                        <select
+                                            id="export-case"
+                                            value={data.detail?.row_index ?? ""}
+                                            disabled={!data.available.length}
+                                            onChange={(event) =>
+                                                setChosenRow(event.target.value)
+                                            }
                                         >
-                                            Dòng {rowName(item.row_index)}
-                                        </option>
-                                    ))}
-                                </select>
-                            </label>
-                            {data.detail && (
-                                <Link
-                                    className="button"
-                                    href={`/runs/${id}/rows/${data.detail.row_index}?audience=${audience}`}
-                                >
-                                    Mở giải thích mẫu
-                                </Link>
-                            )}
+                                            {!data.available.length && (
+                                                <option value="">Chưa có mẫu</option>
+                                            )}
+                                            {data.available.map((item) => (
+                                                <option
+                                                    key={item.row_index}
+                                                    value={item.row_index}
+                                                >
+                                                    Dòng {rowName(item.row_index)}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </label>
+                                    {data.detail && (
+                                        <Link
+                                            className="button"
+                                            href={`/runs/${id}/rows/${data.detail.row_index}?audience=${audience}`}
+                                        >
+                                            Mở giải thích mẫu
+                                        </Link>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                         {!files.length ? (
                             <Empty
@@ -429,13 +445,6 @@ export function RunExport({ id }: { id: string }) {
                             </div>
                         )}
                     </section>
-                    <p className="scope-note">
-                        Snapshot có thể chưa đủ mọi mẫu nếu tác vụ đang chạy.
-                        ZIP gồm các mức diễn giải đã lưu; bộ chọn mức/mẫu chỉ
-                        đổi danh mục tệp bên dưới. Báo cáo có thể gồm trạng thái
-                        hoặc bản nháp cần sửa. Xuất kết quả không chạy lại
-                        model, SHAP hay gọi Gemini. Chưa hỗ trợ xuất PDF.
-                    </p>
                 </>
             )}
         </div>

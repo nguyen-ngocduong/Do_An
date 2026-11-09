@@ -115,12 +115,22 @@ it("phân bố tròn giữ đủ tám lớp, tính phần trên tổng và khôn
     const rows = Array.from(
         view.container.querySelectorAll(".class-pie-legend li"),
     );
-    expect(rows.map((row) => row.children[1].textContent)).toEqual(CLASS_NAMES);
+    // Sắp xếp theo tỷ lệ giảm dần: DDoS (98%) lên đầu, sau đó Normal (2%)
+    expect(rows.map((row) => row.children[1].textContent)).toEqual([
+        "DDoS",
+        "Normal",
+        "BruteForce",
+        "DoS",
+        "Mirai",
+        "Recon",
+        "Spoofing",
+        "Web-Based",
+    ]);
     expect(rows[0].querySelector(".class-pie-percentage")).toHaveTextContent(
-        "2%",
-    );
-    expect(rows[2].querySelector(".class-pie-percentage")).toHaveTextContent(
         "98%",
+    );
+    expect(rows[1].querySelector(".class-pie-percentage")).toHaveTextContent(
+        "2%",
     );
     expect(view.container.querySelectorAll(".class-pie path")).toHaveLength(2);
 });
@@ -137,7 +147,7 @@ it("toàn bộ mẫu thuộc một lớp vẫn vẽ đủ hình tròn và hiển
     ).toBeInTheDocument();
     expect(container.querySelector(".class-pie path")).not.toBeInTheDocument();
     expect(
-        container.querySelector(".class-pie-legend li:nth-child(4)"),
+        container.querySelector(".class-pie-legend li:first-child"),
     ).toHaveTextContent("100%");
 });
 
@@ -157,14 +167,14 @@ it("phân bố 70%/20% không label chen bên trong hình quạt, hiển thị �
     // 3 hình quạt
     expect(view.container.querySelectorAll(".class-pie path")).toHaveLength(3);
 
-    // Legend hiển thị đúng số liệu
+    // Legend hiển thị đúng số liệu theo thứ tự giảm dần: DDoS (70%), DoS (20%), Mirai (10%)
     const rows = Array.from(
         view.container.querySelectorAll(".class-pie-legend li"),
     );
     expect(rows).toHaveLength(8);
 
-    // DDoS (index 2 trong CLASS_NAMES)
-    const ddosRow = rows[CLASS_NAMES.indexOf("DDoS")];
+    // DDoS (hạng 1)
+    const ddosRow = rows[0];
     expect(ddosRow.children[1]).toHaveTextContent("DDoS");
     expect(ddosRow).toHaveTextContent("35");
     expect(ddosRow.querySelector(".class-pie-percentage")).toHaveTextContent(
@@ -172,14 +182,16 @@ it("phân bố 70%/20% không label chen bên trong hình quạt, hiển thị �
     );
     expect(ddosRow.getAttribute("data-dominant")).toBe("true");
 
-    const dosRow = rows[CLASS_NAMES.indexOf("DoS")];
+    // DoS (hạng 2)
+    const dosRow = rows[1];
     expect(dosRow.children[1]).toHaveTextContent("DoS");
     expect(dosRow).toHaveTextContent("10");
     expect(dosRow.querySelector(".class-pie-percentage")).toHaveTextContent(
         "20%",
     );
 
-    const miraiRow = rows[CLASS_NAMES.indexOf("Mirai")];
+    // Mirai (hạng 3)
+    const miraiRow = rows[2];
     expect(miraiRow.children[1]).toHaveTextContent("Mirai");
     expect(miraiRow).toHaveTextContent("5");
     expect(miraiRow.querySelector(".class-pie-percentage")).toHaveTextContent(
@@ -317,12 +329,10 @@ it("'Theo lớp' hiển thị tám cột đứng, trục label/count, KDE minh h
         container.querySelector(".activity-detail")?.textContent,
     ).toContain("Tổng: 2.000");
 
-    // Ghi chú giải thích KDE có sẵn ở chế độ theo ngày
+    // Ghi chú giải thích KDE được dọn dẹp để UI gọn gàng, đưa vào popover ở header
     expect(
-        screen.getByText(
-            /KDE được làm mượt theo thứ tự nhãn cố định/,
-        ),
-    ).toBeInTheDocument();
+        screen.queryByText(/KDE được làm mượt theo thứ tự nhãn cố định/),
+    ).not.toBeInTheDocument();
 
     // Bảng số liệu theo lớp
     expect(screen.getByText("Xem bảng số liệu theo lớp")).toBeInTheDocument();
@@ -428,20 +438,23 @@ it("ClassDistribution có caption chi tiết khi hover/focus và khôi phục l�
     expect(caption?.textContent).toContain("80 mẫu");
     expect(caption?.textContent).toContain("80%");
 
-    // Hover vào phần Normal trên legend
+    // Hover vào phần Normal trên legend (hạng 2 sau DDoS 80%)
     const legendItems = view.container.querySelectorAll(
         ".class-pie-legend li",
     );
-    fireEvent.mouseEnter(legendItems[0]);
+    const normalItem = Array.from(legendItems).find((item) =>
+        item.textContent?.includes("Normal"),
+    )!;
+    fireEvent.mouseEnter(normalItem);
     expect(caption?.textContent).toContain("Đang xem: Normal");
     expect(caption?.textContent).toContain("20 mẫu");
     expect(caption?.textContent).toContain("20%");
-    expect(legendItems[0]).toHaveAttribute("data-active", "true");
+    expect(normalItem).toHaveAttribute("data-active", "true");
 
     // Rời chuột (mouseLeave) khôi phục lớp nhiều nhất
-    fireEvent.mouseLeave(legendItems[0]);
+    fireEvent.mouseLeave(normalItem);
     expect(caption?.textContent).toContain("Lớp nhiều nhất: DDoS");
-    expect(legendItems[0]).not.toHaveAttribute("data-active");
+    expect(normalItem).not.toHaveAttribute("data-active");
 
     // Trường hợp 0 mẫu: hiển thị thông báo trống phù hợp
     const zeroCounts = Object.fromEntries(
