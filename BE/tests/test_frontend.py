@@ -15,7 +15,7 @@ def test_backend_root_redirects_to_swagger_and_private_files_stay_private(client
     for path in ["/assets/app.js", "/assets/styles.css", "/FE/PLAN.md", "/BE/.env", "/output/README.md"]:
         assert client.get(path).status_code == 404
     assert client.get("/docs").status_code == 200
-    assert client.get("/openapi.json").json()["info"]["version"] == "1.7.0"
+    assert client.get("/openapi.json").json()["info"]["version"] == "1.8.0"
 
 
 def test_input_row_order_missing_values_and_no_label(client, settings):

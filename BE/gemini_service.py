@@ -45,6 +45,7 @@ class GeminiService:
         self.schema = self.config["response_json_schema"]
         self.check_guide = runtime.check_guide
         self.client = client
+        self.telemetry = None
         self.shutdown_event = threading.Event()
         if self.client is None and settings.gemini_api_key:
             self.client = genai.Client(
@@ -73,6 +74,22 @@ class GeminiService:
             "attempt": attempt,
         }
         started = time.perf_counter()
+        # Cache đã được trả trước đoạn này: không ghi nhận cache thành lần gọi LLM mới.
+        if self.telemetry is not None:
+            with self.telemetry.span("nidr.gemini", generation=True, model=self.settings.gemini_model,
+                                     metadata={"attempt": attempt}) as observation:
+                if self.settings.langfuse_capture_content:
+                    observation.update(input=prompt)
+                self._request(prompt, saved)
+                self._record_observation(observation, saved)
+        else:
+            self._request(prompt, saved)
+        saved["api_seconds"] = time.perf_counter() - started
+        write_json(response_path, saved)
+        self.shutdown_event.wait(self.settings.gemini_pause_seconds)
+        return saved
+
+    def _request(self, prompt, saved):
         try:
             response = self.client.models.generate_content(
                 model=self.settings.gemini_model, contents=prompt, config=self.config,
@@ -87,10 +104,27 @@ class GeminiService:
             # Không ghi exception message có thể chứa URL hoặc thông tin xác thực.
             saved["api_status"] = "request_error"
             saved["error_type"] = type(error).__name__
-        saved["api_seconds"] = time.perf_counter() - started
-        write_json(response_path, saved)
-        self.shutdown_event.wait(self.settings.gemini_pause_seconds)
-        return saved
+    def _record_observation(self, observation, saved):
+        usage = saved.get("response", {}).get("usage_metadata", {})
+        tokens = {}
+        for source, target in [("prompt_token_count", "input"), ("candidates_token_count", "output"),
+                               ("thoughts_token_count", "reasoning"), ("total_token_count", "total")]:
+            value = usage.get(source)
+            if isinstance(value, int) and value >= 0:
+                tokens[target] = value
+        # Gemini reasoning cũng là output; không cộng đôi reasoning vào tổng.
+        if "output" in tokens:
+            tokens["output"] += tokens.pop("reasoning", 0)
+        else:
+            tokens.pop("reasoning", None)
+        fields = {"metadata": {"api_status": saved["api_status"], "http_code": saved.get("http_code"),
+                               "response_model": saved.get("response", {}).get("model_version")},
+                  "usage_details": tokens}
+        if self.settings.langfuse_capture_content:
+            fields["output"] = saved.get("text", "")
+        if saved["api_status"] != "received":
+            fields.update(level="ERROR", status_message=saved["api_status"])
+        observation.update(**fields)
 
     def explain(self, item, case_dir, enabled=True, audience_level="technical"):
         if audience_level not in ["basic", "technical"]:

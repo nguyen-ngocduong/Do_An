@@ -1,5 +1,9 @@
 # Bằng chứng kiểm chứng BE
 
+## BE 1.8.0: Kafka và Langfuse Cloud — 06/11/2026
+
+Đã thêm Idempotency-Key và receipt SQLite bền vững, tracing tùy chọn cho Predict/SHAP/Gemini. **85 test BE/streaming đạt**, Kafka thật đối chiếu golden và Cloud nhận trace kiểm thử/trace dự đoán thật. Backend được cập nhật sau khi người dùng cho phép, có backup SQLite; hai run cũ, giải thích và Human review được giữ nguyên. Chi tiết, giới hạn và bằng chứng tại [kiểm chứng observability](../deploy/observability/VERIFICATION.md). Các mục dưới đây là lịch sử các đợt trước.
+
 ## API Tổng quan — 04/11/2026
 
 API 1.7.0 thêm GET /api/dashboard. Đã chạy toàn bộ `pytest BE/tests -q --disable-warnings`: **56 test đạt**; log /tmp/nidr-dashboard-backend.log. Năm test mới dùng runtime/model thật và dữ liệu SQLite/artifact fixture để kiểm tra: xác thực/schema/validation; tổng 171 mẫu vượt trang hiển thị; run filter; nửa mở ngày Việt Nam quanh 17:00 UTC; ngày trống bằng 0; SHAP theo file kể cả trạng thái failed và không đếm hai audience; phiếu technical không trùng basic; đóng cảnh báo không đổi nhận định; toàn lịch sử giữ trend 30 ngày; xóa run cập nhật tổng.

@@ -9,6 +9,12 @@ BE/**
 !BE/*.py
 !BE/requirements-lock.txt
 
+# Producer/consumer nhẹ, không kèm upload, runtime hoặc khóa Cloud.
+!streaming/
+streaming/**
+!streaming/*.py
+!streaming/requirements.txt
+
 # Frontend: source/config cần build; không gửi node_modules, .next hoặc tests/browser results.
 !FE/
 FE/**

@@ -36,10 +36,17 @@ class Settings:
     max_upload_bytes: int = 10 * 1024 * 1024
     max_explain_rows: int = 50
     prediction_batch_size: int = 4096
+    langfuse_enabled: bool = False
+    langfuse_public_key: str = field(default="", repr=False)
+    langfuse_secret_key: str = field(default="", repr=False)
+    langfuse_base_url: str = "https://cloud.langfuse.com"
+    langfuse_capture_content: bool = True
+    langfuse_environment: str = "nidr-local"
 
 
 def load_settings():
     load_dotenv(REPO_DIR / "BE/.env", override=False)
+    load_dotenv(REPO_DIR / ".env.observability", override=False)
     settings = Settings()
     for name in ["xgb_dir", "shap_dir", "integration_dir", "runtime_dir"]:
         value = os.getenv(name.upper())
@@ -54,6 +61,12 @@ def load_settings():
     settings.port = int(os.getenv("PORT", "8000"))
     settings.ssl_certfile = os.getenv("SSL_CERTFILE", "")
     settings.ssl_keyfile = os.getenv("SSL_KEYFILE", "")
+    settings.langfuse_enabled = os.getenv("LANGFUSE_ENABLED", "false").lower() == "true"
+    settings.langfuse_public_key = os.getenv("LANGFUSE_PUBLIC_KEY", "").strip()
+    settings.langfuse_secret_key = os.getenv("LANGFUSE_SECRET_KEY", "").strip()
+    settings.langfuse_base_url = os.getenv("LANGFUSE_BASE_URL", settings.langfuse_base_url).rstrip("/")
+    settings.langfuse_capture_content = os.getenv("LANGFUSE_CAPTURE_CONTENT", "true").lower() == "true"
+    settings.langfuse_environment = os.getenv("LANGFUSE_ENVIRONMENT", "nidr-local")
     if not settings.admin_username or not settings.admin_password:
         raise ValueError("Đặt ADMIN_USERNAME và ADMIN_PASSWORD trong BE/.env hoặc biến môi trường.")
     if settings.gemini_pause_seconds < 0:

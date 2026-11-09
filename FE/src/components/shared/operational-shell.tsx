@@ -6,8 +6,8 @@ import {
     LayoutDashboard,
     History,
     ChartNoAxesColumn,
-    CirclePlus,
     CodeXml,
+    Plus,
     ShieldCheck,
     LogOut,
     Menu,
@@ -69,13 +69,6 @@ export function OperationalShell({ children }: { children: React.ReactNode }) {
             href: "/runs",
             active: pathname === "/runs",
             icon: History,
-        },
-        {
-            title: "Tạo lần chạy",
-            shortTitle: "Tạo mới",
-            href: "/runs/new",
-            active: pathname === "/runs/new",
-            icon: CirclePlus,
         },
         {
             title: "Lần chạy hiện tại",
@@ -284,6 +277,20 @@ export function OperationalShell({ children }: { children: React.ReactNode }) {
             <div id="toast" className="toast" role="status" hidden={!ui.toast}>
                 {ui.toast}
             </div>
+            {pathname !== "/runs/new" && (
+                <Link
+                    href="/runs/new"
+                    className="floating-action-btn"
+                    id="floating-create-run-btn"
+                    aria-label="Tạo lần chạy mới"
+                    title="Tạo lần chạy"
+                >
+                    <span className="fab-icon-wrap" aria-hidden="true">
+                        <Plus className="fab-icon" />
+                    </span>
+                    <span className="fab-text">Tạo lần chạy</span>
+                </Link>
+            )}
         </>
     );
 }

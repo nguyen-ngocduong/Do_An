@@ -25,3 +25,5 @@ BE chạy từ repo root bằng `.venv/bin/python -m BE`; Swagger ở `http://12
 ## Chạy bằng Docker
 
 Bộ Docker NIDR gồm backend có sẵn model, Next.js production và Nginx; chạy CPU trên Windows/Linux amd64. Xem [hướng dẫn bàn giao](deploy/docker/README.md), [kế hoạch đã chốt](docs-md/PLAN_DOCKER_NIDR.md) và [kiểm chứng Docker](deploy/docker/VERIFICATION.md). Người nhận dùng archive image và Compose, không cần source/model rời. Producer dựng gói mới bằng `python scripts/package_docker.py --version 1.0.0`; archive nằm trong `dist/` (không commit). Không đưa .env, Gemini key hoặc BE/runtime vào image.
+
+Tùy chọn [Kafka local + Langfuse Cloud + Netdata local](deploy/observability/README.md) dùng overlay `docker-compose.observability.yml`. Producer phát CSV từ `upload/`, consumer staging bền vững và gọi BE với khóa chống trùng; kết quả vẫn hiện trong NIDR. Không bật Grafana/Prometheus; Airflow để sau. Xem [kế hoạch triển khai](deploy/observability/PLAN.md).

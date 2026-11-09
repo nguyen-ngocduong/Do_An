@@ -1,5 +1,9 @@
 # Kiểm chứng Docker — 05/11/2026
 
+## Stack mở rộng — 06/11/2026
+
+Đã triển khai Kafka local, Langfuse Cloud EU và Netdata local, không có Grafana/Prometheus/Airflow. Xem [kiểm chứng hiện hành](../observability/VERIFICATION.md). Các mục bên dưới mô tả bộ archive cơ bản của đợt trước; archive cũ chưa được đóng lại với stack mở rộng.
+
 Đã build ba image Linux amd64, giữ Python3.13/Node22 và lock BE hiện hành. Bundle/background không train/fit lại. Image backend khoảng1,53GB (gồm môi trường đã khóa và artifact235MiB), frontend297MB, gateway62,1MB. Không cần GPU; giữ cả dependencies của lock nguồn thay vì tự thay package CPU khác phiên bản.
 
 Đã chạy `deploy/docker/smoke_test.py` với project/volume/cổng và credentials tạm, không đọc BE/.env hoặc restart dev. **9 nhóm kiểm tra đạt**:

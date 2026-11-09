@@ -83,3 +83,16 @@ FROM nginx:1.28-alpine AS gateway
 COPY deploy/docker/nginx.conf /etc/nginx/nginx.conf
 # Cổng nội bộ: 8080 HTTP, 8443 HTTPS khi bật cấu hình VPS.
 EXPOSE 8080 8443
+
+# 4. Kafka adapters: gọi BE qua HTTP, không mang model hoặc môi trường khoa học dữ liệu.
+FROM python:3.13-slim-bookworm AS streaming
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+WORKDIR /app
+COPY streaming/requirements.txt /tmp/streaming-requirements.txt
+RUN pip install --no-cache-dir -r /tmp/streaming-requirements.txt
+COPY streaming/*.py /app/streaming/
+# Producer kiểm schema độc lập khi BE tạm dừng; không COPY model/trọng số vào adapter.
+COPY output/integration_runs/integration_20261022_075217_0b67d48f/input_schema.json /app/streaming/input_schema.json
+RUN useradd --uid 10001 --create-home nidr && mkdir /state && chown nidr:nidr /state
+USER nidr
+CMD ["python", "-m", "streaming.consumer"]

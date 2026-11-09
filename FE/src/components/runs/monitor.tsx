@@ -19,6 +19,7 @@ import {
     Badge,
     ConfirmDialog,
     ErrorNotice,
+    InfoPopover,
     Loading,
     PageHeading,
     RunTabs,
@@ -83,7 +84,7 @@ export function RunMonitor({ id }: { id: string }) {
         <>
             <PageHeading
                 title="Theo dõi lần chạy"
-                description="Dự đoán và giải thích có trạng thái riêng; số liệu được đọc từ server."
+                info="Dự đoán và giải thích có trạng thái riêng; số liệu được đọc trực tiếp từ server theo thời gian thực."
             />
             <RunTabs id={id} selected="monitor" />
             <ErrorNotice
@@ -110,8 +111,14 @@ export function RunMonitor({ id }: { id: string }) {
                                     <strong className="break-word">
                                         {value.run.filename}
                                     </strong>
-                                    <div className="mono small muted break-word">
-                                        {id}
+                                    <div className="monitor-id-wrap">
+                                        <span className="mono small muted" title={id}>
+                                            ID: {id.slice(0, 10)}…{id.slice(-6)}
+                                        </span>
+                                        <InfoPopover
+                                            title="ID lần chạy"
+                                            description={`ID của file CSV đưa vào xử lý: ${id}`}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -195,13 +202,18 @@ export function RunMonitor({ id }: { id: string }) {
                                     key={title}
                                 >
                                     <div className="monitor-stat-heading">
-                                        <span>{title}</span>
+                                        <div className="monitor-stat-title-wrap">
+                                            <span>{title}</span>
+                                            <InfoPopover
+                                                title={title}
+                                                description={description}
+                                            />
+                                        </div>
                                         <Icon className="icon" aria-hidden="true" />
                                     </div>
                                     <strong className="mono">
                                         {number(count)}
                                     </strong>
-                                    <span className="small muted">{description}</span>
                                 </div>
                             ),
                         )}
@@ -212,11 +224,14 @@ export function RunMonitor({ id }: { id: string }) {
                             aria-labelledby="distribution-title"
                         >
                             <div className="monitor-card-heading">
-                                <div>
+                                <div className="dashboard-heading-title-wrap">
                                     <h2 id="distribution-title">
                                         Phân bố nhãn dự đoán
                                     </h2>
-                                    <p>Số dòng theo tám lớp đầu ra</p>
+                                    <InfoPopover
+                                        title="Phân bố nhãn dự đoán"
+                                        description="Số dòng theo tám lớp đầu ra của mô hình. Nhãn khác Normal tạo cảnh báo theo model; cần kiểm tra thêm để xác nhận sự kiện thực tế."
+                                    />
                                 </div>
                             </div>
                             <ul className="monitor-class-list">
@@ -225,7 +240,7 @@ export function RunMonitor({ id }: { id: string }) {
                                     const share =
                                         value.summary.processed_rows > 0
                                             ? count / value.summary.processed_rows
-                                            : 0;
+                                             : 0;
                                     return (
                                         <li key={name} className="monitor-class-row">
                                             <span className="monitor-class-name">
@@ -251,19 +266,18 @@ export function RunMonitor({ id }: { id: string }) {
                                     );
                                 })}
                             </ul>
-                            <p className="scope-note">
-                                Nhãn khác Normal tạo cảnh báo theo model; cần
-                                kiểm tra thêm để xác nhận sự kiện thực tế.
-                            </p>
                         </section>
                         <section
                             className="panel monitor-recent"
                             aria-labelledby="recent-title"
                         >
                             <div className="monitor-card-heading">
-                                <div>
+                                <div className="dashboard-heading-title-wrap">
                                     <h2 id="recent-title">Kết quả mới nhất</h2>
-                                    <p>Tối đa năm dòng vừa được dự đoán</p>
+                                    <InfoPopover
+                                        title="Kết quả mới nhất"
+                                        description="Tối đa năm dòng vừa được dự đoán gần nhất."
+                                    />
                                 </div>
                                 <Link
                                     className="monitor-table-link"

@@ -263,3 +263,9 @@ Mở `https://192.168.1.10:8000/docs`. Chứng chỉ tự ký dành cho demo n�
 Kiểm thử sử dụng model/background thật và source CSV đã lưu, kiểm tra batch/replay/restart, schema, giới hạn tải lên, SHAP, cache và xuất file. Phần Gemini dùng phản hồi giả hoặc báo cáo đã lưu để kiểm tra luồng/bằng chứng; không gọi Google và không đánh giá chất lượng ngữ nghĩa của LLM.
 
 Xem [bằng chứng kiểm chứng BE](VERIFICATION.md) để biết các kiểm tra nào đã thực sự chạy. Validation/test nguồn đã từng được xem; các CSV đối chiếu không phải test độc lập mới. Form Human review nhận đánh giá của người dùng; chưa có đánh giá nhãn thật độc lập hoặc xác minh tư cách chuyên gia.
+
+## Kafka và Langfuse Cloud — BE 1.8.0
+
+Hướng dẫn đầy đủ tại [deploy/observability/README.md](../deploy/observability/README.md). `POST /api/runs` nhận header `Idempotency-Key` tùy chọn: cùng key/nội dung trả lại run đã lưu, khác nội dung trả 409. Receipt và run lưu cùng transaction SQLite; receipt vẫn giữ khi run bị xóa để tránh tự nhập lại dữ liệu đã xóa. API upload trực tiếp không có header vẫn hoạt động như trước.
+
+`GET /api/observability` có xác thực, không trả secret. Langfuse Cloud đọc từ `.env.observability` khi chạy local hoặc biến môi trường trong Compose. Model và SHAP background không thay đổi; tracing không làm phát sinh lời gọi Gemini mới. Consumer yêu cầu BE có cơ chế chống trùng; producer dùng schema đóng băng trong image nên không cần BE online hoặc credentials.

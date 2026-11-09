@@ -1,0 +1,163 @@
+# Ghép với docker-compose.yml; xem deploy/observability/README.md.
+# Không có Grafana, Prometheus, Airflow hoặc server Langfuse trong stack local này.
+x-local-logs: &local-logs
+  driver: json-file
+  options: {max-size: "10m", max-file: "3"}
+
+services:
+  backend:
+    build: {context: ., dockerfile: Dockerfile, target: backend}
+    environment:
+      LANGFUSE_ENABLED: ${LANGFUSE_ENABLED:-false}
+      LANGFUSE_BASE_URL: ${LANGFUSE_BASE_URL:-https://cloud.langfuse.com}
+      LANGFUSE_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY:-}
+      LANGFUSE_SECRET_KEY: ${LANGFUSE_SECRET_KEY:-}
+      LANGFUSE_CAPTURE_CONTENT: ${LANGFUSE_CAPTURE_CONTENT:-true}
+      OTEL_BSP_MAX_QUEUE_SIZE: "128"
+
+  kafka:
+    image: apache/kafka:4.4.0@sha256:833b867a9585a141da455dc2b57431c65cbccb27f11c91f694444cca9f777e0f
+    profiles: [kafka]
+    restart: unless-stopped
+    # Heap 512 MiB, còn lại dành cho JVM native và cache. Đây không phải tổng RAM cam kết.
+    mem_limit: 1280m
+    cpus: 1.5
+    environment:
+      KAFKA_NODE_ID: "1"
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      CLUSTER_ID: NidrLocalStream2026Demo1
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_HEAP_OPTS: -Xms256m -Xmx512m
+      KAFKA_NUM_PARTITIONS: "1"
+      KAFKA_DEFAULT_REPLICATION_FACTOR: "1"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: "1"
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: "0"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      # Retention kiểm tra theo segment: dung lượng có thể vượt ngưỡng tạm thời.
+      KAFKA_LOG_RETENTION_HOURS: "24"
+      KAFKA_LOG_RETENTION_BYTES: "536870912"
+      KAFKA_LOG_SEGMENT_BYTES: "16777216"
+      KAFKA_LOG_ROLL_MS: "3600000"
+    volumes: [kafka-data:/var/lib/kafka/data]
+    networks: [app]
+    healthcheck:
+      test: [CMD-SHELL, "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
+      interval: 30s
+      timeout: 15s
+      start_period: 45s
+      retries: 5
+    logging: *local-logs
+
+  kafka-init:
+    image: apache/kafka:4.4.0@sha256:833b867a9585a141da455dc2b57431c65cbccb27f11c91f694444cca9f777e0f
+    profiles: [kafka]
+    depends_on: {kafka: {condition: service_healthy}}
+    environment: {KAFKA_TOPIC: "${KAFKA_TOPIC:-nidr.csv.rows.v1}", KAFKA_HEAP_OPTS: "-Xms64m -Xmx128m"}
+    entrypoint: [/bin/sh, -ec]
+    command:
+      - '/opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic "$${KAFKA_TOPIC}" --partitions 1 --replication-factor 1 --config retention.ms=86400000 --config retention.bytes=536870912 --config segment.bytes=16777216'
+    mem_limit: 256m
+    networks: [app]
+    logging: *local-logs
+
+  csv-consumer:
+    image: nidr-streaming:${NIDR_VERSION:-1.0.0}
+    build: {context: ., dockerfile: Dockerfile, target: streaming}
+    profiles: [kafka]
+    init: true
+    restart: unless-stopped
+    mem_limit: 192m
+    cpus: 0.5
+    stop_grace_period: 30s
+    environment:
+      NIDR_API_URL: http://backend:8000
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in BE/.env}
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      KAFKA_TOPIC: ${KAFKA_TOPIC:-nidr.csv.rows.v1}
+      KAFKA_GROUP_ID: ${KAFKA_GROUP_ID:-nidr-predict-v1}
+      STREAM_STATE_DIR: /state
+      KAFKA_RUN_MODE: ${KAFKA_RUN_MODE:-batch}
+      KAFKA_REPLAY_INTERVAL: ${KAFKA_REPLAY_INTERVAL:-0.05}
+    volumes: [consumer-state:/state]
+    networks: [app]
+    depends_on:
+      backend: {condition: service_healthy}
+      kafka-init: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -m, streaming.consumer, --health]
+      interval: 20s
+      timeout: 5s
+      start_period: 30s
+      retries: 4
+    logging: *local-logs
+
+  csv-producer:
+    image: nidr-streaming:${NIDR_VERSION:-1.0.0}
+    build: {context: ., dockerfile: Dockerfile, target: streaming}
+    # Chạy bằng compose run --rm csv-producer, không tự nạp 729 file khi up stack.
+    profiles: [ingest]
+    init: true
+    mem_limit: 192m
+    cpus: 0.5
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      KAFKA_TOPIC: ${KAFKA_TOPIC:-nidr.csv.rows.v1}
+      STREAM_STATE_DIR: /state
+      CSV_SOURCE_DIR: /input
+      CSV_ROWS_PER_SECOND: ${CSV_ROWS_PER_SECOND:-50}
+    command: [python, -m, streaming.producer, --max-files, "1"]
+    volumes:
+      - ${NIDR_UPLOAD_DIR:-./upload}:/input:ro
+      - producer-state:/state
+    networks: [app]
+    depends_on:
+      kafka-init: {condition: service_completed_successfully}
+    logging: *local-logs
+
+  netdata:
+    image: netdata/netdata:stable@sha256:c7eab00e20901eb60595ebae0fbfe88e59464e663924461874719d40de0735d2
+    profiles: [monitoring]
+    restart: unless-stopped
+    # Host network/PID giúp đọc đúng máy Linux, không nhầm số liệu của riêng container.
+    network_mode: host
+    pid: host
+    mem_limit: 512m
+    cpus: 0.5
+    environment: {DO_NOT_TRACK: "1"}
+    volumes:
+      - ./deploy/observability/netdata.conf:/etc/netdata/netdata.conf:ro
+      - ./deploy/observability/cloud.conf:/var/lib/netdata/cloud.d/cloud.conf:ro
+      - netdata-lib:/var/lib/netdata
+      - netdata-cache:/var/cache/netdata
+      - /:/host/root:ro,rslave
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    # Không dùng privileged/SYS_ADMIN hoặc tắt AppArmor cho bộ thu thập cơ bản này.
+    # Socket Docker chỉ dành cho agent local; :ro không biến Docker API thành read-only.
+    healthcheck:
+      test: [CMD, netdatacli, ping]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 4
+    logging: *local-logs
+
+volumes:
+  kafka-data:
+  producer-state:
+  consumer-state:
+  netdata-lib:
+  netdata-cache:

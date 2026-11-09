@@ -1,27 +1,101 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { List, Download } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { List, Download, CircleAlert, X } from "lucide-react";
 import { CLASS_NAMES, type Audience, type ClassName } from "@/types/model";
 import { number, percent, statusLabel } from "@/lib/format";
 import { ApiError, download, errorText } from "@/lib/api/client";
 import { useAction } from "@/lib/use-action";
 import { useUi } from "@/store/ui-store";
 
+export function InfoPopover({
+    title = "Thông tin",
+    description,
+    align = "left",
+}: {
+    title?: string;
+    description: React.ReactNode;
+    align?: "left" | "right";
+}) {
+    const [open, setOpen] = useState(false);
+    const popoverRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!open) return;
+        function handleClickOutside(event: MouseEvent) {
+            if (
+                popoverRef.current &&
+                !popoverRef.current.contains(event.target as Node)
+            ) {
+                setOpen(false);
+            }
+        }
+        function handleKeyDown(event: KeyboardEvent) {
+            if (event.key === "Escape") setOpen(false);
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [open]);
+
+    return (
+        <div className="panel-info-container" ref={popoverRef}>
+            <button
+                type="button"
+                className="panel-info-btn"
+                onClick={() => setOpen((prev) => !prev)}
+                aria-label={`Thông tin: ${title}`}
+                aria-expanded={open}
+                title={`Xem giải thích: ${title}`}
+            >
+                <CircleAlert className="icon" aria-hidden="true" />
+            </button>
+            {open && (
+                <div
+                    className={`panel-info-popup ${align === "right" ? "align-right" : ""}`}
+                    role="dialog"
+                    aria-label={`Giải thích ${title}`}
+                >
+                    <div className="panel-info-header">
+                        <span>{title}</span>
+                        <button
+                            type="button"
+                            className="panel-info-close"
+                            onClick={() => setOpen(false)}
+                            aria-label="Đóng"
+                        >
+                            <X className="icon" aria-hidden="true" />
+                        </button>
+                    </div>
+                    <div className="panel-info-body">{description}</div>
+                </div>
+            )}
+        </div>
+    );
+}
+
 export function PageHeading({
     title,
     description,
+    info,
     actions,
 }: {
     title: string;
     description?: string;
+    info?: string;
     actions?: React.ReactNode;
 }) {
     return (
         <div className="pagehead">
             <div>
-                <h1>{title}</h1>
-                <p>{description}</p>
+                <div className="pagehead-title-wrap">
+                    <h1>{title}</h1>
+                    {info && <InfoPopover title={title} description={info} />}
+                </div>
+                {description && <p>{description}</p>}
             </div>
             <div className="actions">{actions}</div>
         </div>

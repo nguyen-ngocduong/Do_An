@@ -169,6 +169,11 @@ export function ActivityChart({
                   .join(" ")
             : "";
 
+    const classKdeAreaPath =
+        classKdeResult.points.length > 0 && classKdePath
+            ? `${classKdePath} L ${(classPlotLeft + (classKdeResult.points.at(-1)!.x + 0.5) * classSlotWidth).toFixed(2)} ${classPlotBottom} L ${(classPlotLeft + (classKdeResult.points[0].x + 0.5) * classSlotWidth).toFixed(2)} ${classPlotBottom} Z`
+            : "";
+
     const dateRangeLabel =
         dateRange ||
         (days.length > 0
@@ -398,6 +403,12 @@ export function ActivityChart({
                         role="group"
                         aria-label="Số lượng mẫu theo tám lớp mô hình"
                     >
+                        <defs>
+                            <linearGradient id="classKdeGradient" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.28" />
+                                <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.0" />
+                            </linearGradient>
+                        </defs>
                         <text x={classPlotLeft} y="13" className="chart-axis-name">Số mẫu</text>
                         {classTicks.map((tick) => {
                             const y = classPlotBottom - (tick / classMaximum) * classPlotHeight;
@@ -408,6 +419,14 @@ export function ActivityChart({
                                 </g>
                             );
                         })}
+                        {classKdeAreaPath && (
+                            <path
+                                d={classKdeAreaPath}
+                                fill="url(#classKdeGradient)"
+                                className="chart-kde-area"
+                                aria-hidden="true"
+                            />
+                        )}
                         {CLASS_NAMES.map((name, index) => {
                             const count = counts[name] ?? 0;
                             const share = classTotal ? count / classTotal : 0;
@@ -431,9 +450,9 @@ export function ActivityChart({
                                     <title>{description}</title>
                                     <rect className="chart-hitbox" x={center - classSlotWidth / 2} y={classPlotTop - 4} width={classSlotWidth} height={classPlotHeight + 8} rx="3" />
                                     {height > 0 && (
-                                        <rect className="chart-class-bar" data-class={name} x={center - classBarWidth / 2} y={y} width={classBarWidth} height={height} rx="2" fill={`var(--pie-class-${index})`} />
+                                        <rect className="chart-class-bar" data-class={name} x={center - classBarWidth / 2} y={y} width={classBarWidth} height={height} rx="5" ry="5" fill={`var(--pie-class-${index})`} />
                                     )}
-                                    <text x={center} y={Math.max(20, y - 6)} textAnchor="middle" className="chart-bar-count">{number(count)}</text>
+                                    <text x={center} y={Math.max(20, y - 8)} textAnchor="middle" className={`chart-bar-count ${count === 0 ? "zero-count" : ""}`}>{number(count)}</text>
                                     <text
                                         x={center}
                                         y={classPlotBottom + 16}
@@ -549,11 +568,11 @@ export function ActivityChart({
                             </>
                         )}
                     </p>
-                    <p className="activity-kde-note">
-                        {classKdeResult.points.length === 0 && "Chưa đủ lớp có mẫu để vẽ KDE. "}
-                        KDE được làm mượt theo thứ tự nhãn cố định, chỉ để tham khảo;
-                        số mẫu chính xác hiển thị trên cột.
-                    </p>
+                    {classKdeResult.points.length === 0 && (
+                        <p className="activity-kde-note">
+                            Chưa đủ lớp có mẫu để vẽ KDE.
+                        </p>
+                    )}
                     <details className="dashboard-data-table">
                         <summary>Xem bảng số liệu theo lớp</summary>
                         <div className="table-wrap">
@@ -621,12 +640,18 @@ export function ClassDistribution({
     const maxCount =
         total > 0 ? Math.max(...CLASS_NAMES.map((name) => counts[name])) : 0;
 
-    const slices = CLASS_NAMES.map((name, index) => {
+    // Sắp xếp các lớp theo số mẫu và tỷ lệ phần trăm giảm dần
+    const sortedClassNames = [...CLASS_NAMES].sort((a, b) => {
+        const countDiff = (counts[b] || 0) - (counts[a] || 0);
+        if (countDiff !== 0) return countDiff;
+        return CLASS_NAMES.indexOf(a) - CLASS_NAMES.indexOf(b);
+    });
+
+    const slices = sortedClassNames.map((name, index) => {
         const share = total ? counts[name] / total : 0;
-        const previousCount = CLASS_NAMES.slice(0, index).reduce(
-            (sum, previous) => sum + counts[previous],
-            0,
-        );
+        const previousCount = sortedClassNames
+            .slice(0, index)
+            .reduce((sum, previous) => sum + counts[previous], 0);
         const start =
             -Math.PI / 2 + (total ? (previousCount / total) * 2 * Math.PI : 0);
         const end = start + share * 2 * Math.PI;
@@ -634,11 +659,12 @@ export function ClassDistribution({
         const y1 = 110 + 96 * Math.sin(start);
         const x2 = 110 + 96 * Math.cos(end);
         const y2 = 110 + 96 * Math.sin(end);
+        const originalIndex = CLASS_NAMES.indexOf(name);
         return {
             name,
             count: counts[name],
             share,
-            color: `var(--pie-class-${index})`,
+            color: `var(--pie-class-${originalIndex})`,
             path: `M 110 110 L ${x1.toFixed(2)} ${y1.toFixed(2)} A 96 96 0 ${share > 0.5 ? 1 : 0} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z`,
             isDominant: total > 0 && counts[name] === maxCount && maxCount > 0,
         };
@@ -652,71 +678,92 @@ export function ClassDistribution({
             className="dashboard-distribution"
             aria-label="Phân bố tám lớp dự đoán"
         >
-            <svg
-                className="class-pie"
-                viewBox="0 0 220 220"
-                role="img"
-                aria-label={`Phân bố nhãn của ${number(total)} mẫu; số liệu chi tiết ở chú giải bên cạnh`}
-            >
-                {!total && (
-                    <>
+            <div className="class-pie-container">
+                <svg
+                    className="class-pie"
+                    viewBox="0 0 220 220"
+                    role="img"
+                    aria-label={`Phân bố nhãn của ${number(total)} mẫu; số liệu chi tiết ở chú giải bên cạnh`}
+                >
+                    {!total && (
+                        <>
+                            <circle
+                                cx="110"
+                                cy="110"
+                                r="88"
+                                className="class-pie-empty"
+                            />
+                            <text
+                                x="110"
+                                y="116"
+                                textAnchor="middle"
+                                className="class-pie-zero"
+                            >
+                                0 mẫu
+                            </text>
+                        </>
+                    )}
+                    {slices
+                        .filter((slice) => slice.count > 0)
+                        .map((slice) => {
+                            const isActive = activeName === slice.name;
+                            const label = `${slice.name}: ${number(slice.count)} mẫu · ${percent(slice.share, 1)}`;
+                            return (
+                                <g
+                                    key={slice.name}
+                                    tabIndex={0}
+                                    role="img"
+                                    aria-label={label}
+                                    data-active={isActive ? "true" : undefined}
+                                    onFocus={() => setActiveName(slice.name)}
+                                    onBlur={() => setActiveName(null)}
+                                    onMouseEnter={() => setActiveName(slice.name)}
+                                    onMouseLeave={() => setActiveName(null)}
+                                >
+                                    <title>{label}</title>
+                                    {slice.share === 1 ? (
+                                        <circle
+                                            cx="110"
+                                            cy="110"
+                                            r="96"
+                                            fill={slice.color}
+                                            data-active={
+                                                isActive ? "true" : undefined
+                                            }
+                                        />
+                                    ) : (
+                                        <path
+                                            d={slice.path}
+                                            fill={slice.color}
+                                            data-active={
+                                                isActive ? "true" : undefined
+                                            }
+                                        />
+                                    )}
+                                </g>
+                            );
+                        })}
+                    {total > 0 && (
                         <circle
                             cx="110"
                             cy="110"
-                            r="88"
-                            className="class-pie-empty"
+                            r="56"
+                            className="class-pie-hole"
+                            aria-hidden="true"
                         />
-                        <text
-                            x="110"
-                            y="116"
-                            textAnchor="middle"
-                            className="class-pie-zero"
-                        >
-                            0 mẫu
-                        </text>
-                    </>
+                    )}
+                </svg>
+                {total > 0 && (
+                    <div className="class-pie-center-badge" aria-hidden="true">
+                        <span className="class-pie-center-val">
+                            {activeSlice ? number(activeSlice.count) : number(total)}
+                        </span>
+                        <span className="class-pie-center-sub">
+                            {activeSlice ? `${percent(activeSlice.share, 1)}` : "Tổng mẫu"}
+                        </span>
+                    </div>
                 )}
-                {slices
-                    .filter((slice) => slice.count > 0)
-                    .map((slice) => {
-                        const isActive = activeName === slice.name;
-                        const label = `${slice.name}: ${number(slice.count)} mẫu · ${percent(slice.share, 1)}`;
-                        return (
-                            <g
-                                key={slice.name}
-                                tabIndex={0}
-                                role="img"
-                                aria-label={label}
-                                data-active={isActive ? "true" : undefined}
-                                onFocus={() => setActiveName(slice.name)}
-                                onBlur={() => setActiveName(null)}
-                                onMouseEnter={() => setActiveName(slice.name)}
-                                onMouseLeave={() => setActiveName(null)}
-                            >
-                                <title>{label}</title>
-                                {slice.share === 1 ? (
-                                    <circle
-                                        cx="110"
-                                        cy="110"
-                                        r="96"
-                                        fill={slice.color}
-                                        data-active={
-                                            isActive ? "true" : undefined
-                                        }
-                                    />
-                                ) : (
-                                    <path
-                                        d={slice.path}
-                                        fill={slice.color}
-                                        data-active={
-                                            isActive ? "true" : undefined
-                                        }
-                                    />
-                                )}
-                            </g>
-                        );
-                    })}
-            </svg>
+            </div>
             <div className="class-pie-legend-wrap">
                 <div className="class-pie-legend-header" aria-hidden="true">
                     <span>Lớp dự đoán</span>

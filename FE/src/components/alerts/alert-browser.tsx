@@ -8,7 +8,6 @@ import {
     ChevronRight,
     CircleAlert,
     ClipboardPenLine,
-    Info,
     ListFilter,
     Save,
     Search,
@@ -38,6 +37,7 @@ import {
     ConfirmDialog,
     Empty,
     ErrorNotice,
+    InfoPopover,
     Loading,
     PageHeading,
     Pagination,
@@ -136,7 +136,7 @@ export function AlertBrowser() {
         <div className="alert-page">
             <PageHeading
                 title="Trung tâm cảnh báo"
-                description="Các nhãn khác Normal do mô hình dự đoán; cần người vận hành kiểm tra thêm."
+                info="Các nhãn khác Normal do mô hình dự đoán; cần người vận hành kiểm tra thêm. Thống kê theo lớp và lần chạy đã chọn, gồm mọi trạng thái tiếp nhận."
             />
             <dl
                 id="alert-overview"
@@ -153,10 +153,6 @@ export function AlertBrowser() {
                     </div>
                 ))}
             </dl>
-            <p className="alert-overview-scope">
-                Thống kê theo lớp và lần chạy đã chọn, gồm mọi trạng thái tiếp
-                nhận.
-            </p>
             <form
                 key={`${runId}:${status}:${className}:${audience}`}
                 id="alert-filters"
@@ -534,12 +530,11 @@ function AlertEditor({
                             Đóng cảnh báo
                         </button>
                     )}
+                    <InfoPopover
+                        title="Xử lý cảnh báo"
+                        description="Tiếp nhận/đóng là trạng thái xử lý vận hành, chưa xác nhận dự đoán đúng."
+                    />
                 </div>
-                <p className="scope-note">
-                    <Info className="icon" aria-hidden="true" />
-                    Tiếp nhận/đóng là trạng thái xử lý vận hành, chưa xác nhận
-                    dự đoán đúng.
-                </p>
                 <details className="alert-disclosure">
                     <summary>Hướng dẫn kiểm tra theo lớp</summary>
                     <PlaybookView value={detail.playbook} />

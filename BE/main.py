@@ -7,7 +7,7 @@ from typing import Annotated, Literal
 
 import psutil
 import pandas as pd
-from fastapi import APIRouter, Depends, FastAPI, File, Form, HTTPException, Path, Query, Request, UploadFile
+from fastapi import APIRouter, Depends, FastAPI, File, Form, Header, HTTPException, Path, Query, Request, UploadFile
 from fastapi.exceptions import RequestValidationError
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
@@ -106,7 +106,7 @@ def create_app(settings=None, runtime=None, gemini_client=None):
             "rồi chọn dòng cần giải thích. Model được nạp một lần; không huấn luyện lại. "
             "Các yêu cầu xử lý dài trả ID/trạng thái để theo dõi."
         ),
-        version="1.7.0", lifespan=lifespan,
+        version="1.8.0", lifespan=lifespan,
         docs_url=None, redoc_url=None, openapi_url=None,
     )
     upload_limit = (settings or Settings()).max_upload_bytes + 64 * 1024
@@ -233,6 +233,10 @@ def create_app(settings=None, runtime=None, gemini_client=None):
     def input_schema(request: Request):
         return manager_from(request).runtime.input_schema
 
+    @router.get("/observability", tags=["Trạng thái"], summary="Trạng thái cấu hình Langfuse, không trả khóa")
+    def observability(request: Request):
+        return {**manager_from(request).telemetry.status(), "ingestion_idempotency": True}
+
     @router.get("/input-template", tags=["Model và đầu vào"], summary="Tải CSV mẫu có đủ tên đặc trưng")
     def input_template(request: Request):
         names = manager_from(request).runtime.feature_names
@@ -264,6 +268,7 @@ def create_app(settings=None, runtime=None, gemini_client=None):
         file: Annotated[UploadFile, File(description="CSV UTF-8 có 46 đặc trưng gốc; label là cột tùy chọn.")],
         mode: Annotated[Literal["batch", "replay"], Form(description="Theo lô hoặc dự đoán khi phát từng dòng.")] = "batch",
         interval_seconds: Annotated[float, Form(ge=0.05, le=60, description="Nhịp replay yêu cầu; lưu thời gian xử lý thực tế.")] = 1.0,
+        idempotency_key: Annotated[str | None, Header(pattern=r"^[A-Za-z0-9:._-]{1,160}$") ] = None,
     ):
         manager = manager_from(request)
         content = await file.read(manager.settings.max_upload_bytes + 1)
@@ -275,7 +280,7 @@ def create_app(settings=None, runtime=None, gemini_client=None):
         filename = FilePath(file.filename or "input.csv").name
         if not filename.lower().endswith(".csv"):
             raise HTTPException(422, "Chỉ nhận file .csv.")
-        return await run_in_threadpool(manager.create_run, content, filename, mode, interval_seconds)
+        return await run_in_threadpool(manager.create_run, content, filename, mode, interval_seconds, idempotency_key)
 
     @router.get("/dashboard", response_model=DashboardSummary, tags=["Tổng quan"],
                 summary="Thống kê toàn hệ thống theo thời gian xử lý mẫu",

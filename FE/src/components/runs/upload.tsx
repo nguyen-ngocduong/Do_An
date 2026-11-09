@@ -35,7 +35,7 @@ export function UploadRun() {
         <>
             <PageHeading
                 title="Tạo lần chạy"
-                description="Tải CSV đặc trưng gốc. Server tái sử dụng model và tiền xử lý đã đóng băng."
+                info="Tải CSV đặc trưng gốc. Server tái sử dụng model và tiền xử lý đã đóng băng."
             />
             <div className="upload-layout">
                 <form
